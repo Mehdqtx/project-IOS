@@ -39,8 +39,7 @@
     </entity>
     <entity name="Incident" representedClassName="Incident" syncable="YES" codeGenerationType="class">
         <attribute name="dateIncident" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="detailIncident" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="idIncident" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typeIncident" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="appartenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeIncident" inverseName="appartenir" inverseEntity="TypeIncident" syncable="YES"/>
         <relationship name="survenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="survenir" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -125,7 +124,7 @@
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
         <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
         <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>
-        <element name="Incident" positionX="-6626" positionY="-2356" width="128" height="118"/>
+        <element name="Incident" positionX="-6626" positionY="-2356" width="128" height="105"/>
         <element name="Information" positionX="-7326" positionY="-2752" width="128" height="88"/>
         <element name="Medicament" positionX="-7094" positionY="-2608" width="128" height="118"/>
         <element name="Ordonnance" positionX="-6894" positionY="-2610" width="128" height="148"/>

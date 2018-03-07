@@ -1221,10 +1221,10 @@
             </objects>
             <point key="canvasLocation" x="2736.8000000000002" y="806.44677661169419"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="XD1-VW-toy">
             <objects>
-                <viewController id="n9b-gP-g1U" sceneMemberID="viewController">
+                <viewController id="n9b-gP-g1U" customClass="AddEventViewController" customModule="ProjetSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S30-Pd-haT"/>
                         <viewControllerLayoutGuide type="bottom" id="Nfg-Zj-FdC"/>
@@ -1234,7 +1234,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incident" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D4-mK-0d3">
-                                <rect key="frame" x="156" y="190" width="108" height="21"/>
+                                <rect key="frame" x="140" y="152" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1249,20 +1249,20 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xZ0-CX-UOY"/>
                                     <barButtonItem title="Annuler" id="bb5-cX-EgT">
                                         <connections>
-                                            <action selector="cancel:" destination="Y4u-90-Y6a" id="jrQ-a1-J6J"/>
+                                            <action selector="annuler:" destination="n9b-gP-g1U" id="BmF-0C-d9s"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QlO-If-nTd"/>
-                                    <barButtonItem title="Sauvegarder" id="txu-E7-VYH"/>
+                                    <barButtonItem title="Ajouter" id="txu-E7-VYH">
+                                        <connections>
+                                            <segue destination="8Gt-FE-03p" kind="unwind" unwindAction="unwindToEventAfterAddingEventWithSegue:" id="Txa-QC-Qfd"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="abN-9n-rwI"/>
                                 </items>
                             </toolbar>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-G9-dzI">
-                                <rect key="frame" x="0.0" y="219" width="376" height="27"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1d-lf-TZl">
-                                <rect key="frame" x="168" y="281" width="41" height="21"/>
+                                <rect key="frame" x="168" y="338" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1270,18 +1270,36 @@
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-e5-k0f">
-                                <rect key="frame" x="16" y="304" width="343" height="119"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="540832396.72857797">
-                                    <!--2018-02-20 15:13:16 +0000-->
-                                </date>
-                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEj-8g-jOf">
+                                <rect key="frame" x="63" y="181" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="n9b-gP-g1U" id="F0B-Jr-Svx"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVx-Fq-n2O">
+                                <rect key="frame" x="63" y="367" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="n9b-gP-g1U" id="NAc-bX-xxI"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.51808805599999996" green="0.74437377719999998" blue="0.8926860445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="datePickerText" destination="yVx-Fq-n2O" id="CFu-3g-x6g"/>
+                        <outlet property="textboxIncident" destination="GEj-8g-jOf" id="b5k-Ye-u4u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlt-HU-gWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Gt-FE-03p" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1080.8" y="1678.1109445277364"/>
         </scene>
