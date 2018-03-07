@@ -24,6 +24,8 @@
 		D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */; };
 		D7F027F720409EEC006EB7B4 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */; };
 		D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */; };
+		D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533320507A75002283A7 /* ShowActivityViewController.swift */; };
+		D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533520508137002283A7 /* NewActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivitiesViewController.swift; sourceTree = "<group>"; };
 		D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
+		D7FA533320507A75002283A7 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityViewController.swift; sourceTree = "<group>"; };
+		D7FA533520508137002283A7 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
+				D7FA533520508137002283A7 /* NewActivityViewController.swift */,
+				D7FA533320507A75002283A7 /* ShowActivityViewController.swift */,
 				5D3614B32050375F005C6795 /* AddEventViewController.swift */,
 				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
 				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
@@ -299,8 +305,10 @@
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D69A533205059FD00DF3ACF /* EventDataHandler.swift in Sources */,
+				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
+				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				5D3614B42050375F005C6795 /* AddEventViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,

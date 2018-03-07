@@ -59,7 +59,7 @@ class ShowEventViewController: UIViewController{
         let incident = Incident(context: context)
         // Update values
         incident.dateIncident = withdateIncident
-        incident.typeIncident = andtypeIncident
+        //incident.typeIncident = andtypeIncident
         // Save context
         do{
             try context.save()

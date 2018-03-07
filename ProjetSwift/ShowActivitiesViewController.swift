@@ -32,25 +32,6 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    @IBAction func add(_ sender: Any) {
-        let alert = UIAlertController(title: "Nouvelle activité",message: "Ajouter une activité",preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Ajouter", style: .default)
-        {
-            [unowned self] action in
-            guard let textField = alert.textFields?.first,
-                let labelToSave = textField.text else{
-                    return
-            }
-            self.saveNewActivity(withFrequency: labelToSave)
-            self.TableActivities.reloadData()
-        }
-        let cancelAction = UIAlertAction(title: "Annuler", style: .default)
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -117,15 +98,30 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
             self.TableActivities.endUpdates()
         }
     }
-    /*
+    
     // MARK: - Navigation -
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    let segueShowActivity = "showActivitySegue"
+    // Giving actual informations to show it in the text fields
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == self.segueShowActivity{
+            if let indexPath = self.TableActivities.indexPathForSelectedRow{
+                let showActivityViewController = segue.destination as! ShowActivityViewController
+                showActivityViewController.activity = self.activities[indexPath.row]
+                self.TableActivities.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
-    */
+    
+    @IBAction func unwindToActivitiesAfterSavingNewActivity(segue: UIStoryboardSegue){
+        let newActivityViewController = segue.source as! NewActivityViewController
+        let frequency = newActivityViewController.frequency.text ?? ""
+        self.saveNewActivity(withFrequency: frequency)
+        self.TableActivities.reloadData()
+    }
+    
     
     // MARK - helper methods
     func getContext(errorMsg: String, userInfoMsg: String = "Impossible de récupérer les données du contexte")-> NSManagedObjectContext?{
