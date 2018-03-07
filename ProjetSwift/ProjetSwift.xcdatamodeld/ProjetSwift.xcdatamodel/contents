@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
+        <attribute name="dateDebutActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateFinActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dureeActivite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="frequence" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idActivite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idJour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="correspondre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport" inverseName="correspondre" inverseEntity="Sport" syncable="YES"/>
+        <relationship name="organiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="organiser" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Autosurveillance" representedClassName="Autosurveillance" syncable="YES" codeGenerationType="class">
+        <attribute name="dateRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dureePreparation" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dureeTrajet" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="heureDebutTest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureFinTest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idAutosurveillance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Etat" inverseName="composer" inverseEntity="Etat" syncable="YES"/>
+        <relationship name="preparer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="preparer" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Dose" representedClassName="Dose" syncable="YES" codeGenerationType="class">
+        <attribute name="idDose" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="libDose" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="composer" inverseEntity="Medicament" syncable="YES"/>
+    </entity>
+    <entity name="Etat" representedClassName="Etat" syncable="YES" codeGenerationType="class">
+        <attribute name="dateEtat" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureEtat" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idEtat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="caracteriser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeEtat" inverseName="caracteriser" inverseEntity="TypeEtat" syncable="YES"/>
+        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Autosurveillance" inverseName="composer" inverseEntity="Autosurveillance" syncable="YES"/>
+    </entity>
+    <entity name="FrequenceHoraireHebdo" representedClassName="FrequenceHoraireHebdo" syncable="YES" codeGenerationType="class">
+        <attribute name="frequence" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idFHH" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Incident" representedClassName="Incident" syncable="YES" codeGenerationType="class">
+        <attribute name="dateIncident" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="detailIncident" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idIncident" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="appartenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeIncident" inverseName="appartenir" inverseEntity="TypeIncident" syncable="YES"/>
+        <relationship name="survenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="survenir" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Information" representedClassName="Information" syncable="YES" codeGenerationType="class">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomMedecin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenomMedecin" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Medicament" representedClassName="Medicament" syncable="YES" codeGenerationType="class">
+        <attribute name="idMedicament" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="libMedicament" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomMedicament" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dose" inverseName="composer" inverseEntity="Dose" syncable="YES"/>
+        <relationship name="utiliser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="utiliser" inverseEntity="Ordonnance" syncable="YES"/>
+    </entity>
+    <entity name="Ordonnance" representedClassName="Ordonnance" syncable="YES" codeGenerationType="class">
+        <attribute name="dateDebutOrdo" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateFinOrdo" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="frequenceHebdo" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idOrdonnance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="associer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PriseReelle" inverseName="associer" inverseEntity="PriseReelle" syncable="YES"/>
+        <relationship name="avoir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="avoir" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="utiliser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicament" inverseName="utiliser" inverseEntity="Medicament" syncable="YES"/>
+    </entity>
+    <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
+        <attribute name="dateNaissPatient" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idPatient" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomPatient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenomPatient" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="avoir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="avoir" inverseEntity="Ordonnance" syncable="YES"/>
+        <relationship name="organiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activite" inverseName="organiser" inverseEntity="Activite" syncable="YES"/>
+        <relationship name="planifier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVous" inverseName="planifier" inverseEntity="RendezVous" syncable="YES"/>
+        <relationship name="preparer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Autosurveillance" inverseName="preparer" inverseEntity="Autosurveillance" syncable="YES"/>
+        <relationship name="survenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Incident" inverseName="survenir" inverseEntity="Incident" syncable="YES"/>
+    </entity>
+    <entity name="Praticien" representedClassName="Praticien" syncable="YES" codeGenerationType="class">
+        <attribute name="idPraticien" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomPraticien" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenomPraticien" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="concerner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVous" inverseName="concerner" inverseEntity="RendezVous" syncable="YES"/>
+        <relationship name="specialiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specialite" inverseName="specialiser" inverseEntity="Specialite" syncable="YES"/>
+    </entity>
+    <entity name="PriseReelle" representedClassName="PriseReelle" syncable="YES" codeGenerationType="class">
+        <attribute name="datePriseReelle" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heurePriseReelle" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idPriseReelle" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="associer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="associer" inverseEntity="Ordonnance" syncable="YES"/>
+    </entity>
+    <entity name="RendezVous" representedClassName="RendezVous" syncable="YES" codeGenerationType="class">
+        <attribute name="dateRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dureePrepRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dureeTrajetRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="heureRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="idRDV" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="concerner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Praticien" inverseName="concerner" inverseEntity="Praticien" syncable="YES"/>
+        <relationship name="planifier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="planifier" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Specialite" representedClassName="Specialite" syncable="YES" codeGenerationType="class">
+        <attribute name="idSpecialite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomSpecialite" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="specialiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Praticien" inverseName="specialiser" inverseEntity="Praticien" syncable="YES"/>
+    </entity>
+    <entity name="Sport" representedClassName="Sport" syncable="YES" codeGenerationType="class">
+        <attribute name="detailSport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idSport" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomSport" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="correspondre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activite" inverseName="correspondre" inverseEntity="Activite" syncable="YES"/>
+    </entity>
+    <entity name="TypeEtat" representedClassName="TypeEtat" syncable="YES" codeGenerationType="class">
+        <attribute name="idTypeEtat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomTypeEtat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="caracteriser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Etat" inverseName="caracteriser" inverseEntity="Etat" syncable="YES"/>
+    </entity>
+    <entity name="TypeIncident" representedClassName="TypeIncident" syncable="YES" codeGenerationType="class">
+        <attribute name="idTypeIncident" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomTypeIncident" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appartenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Incident" inverseName="appartenir" inverseEntity="Incident" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="163"/>
+        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="178"/>
+        <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
+        <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
+        <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>
+        <element name="Incident" positionX="-6626" positionY="-2356" width="128" height="118"/>
+        <element name="Information" positionX="-7326" positionY="-2752" width="128" height="88"/>
+        <element name="Medicament" positionX="-7094" positionY="-2608" width="128" height="118"/>
+        <element name="Ordonnance" positionX="-6894" positionY="-2610" width="128" height="148"/>
+        <element name="Patient" positionX="-6788" positionY="-2448" width="128" height="178"/>
+        <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="118"/>
+        <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="103"/>
+        <element name="RendezVous" positionX="-6644" positionY="-2592" width="128" height="148"/>
+        <element name="Specialite" positionX="-6822" positionY="-2797" width="128" height="88"/>
+        <element name="Sport" positionX="-7146" positionY="-2214" width="128" height="103"/>
+        <element name="TypeEtat" positionX="-6329" positionY="-2014" width="128" height="88"/>
+        <element name="TypeIncident" positionX="-6518" positionY="-2176" width="128" height="88"/>
+    </elements>
+</model>
