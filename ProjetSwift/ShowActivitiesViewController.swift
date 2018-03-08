@@ -39,13 +39,15 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Person data management -
     
-    func saveNewActivity(withFrequency: String){
+    func saveNewActivity(withFrequency: String, andDuration: String){
         // Get Context
         guard let context = self.getContext(errorMsg: "Sauvegarde échouée") else {return}
         // Create object
         let activity = Activite(context: context)
         // Update values
         activity.frequence = withFrequency
+        let durationConvert = Int32(andDuration) ?? 0
+        activity.dureeActivite = durationConvert
         // Save context
         do{
             try context.save()
@@ -81,6 +83,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.TableActivities.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
         cell.frequencyLabel.text = self.activities[indexPath.row].frequence
+        cell.durationLabel.text = String(self.activities[indexPath.row].dureeActivite)
         return cell
     }
     
@@ -118,7 +121,8 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func unwindToActivitiesAfterSavingNewActivity(segue: UIStoryboardSegue){
         let newActivityViewController = segue.source as! NewActivityViewController
         let frequency = newActivityViewController.frequency.text ?? ""
-        self.saveNewActivity(withFrequency: frequency)
+        let duration = newActivityViewController.duration.text ?? ""
+        self.saveNewActivity(withFrequency: frequency, andDuration: duration)
         self.TableActivities.reloadData()
     }
     

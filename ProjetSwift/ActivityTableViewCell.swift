@@ -15,6 +15,8 @@ class ActivityTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var activityName: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var frequencyLabel: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
