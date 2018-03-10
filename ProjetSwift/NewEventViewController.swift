@@ -88,6 +88,8 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         //assigning date picker to text field
         datePickerText.inputView = datePicker
+        
+        
     }
     
     func donePressed() {

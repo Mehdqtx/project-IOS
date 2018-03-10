@@ -116,8 +116,10 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func unwindToEventsAfterSavingNewEvent(segue: UIStoryboardSegue){
         let newEventController = segue.source as! NewEventViewController
-        print("dateEvent : \(String(describing: newEventController.textboxIncident.text))")
-        print("typeEvent : \(String(describing: newEventController.datePickerText.text))")
+         let dateIncident = newEventController.datePickerText.text ?? ""
+        //let dateInc: NSDate = DateFormatter().date(from: dateIncident)! as NSDate
+        let typeIncident = newEventController.textboxIncident.text ?? ""
+        //self.saveIncident(withdateIncident: dateIncident, andtypeIncident: typeIncident)
         }
 
     
