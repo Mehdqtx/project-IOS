@@ -7,6 +7,7 @@
         <attribute name="frequence" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idActivite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idJour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="libActivite" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="correspondre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport" inverseName="correspondre" inverseEntity="Sport" syncable="YES"/>
         <relationship name="organiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="organiser" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -119,7 +120,7 @@
         <relationship name="appartenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Incident" inverseName="appartenir" inverseEntity="Incident" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="163"/>
+        <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="180"/>
         <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="178"/>
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
         <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
@@ -133,7 +134,7 @@
         <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="103"/>
         <element name="RendezVous" positionX="-6644" positionY="-2592" width="128" height="148"/>
         <element name="Specialite" positionX="-6822" positionY="-2797" width="128" height="88"/>
-        <element name="Sport" positionX="-7146" positionY="-2214" width="128" height="103"/>
+        <element name="Sport" positionX="-7146" positionY="-2214" width="128" height="105"/>
         <element name="TypeEtat" positionX="-6329" positionY="-2014" width="128" height="88"/>
         <element name="TypeIncident" positionX="-6518" positionY="-2176" width="128" height="88"/>
     </elements>

@@ -13,6 +13,7 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var frequency: UITextField!
+    var pickedActivity : String? = nil
     
     var pickerData: [String] = [String]()
     
@@ -21,6 +22,7 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
 
         // Do any additional setup after loading the view.
         pickerData = ["Marche", "Etirements", "Course"]
+        pickedActivity = pickerData[0]
     }
 
     // MARK: - Toolbar -
@@ -58,6 +60,7 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+        self.pickedActivity = pickerData[pickerView.selectedRow(inComponent: 0)]
     }
 
     /*

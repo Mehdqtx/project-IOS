@@ -11,7 +11,7 @@ import UIKit
 class ShowActivityViewController: UIViewController {
 
     @IBOutlet weak var duration: UILabel!
-
+    @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var frequency: UILabel!
     var activity : Activite? = nil
     
@@ -20,6 +20,7 @@ class ShowActivityViewController: UIViewController {
         if let anActivity = self.activity{
             self.frequency.text = anActivity.frequence
             self.duration.text = String(anActivity.dureeActivite)
+            self.activityName.text = anActivity.libActivite
         }
         // Do any additional setup after loading the view.
     }

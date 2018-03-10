@@ -39,7 +39,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: - Person data management -
     
-    func saveNewActivity(withFrequency: String, andDuration: String){
+    func saveNewActivity(withFrequency: String, andDuration: String, andName: String){
         // Get Context
         guard let context = self.getContext(errorMsg: "Sauvegarde échouée") else {return}
         // Create object
@@ -48,6 +48,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         activity.frequence = withFrequency
         let durationConvert = Int32(andDuration) ?? 0
         activity.dureeActivite = durationConvert
+        activity.libActivite = andName
         // Save context
         do{
             try context.save()
@@ -82,8 +83,9 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.TableActivities.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-        cell.frequencyLabel.text = self.activities[indexPath.row].frequence
-        cell.durationLabel.text = String(self.activities[indexPath.row].dureeActivite)
+        cell.frequencyLabel.text = self.activities[indexPath.row].frequence! + " fois par semaine"
+        cell.durationLabel.text = String(self.activities[indexPath.row].dureeActivite) + " minutes"
+        cell.activityName.text = self.activities[indexPath.row].libActivite
         return cell
     }
     
@@ -122,7 +124,8 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         let newActivityViewController = segue.source as! NewActivityViewController
         let frequency = newActivityViewController.frequency.text ?? ""
         let duration = newActivityViewController.duration.text ?? ""
-        self.saveNewActivity(withFrequency: frequency, andDuration: duration)
+        let nomActivite = newActivityViewController.pickedActivity ?? ""
+        self.saveNewActivity(withFrequency: frequency, andDuration: duration, andName: nomActivite)
         self.TableActivities.reloadData()
     }
     
