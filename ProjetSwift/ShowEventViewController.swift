@@ -9,43 +9,71 @@
 import UIKit
 import CoreData
 
-class ShowEventViewController: UIViewController{
+class ShowEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
-    var inci : Incident? = nil
     
-
+    @IBOutlet weak var eventsTable: UITableView!
+    
+    
+    var events : [Incident] = []
+    
+    @IBAction func addEvent(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // Get Context
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            print("Erreur")
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+        guard let context = self.getContext(errorMsg: "Impossible de charger les données") else {return}
         // Create request for information
         let request : NSFetchRequest<Incident> = Incident.fetchRequest()
         do{
-            let requestSize : Int = try context.fetch(request).count
-            // If we already have existing incident
-            if requestSize > 0{
-                try self.inci = context.fetch(request)[context.fetch(request).count-1]
-            }
-            else{}
+            try self.events = context.fetch(request)
         }
         catch let error as NSError{
-            print(error)
+            self.alert(error: error)
             return
         }
-       
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Event data management -
+    
+    func saveNewActivity(withEvent: String, andDateEvent: NSDate){
+        // Get Context
+        guard let context = self.getContext(errorMsg: "Sauvegarde échouée") else {return}
+        // Create object
+        let incident = Incident(context: context)
+        // Update values
+        incident.typeIncident = withEvent
+        incident.dateIncident = andDateEvent
+        
+        // Save context
+        do{
+            try context.save()
+            self.events.append(incident)
+        }
+        catch let error as NSError{
+            self.alert(error: error)
+            return
+        }
     }
+    
+    // MARK: - Table View Data Source Protocol -
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = self.eventsTable.dequeueReusableCell(withIdentifier:"eventCell", for: indexPath) as! EventTableViewCell
+        cell.eventLabel.text = self.events[indexPath.row].typeIncident
+        cell.dateEventLabel.text = String(describing: self.events[indexPath.row].dateIncident)
+        return cell
+    }
+    
+
+    
     
     // MARK: - Saving
     func saveIncident(withdateIncident : NSDate, andtypeIncident : String){
@@ -59,7 +87,7 @@ class ShowEventViewController: UIViewController{
         let incident = Incident(context: context)
         // Update values
         incident.dateIncident = withdateIncident
-        //incident.typeIncident = andtypeIncident
+        incident.typeIncident = andtypeIncident
         // Save context
         do{
             try context.save()
@@ -72,18 +100,49 @@ class ShowEventViewController: UIViewController{
     }
     
     // MARK: - Navigation
-    @IBAction func unwindToEventAfterAddingEvent(segue: UIStoryboardSegue){
-        print("test event")
+    let segueShowEvent = "showEventSegue"
+    // Giving actual informations to show it in the text fields
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       /* if segue.identifier == self.segueShowEvent{
+            if let indexPath == self.eventsTable.indexPathForSelectedRow{
+                let showEventViewController = segue.destination as! AddEventViewController
+                showEventViewController.incident = self.events[indexPath.row]
+                self.eventsTable.deselectRow(at: index, animated: true)
+                
+            }
+        }*/
     }
     
+    @IBAction func unwindToEventsAfterSavingNewEvent(segue: UIStoryboardSegue){
+        let newEventController = segue.source as! NewEventViewController
+        print("dateEvent : \(String(describing: newEventController.textboxIncident.text))")
+        print("typeEvent : \(String(describing: newEventController.datePickerText.text))")
+        }
 
     
-    /*
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
+    // MARK - helper methods
+    func getContext(errorMsg: String, userInfoMsg: String = "Impossible de récupérer les données du contexte")-> NSManagedObjectContext?{
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            self.alert(withTitle: errorMsg, andMessage: userInfoMsg)
+            return nil
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    func alert(withTitle title: String, andMessage msg: String = ""){
+        let alert = UIAlertController(title: title, message: msg,preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    func alert(error: NSError){
+        self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
+    }
     
 }
+    
+
+
