@@ -9,26 +9,30 @@
 import UIKit
 import CoreData
 
-class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     var acts : [String] = []
     var activities : [Activite] = []
+    
+    fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
+        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Activite.libActivite), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     @IBOutlet weak var TableActivities: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        // Get Context
-        guard let context = self.getContext(errorMsg: "Impossible de charger les données") else {return}
-        // Create request for information
-        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+        // Load context
         do{
-            try self.activities = context.fetch(request)
+            try self.activitiesFetched.performFetch()
         }
         catch let error as NSError{
-            self.alert(error: error)
-            return
+            DialogBoxHelper.alert(view: self, error: error)
         }
     }
     
@@ -38,10 +42,10 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     // MARK: - Person data management -
-    
+    /*
     func saveNewActivity(withFrequency: String, andDuration: String, andName: String){
         // Get Context
-        guard let context = self.getContext(errorMsg: "Sauvegarde échouée") else {return}
+        guard let context = self.getContext() else {return}
         // Create object
         let activity = Activite(context: context)
         // Update values
@@ -59,9 +63,10 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
             return
         }
     }
-
+    */
+    
     func delete(activityWithIndex index: Int) -> Bool {
-        guard let context = self.getContext(errorMsg: "Suppression échouée") else {return false}
+        guard let context = self.getContext() else {return false}
         let activity = self.activities[index]
         context.delete(activity)
         do{
@@ -78,14 +83,18 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Table View Data Source Protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.activities.count
+        guard let section = self.activitiesFetched.sections?[section] else {
+            fatalError("Nombre de sections erroné")
+        }
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.TableActivities.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-        cell.frequencyLabel.text = self.activities[indexPath.row].frequence! + " fois par semaine"
-        cell.durationLabel.text = String(self.activities[indexPath.row].dureeActivite) + " minutes"
-        cell.activityName.text = self.activities[indexPath.row].libActivite
+        let activity = self.activitiesFetched.object(at: indexPath)
+        cell.frequencyLabel.text = activity.frequence! + " fois par semaine"
+        cell.durationLabel.text = String(activity.dureeActivite) + " minutes"
+        cell.activityName.text = activity.libActivite
         cell.accessoryType = .detailButton
         return cell
     }
@@ -95,11 +104,8 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        self.TableActivities.beginUpdates()
-        if self.delete(activityWithIndex: indexPath.row){
-            self.TableActivities.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        }
-        self.TableActivities.endUpdates()
+        let activity = self.activitiesFetched.object(at: indexPath)
+        CoreDataManager.context.delete(activity)
     }
     
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
@@ -122,6 +128,31 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         self.performSegue(withIdentifier: self.segueShowActivity, sender: self)
     }
     
+    // MARK: - NSFetchedResultsController Delegate protocol -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.TableActivities.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.TableActivities.endUpdates()
+        CoreDataManager.save()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.TableActivities.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.TableActivities.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
+        }
+    }
     // MARK: - Navigation -
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -132,12 +163,14 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         if segue.identifier == self.segueShowActivity{
             if let indexPath = self.indexPathForShow{
                 let showActivityViewController = segue.destination as! ShowActivityViewController
-                showActivityViewController.activity = self.activities[indexPath.row]
+                let activity = self.activitiesFetched.object(at: indexPath)
+                showActivityViewController.activity = activity
                 self.TableActivities.deselectRow(at: indexPath, animated: true)
             }
         }
     }
     
+    /*
     @IBAction func unwindToActivitiesAfterSavingNewActivity(segue: UIStoryboardSegue){
         let newActivityViewController = segue.source as! NewActivityViewController
         let frequency = newActivityViewController.frequency.text ?? ""
@@ -146,15 +179,11 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         self.saveNewActivity(withFrequency: frequency, andDuration: duration, andName: nomActivite)
         self.TableActivities.reloadData()
     }
-    
+    */
     
     // MARK - helper methods
-    func getContext(errorMsg: String, userInfoMsg: String = "Impossible de récupérer les données du contexte")-> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alert(withTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
+    func getContext()-> NSManagedObjectContext?{
+        return CoreDataManager.context
     }
     
     func alert(withTitle title: String, andMessage msg: String = ""){

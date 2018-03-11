@@ -29,6 +29,23 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func saveAction(_ sender: Any) {
+        let frequence : String = frequency.text ?? ""
+        let duree : String = duration.text ?? ""
+        let nomActivite : String = pickedActivity ?? ""
+        guard (frequence != "") || (duree != "") else {
+            return
+        }
+        let activity = Activite(context: CoreDataManager.context)
+        activity.frequence = frequence
+        activity.libActivite = nomActivite
+        let durationConvert = Int32(duree) ?? 0
+        activity.dureeActivite = durationConvert
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
