@@ -86,6 +86,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         cell.frequencyLabel.text = self.activities[indexPath.row].frequence! + " fois par semaine"
         cell.durationLabel.text = String(self.activities[indexPath.row].dureeActivite) + " minutes"
         cell.activityName.text = self.activities[indexPath.row].libActivite
+        cell.accessoryType = .detailButton
         return cell
     }
     
@@ -93,15 +94,32 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        // Deleting
-        if (editingStyle == UITableViewCellEditingStyle.delete){
-            self.TableActivities.beginUpdates()
-            if self.delete(activityWithIndex: indexPath.row){
-                self.TableActivities.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            }
-            self.TableActivities.endUpdates()
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        self.TableActivities.beginUpdates()
+        if self.delete(activityWithIndex: indexPath.row){
+            self.TableActivities.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
+        self.TableActivities.endUpdates()
+    }
+    
+    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        print("edit")
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return [delete, edit]
+    }
+    
+    // MARK: - TableView Delegate protocol -
+    var indexPathForShow: IndexPath? = nil
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueShowActivity, sender: self)
     }
     
     // MARK: - Navigation -
@@ -112,7 +130,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     // Giving actual informations to show it in the text fields
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowActivity{
-            if let indexPath = self.TableActivities.indexPathForSelectedRow{
+            if let indexPath = self.indexPathForShow{
                 let showActivityViewController = segue.destination as! ShowActivityViewController
                 showActivityViewController.activity = self.activities[indexPath.row]
                 self.TableActivities.deselectRow(at: indexPath, animated: true)

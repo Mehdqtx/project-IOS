@@ -344,7 +344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A2Q-fl-vhR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A2Q-fl-vhR">
                                 <rect key="frame" x="16" y="72" width="343" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -356,7 +356,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fréquence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-9b-lL4">
-                                                    <rect key="frame" x="130.5" y="37" width="82" height="21"/>
+                                                    <rect key="frame" x="15" y="37" width="82" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="bio-My-MLW"/>
                                                     </constraints>
@@ -365,7 +365,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomActivite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dap-rH-lb5">
-                                                    <rect key="frame" x="126" y="11" width="91" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="91" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ECT-26-Dgy"/>
                                                     </constraints>
@@ -374,7 +374,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdd-P5-bqU">
-                                                    <rect key="frame" x="148" y="63" width="46" height="22"/>
+                                                    <rect key="frame" x="15" y="63" width="46" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Ii5-4i-a0o"/>
                                                     </constraints>
@@ -385,18 +385,20 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qLD-9b-lL4" firstAttribute="top" secondItem="Dap-rH-lb5" secondAttribute="bottom" constant="5" id="1kD-oD-ZNM"/>
+                                                <constraint firstItem="Wdd-P5-bqU" firstAttribute="leading" secondItem="dYs-hN-Icr" secondAttribute="leadingMargin" id="B7B-GX-1bK"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qLD-9b-lL4" secondAttribute="trailingMargin" id="FMi-xj-fwQ"/>
                                                 <constraint firstItem="Wdd-P5-bqU" firstAttribute="top" secondItem="qLD-9b-lL4" secondAttribute="bottom" constant="5" id="FZs-lK-qES"/>
-                                                <constraint firstItem="Wdd-P5-bqU" firstAttribute="centerX" secondItem="dYs-hN-Icr" secondAttribute="centerX" id="IJ9-jd-JRU"/>
                                                 <constraint firstItem="Dap-rH-lb5" firstAttribute="top" secondItem="dYs-hN-Icr" secondAttribute="topMargin" id="W6a-Ok-2rQ"/>
-                                                <constraint firstItem="qLD-9b-lL4" firstAttribute="centerX" secondItem="dYs-hN-Icr" secondAttribute="centerX" id="kXU-RW-Gec"/>
-                                                <constraint firstItem="Dap-rH-lb5" firstAttribute="centerX" secondItem="dYs-hN-Icr" secondAttribute="centerX" id="vOx-VV-ZRB"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wdd-P5-bqU" secondAttribute="trailingMargin" id="pb5-a0-iu2"/>
+                                                <constraint firstItem="Dap-rH-lb5" firstAttribute="leading" secondItem="dYs-hN-Icr" secondAttribute="leadingMargin" id="vqe-fB-IPB"/>
+                                                <constraint firstItem="qLD-9b-lL4" firstAttribute="leading" secondItem="dYs-hN-Icr" secondAttribute="leadingMargin" id="ydQ-CU-aNF"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dap-rH-lb5" secondAttribute="trailingMargin" id="zHe-qA-uj5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityName" destination="Dap-rH-lb5" id="PQJ-F0-qm3"/>
                                             <outlet property="durationLabel" destination="Wdd-P5-bqU" id="hG8-S4-kWf"/>
                                             <outlet property="frequencyLabel" destination="qLD-9b-lL4" id="r76-kz-CMV"/>
-                                            <segue destination="jFs-BU-Q10" kind="show" identifier="showActivitySegue" id="HfR-Me-EXy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -431,6 +433,7 @@
                     </view>
                     <connections>
                         <outlet property="TableActivities" destination="A2Q-fl-vhR" id="dnE-o1-Wkc"/>
+                        <segue destination="jFs-BU-Q10" kind="show" identifier="showActivitySegue" id="qSa-xq-OEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG9-TD-mBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
