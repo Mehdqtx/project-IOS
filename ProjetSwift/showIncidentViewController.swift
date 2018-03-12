@@ -1,9 +1,29 @@
 //
-//  showIncidentViewController.swift
+//  ShowIncidentViewController.swift
 //  ProjetSwift
 //
-//  Created by java on 07/03/2018.
+//  Created by java on 12/03/2018.
 //  Copyright © 2018 Maxime SOUSTELLE - Mehdi DELVAUX. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ShowIncidentViewController: UIViewController{
+    
+    @IBOutlet weak var typeIncidentLabel: UILabel!
+    @IBOutlet weak var dateIncidentLabel: UILabel!
+    
+    var incident : Incident? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let anIncident = self.incident{
+            self.typeIncidentLabel.text = anIncident.typeIncident
+            self.dateIncidentLabel.text = String(describing: anIncident.dateIncident)
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        return
+    }
+}

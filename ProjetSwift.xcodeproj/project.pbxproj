@@ -15,6 +15,7 @@
 		32CBE6C7203C66CF005B7A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */; };
 		32CBE6D2203C66CF005B7A23 /* ProjetSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6D1203C66CF005B7A23 /* ProjetSwiftTests.swift */; };
 		32CBE6DD203C66CF005B7A23 /* ProjetSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */; };
+		5D3533D32056EB3D00E52C00 /* ShowIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
 		5D519444204D9E1D00F05612 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D519443204D9E1D00F05612 /* roundButton.swift */; };
 		5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */; };
@@ -62,6 +63,7 @@
 		32CBE6D8203C66CF005B7A23 /* ProjetSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetSwiftUITests.swift; sourceTree = "<group>"; };
 		32CBE6DE203C66CF005B7A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIncidentViewController.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */,
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
+				5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
 				D7FA533520508137002283A7 /* NewActivityViewController.swift */,
 				D7FA533320507A75002283A7 /* ShowActivityViewController.swift */,
@@ -315,6 +318,7 @@
 			files = (
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
 				D7F027F720409EEC006EB7B4 /* EditInfoViewController.swift in Sources */,
+				5D3533D32056EB3D00E52C00 /* ShowIncidentViewController.swift in Sources */,
 				32CBE6C2203C66CF005B7A23 /* ProjetSwift.xcdatamodeld in Sources */,
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,

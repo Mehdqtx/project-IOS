@@ -163,9 +163,9 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == self.segueShowEvent{
             if let indexPath = self.indexPathForShow{
-                let showEventViewController = segue.destination as! ShowEventViewController
+                let showIncidentViewController = segue.destination as! ShowIncidentViewController
                 let event = self.eventsFetched.object(at: indexPath)
-                showEventViewController.events = [event]
+                showIncidentViewController.incident = event
                 self.eventsTable.deselectRow(at: indexPath, animated: true)
             }
         }

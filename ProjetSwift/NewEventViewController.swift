@@ -52,7 +52,7 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //let dateIncident : NSDate = DateFormatter().date(from: datePickerText.text!)! as NSDate
         let dateIncident : String = datePickerText.text ?? ""
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"        
+        dateFormatter.dateStyle = .short
         let date = dateFormatter.date(from: dateIncident)
         
         let typeIncident : String = textboxIncident.text ?? ""
