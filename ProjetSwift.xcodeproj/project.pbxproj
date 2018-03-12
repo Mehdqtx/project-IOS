@@ -21,6 +21,10 @@
 		5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */; };
 		5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */; };
 		5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A536205064C400DF3ACF /* ShowEventViewController.swift */; };
+		D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF02057160100886EDD /* ShowRdvsViewController.swift */; };
+		D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF22057161400886EDD /* ShowRdvViewController.swift */; };
+		D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF42057162600886EDD /* NewRdvViewController.swift */; };
+		D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF62057164400886EDD /* RdvsTableViewCell.swift */; };
 		D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E52055C3D600509D4D /* CoreDataManager.swift */; };
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
 		D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */; };
@@ -69,6 +73,10 @@
 		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEventViewController.swift; sourceTree = "<group>"; };
+		D7076CF02057160100886EDD /* ShowRdvsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvsViewController.swift; sourceTree = "<group>"; };
+		D7076CF22057161400886EDD /* ShowRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvViewController.swift; sourceTree = "<group>"; };
+		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
+		D7076CF62057164400886EDD /* RdvsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvsTableViewCell.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,11 +142,9 @@
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
 				5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
-				D7FA533520508137002283A7 /* NewActivityViewController.swift */,
-				D7FA533320507A75002283A7 /* ShowActivityViewController.swift */,
-				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
+				D7076CF82057164C00886EDD /* Rdvs */,
+				D7076CEF20570D2800886EDD /* Activity */,
 				5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */,
-				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
 				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
 				D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */,
 				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
@@ -167,6 +173,29 @@
 				32CBE6DE203C66CF005B7A23 /* Info.plist */,
 			);
 			path = ProjetSwiftUITests;
+			sourceTree = "<group>";
+		};
+		D7076CEF20570D2800886EDD /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				D7FA533520508137002283A7 /* NewActivityViewController.swift */,
+				D7FA533320507A75002283A7 /* ShowActivityViewController.swift */,
+				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
+				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
+			);
+			name = Activity;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		D7076CF82057164C00886EDD /* Rdvs */ = {
+			isa = PBXGroup;
+			children = (
+				D7076CF02057160100886EDD /* ShowRdvsViewController.swift */,
+				D7076CF22057161400886EDD /* ShowRdvViewController.swift */,
+				D7076CF42057162600886EDD /* NewRdvViewController.swift */,
+				D7076CF62057164400886EDD /* RdvsTableViewCell.swift */,
+			);
+			path = Rdvs;
 			sourceTree = "<group>";
 		};
 		D707E7E92055C65700509D4D /* Class Helpers */ = {
@@ -316,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */,
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
 				D7F027F720409EEC006EB7B4 /* EditInfoViewController.swift in Sources */,
 				5D3533D32056EB3D00E52C00 /* ShowIncidentViewController.swift in Sources */,
@@ -327,10 +357,13 @@
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
+				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
+				D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
 				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
+				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

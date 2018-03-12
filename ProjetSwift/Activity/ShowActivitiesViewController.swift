@@ -11,8 +11,7 @@ import CoreData
 
 class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
-    var acts : [String] = []
-    var activities : [Activite] = []
+    //var activities : [Activite] = []
     
     fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
@@ -65,6 +64,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     }
     */
     
+    /*
     func delete(activityWithIndex index: Int) -> Bool {
         guard let context = self.getContext() else {return false}
         let activity = self.activities[index]
@@ -79,6 +79,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
             return false
         }
     }
+    */
     
     // MARK: - Table View Data Source Protocol -
     

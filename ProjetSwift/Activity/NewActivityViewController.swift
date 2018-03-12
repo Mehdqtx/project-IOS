@@ -21,7 +21,7 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        pickerData = ["Marche", "Etirements", "Course"]
+        pickerData = ["Marche", "Etirements", "Course"].sorted()
         pickedActivity = pickerData[0]
     }
 

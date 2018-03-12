@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="dateDebutActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateFinActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -95,6 +95,7 @@
         <attribute name="dureeTrajetRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureRDV" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idRDV" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomPraticien" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="concerner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Praticien" inverseName="concerner" inverseEntity="Praticien" syncable="YES"/>
         <relationship name="planifier" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="planifier" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -132,7 +133,7 @@
         <element name="Patient" positionX="-6788" positionY="-2448" width="128" height="178"/>
         <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="118"/>
         <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="103"/>
-        <element name="RendezVous" positionX="-6644" positionY="-2592" width="128" height="148"/>
+        <element name="RendezVous" positionX="-6644" positionY="-2592" width="128" height="165"/>
         <element name="Specialite" positionX="-6822" positionY="-2797" width="128" height="88"/>
         <element name="Sport" positionX="-7146" positionY="-2214" width="128" height="105"/>
         <element name="TypeEtat" positionX="-6329" positionY="-2014" width="128" height="88"/>
