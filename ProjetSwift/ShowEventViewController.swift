@@ -9,73 +9,95 @@
 import UIKit
 import CoreData
 
-class ShowEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    
-    
+class ShowEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate{
+
     
     @IBOutlet weak var eventsTable: UITableView!
     
     
     var events : [Incident] = []
     
-    @IBAction func addEvent(_ sender: Any) {
-        
-    }
+    fileprivate lazy var eventsFetched : NSFetchedResultsController<Incident> = {
+        let request : NSFetchRequest<Incident> = Incident.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Incident.dateIncident), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        // Get Context
-        guard let context = self.getContext(errorMsg: "Impossible de charger les données") else {return}
-        // Create request for information
-        let request : NSFetchRequest<Incident> = Incident.fetchRequest()
+        // Load context
         do{
-            try self.events = context.fetch(request)
+            try self.eventsFetched.performFetch()
         }
         catch let error as NSError{
-            self.alert(error: error)
-            return
+            DialogBoxHelper.alert(view: self, error: error)
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Event data management -
-    
-    func saveNewActivity(withEvent: String, andDateEvent: NSDate){
-        // Get Context
-        guard let context = self.getContext(errorMsg: "Sauvegarde échouée") else {return}
-        // Create object
-        let incident = Incident(context: context)
-        // Update values
-        incident.typeIncident = withEvent
-        incident.dateIncident = andDateEvent
-        
-        // Save context
+    func delete(eventWithIndex index: Int) -> Bool {
+        guard let context = self.getContext() else {return false}
+        let event = self.events[index]
+        context.delete(event)
         do{
             try context.save()
-            self.events.append(incident)
+            self.events.remove(at: index)
+            return true
         }
         catch let error as NSError{
             self.alert(error: error)
-            return
+            return false
         }
     }
     
+    
     // MARK: - Table View Data Source Protocol -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.events.count
+        guard let section = self.eventsFetched.sections?[section] else {
+            fatalError("Nombre de sections erroné")
+        }
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier:"eventCell", for: indexPath) as! EventTableViewCell
-        cell.eventLabel.text = self.events[indexPath.row].typeIncident
-        cell.dateEventLabel.text = String(describing: self.events[indexPath.row].dateIncident)
+        let event = self.eventsFetched.object(at: indexPath)
+        cell.eventLabel.text = event.typeIncident
+        cell.dateEventLabel.text = String(describing: event.dateIncident)
+        cell.accessoryType = .detailButton
         return cell
     }
-    
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        let event = self.eventsFetched.object(at: indexPath)
+        CoreDataManager.context.delete(event)
+    }
     
-    // MARK: - Saving
+    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        print("edit")
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return [delete, edit]
+    }
+    
+   /* // MARK: - Saving
     func saveIncident(withdateIncident : NSDate, andtypeIncident : String){
         // Get Context
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -97,40 +119,61 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
             print(error)
             return
         }
+    }*/
+    
+    // MARK: - TableView Delegate protocol -
+    var indexPathForShow: IndexPath? = nil
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueShowEvent, sender: self)
     }
+        
+    // MARK: - NSFetchedResultsController Delegate protocol -
+        
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            self.eventsTable.beginUpdates()
+        }
+        
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            self.eventsTable.endUpdates()
+            CoreDataManager.save()
+        }
+        
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.eventsTable.deleteRows(at: [indexPath], with: .automatic)
+                }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.eventsTable.insertRows(at: [newIndexPath], with: .fade)
+                }
+            default:
+                break
+            }
+        }
     
     // MARK: - Navigation
-    let segueShowEvent = "showEventSegue"
+   
     // Giving actual informations to show it in the text fields
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       /* if segue.identifier == self.segueShowEvent{
-            if let indexPath == self.eventsTable.indexPathForSelectedRow{
-                let showEventViewController = segue.destination as! AddEventViewController
-                showEventViewController.incident = self.events[indexPath.row]
-                self.eventsTable.deselectRow(at: index, animated: true)
-                
+    let segueShowEvent = "showEventSegue"
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == self.segueShowEvent{
+            if let indexPath = self.indexPathForShow{
+                let showEventViewController = segue.destination as! ShowEventViewController
+                let event = self.eventsFetched.object(at: indexPath)
+                showEventViewController.events = [event]
+                self.eventsTable.deselectRow(at: indexPath, animated: true)
             }
-        }*/
+        }
     }
-    
-    @IBAction func unwindToEventsAfterSavingNewEvent(segue: UIStoryboardSegue){
-        let newEventController = segue.source as! NewEventViewController
-         let dateIncident = newEventController.datePickerText.text ?? ""
-        //let dateInc: NSDate = DateFormatter().date(from: dateIncident)! as NSDate
-        let typeIncident = newEventController.textboxIncident.text ?? ""
-        //self.saveIncident(withdateIncident: dateIncident, andtypeIncident: typeIncident)
-        }
-
-    
-
+        
     // MARK - helper methods
-    func getContext(errorMsg: String, userInfoMsg: String = "Impossible de récupérer les données du contexte")-> NSManagedObjectContext?{
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alert(withTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
+    func getContext()-> NSManagedObjectContext?{
+        return CoreDataManager.context
     }
     
     func alert(withTitle title: String, andMessage msg: String = ""){

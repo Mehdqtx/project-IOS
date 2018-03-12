@@ -19,7 +19,6 @@
 		5D519444204D9E1D00F05612 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D519443204D9E1D00F05612 /* roundButton.swift */; };
 		5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */; };
 		5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */; };
-		5D69A533205059FD00DF3ACF /* EventDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A532205059FD00DF3ACF /* EventDataHandler.swift */; };
 		5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A536205064C400DF3ACF /* ShowEventViewController.swift */; };
 		D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E52055C3D600509D4D /* CoreDataManager.swift */; };
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
@@ -67,7 +66,6 @@
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
 		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
-		5D69A532205059FD00DF3ACF /* EventDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataHandler.swift; sourceTree = "<group>"; };
 		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEventViewController.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */,
 				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
 				D707E7E92055C65700509D4D /* Class Helpers */,
-				5D69A532205059FD00DF3ACF /* EventDataHandler.swift */,
 				32CBE6C3203C66CF005B7A23 /* Assets.xcassets */,
 				32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */,
 				32CBE6C8203C66CF005B7A23 /* Info.plist */,
@@ -323,7 +320,6 @@
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
-				5D69A533205059FD00DF3ACF /* EventDataHandler.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,

@@ -47,6 +47,23 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveEvent(_ sender: Any) {
+        
+        //let dateIncident : NSDate = DateFormatter().date(from: datePickerText.text!)! as NSDate
+        let dateIncident : String = datePickerText.text ?? ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"        
+        let date = dateFormatter.date(from: dateIncident)
+        
+        let typeIncident : String = textboxIncident.text ?? ""
+        
+        let event = Incident(context: CoreDataManager.context)
+        event.dateIncident = date as NSDate?
+        event.typeIncident = typeIncident
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
     // MARK: - TextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
