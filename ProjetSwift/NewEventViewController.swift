@@ -54,7 +54,6 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         let date = formatter.date(from:dateIncident)
-        print(date)
         let typeIncident : String = textboxIncident.text ?? ""
         
         let event = Incident(context: CoreDataManager.context)

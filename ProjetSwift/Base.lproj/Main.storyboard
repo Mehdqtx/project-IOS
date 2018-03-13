@@ -221,7 +221,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g6L-56-l50"/>
                                     <barButtonItem title="Ajouter un événement" id="bM7-Pw-VFg">
                                         <connections>
-                                            <segue destination="n9b-gP-g1U" kind="presentation" identifier="showEventSegue" id="C9s-nZ-hcg"/>
+                                            <segue destination="n9b-gP-g1U" kind="presentation" identifier="" id="C9s-nZ-hcg"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8Zl-UF-gev"/>
@@ -365,14 +365,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Préparation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaV-Jh-3Ty">
-                                <rect key="frame" x="166" y="165" width="89" height="21"/>
+                                <rect key="frame" x="166" y="165" width="140" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trajet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN7-yf-tc1">
-                                <rect key="frame" x="178" y="257" width="44" height="21"/>
+                                <rect key="frame" x="178" y="257" width="162" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQI-0U-G9N">
+                                <rect key="frame" x="68" y="120" width="238" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -382,12 +389,15 @@
                         <color key="backgroundColor" red="0.56801062820000003" green="0.7396560311" blue="0.87844574450000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="eQI-0U-G9N" id="Fag-QZ-Oia"/>
                         <outlet property="praticienLabel" destination="fKy-0Z-5zW" id="Ue4-Mz-P4l"/>
+                        <outlet property="prepLabel" destination="xaV-Jh-3Ty" id="kkU-eS-xuu"/>
+                        <outlet property="trajetLabel" destination="LN7-yf-tc1" id="gqZ-p5-DMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJO-th-4CF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737" y="1527"/>
+            <point key="canvasLocation" x="2736.8000000000002" y="1526.9865067466269"/>
         </scene>
         <!--Show Rdvs View Controller-->
         <scene sceneID="tTl-IM-S3F">
@@ -413,7 +423,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Praticien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAl-M0-7f6">
-                                                    <rect key="frame" x="15" y="31" width="67" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="67" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umA-v6-c34">
+                                                    <rect key="frame" x="15" y="40" width="313" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -422,6 +439,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="umA-v6-c34" id="RHd-YZ-ofF"/>
                                             <outlet property="praticienLabel" destination="qAl-M0-7f6" id="hdo-KN-xiQ"/>
                                         </connections>
                                     </tableViewCell>

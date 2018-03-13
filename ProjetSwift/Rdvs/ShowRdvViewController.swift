@@ -10,6 +10,9 @@ import UIKit
 
 class ShowRdvViewController: UIViewController {
 
+    @IBOutlet weak var trajetLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var praticienLabel: UILabel!
     var rdv : RendezVous? = nil
     
@@ -19,6 +22,16 @@ class ShowRdvViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let aRdv = self.rdv{
             self.praticienLabel.text = aRdv.nomPraticien
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM ' à' hh'h'mm"
+            let dateString = formatter.string(from: aRdv.dateRDV! as Date)
+            self.dateLabel.text = dateString
+            formatter.dateFormat = "mm 'minutes'"
+            print(aRdv.dureePrepRDV)
+            let prepString = formatter.string(from: aRdv.dureePrepRDV! as Date)
+            self.prepLabel.text = prepString
+            let pathString = formatter.string(from: aRdv.dureeTrajetRDV! as Date)
+            self.trajetLabel.text = pathString
         }
     }
 

@@ -41,6 +41,13 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         }
         let rdv = RendezVous(context: CoreDataManager.context)
         rdv.nomPraticien = praticien
+        rdv.dateRDV = datePicker.date as NSDate?
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm"
+        let prep = formatter.date(from: self.prepTextField.text ?? "")
+        rdv.dureePrepRDV = prep as NSDate?
+        let trajet = formatter.date(from: self.pathTextField.text ?? "")
+        rdv.dureeTrajetRDV = trajet as NSDate?
         self.dismiss(animated: true, completion: nil)
     }
     

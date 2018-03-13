@@ -51,6 +51,10 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = self.rdvsTable.dequeueReusableCell(withIdentifier: "rdvCell", for: indexPath) as! RdvsTableViewCell
         let rdv = self.rdvsFetched.object(at: indexPath)
         cell.praticienLabel.text = rdv.nomPraticien
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM ' à' hh'h'mm"
+        let dateString = formatter.string(from: rdv.dateRDV! as Date)
+        cell.dateLabel.text = dateString
         cell.accessoryType = .detailButton
         return cell
     }
