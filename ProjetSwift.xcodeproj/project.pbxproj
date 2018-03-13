@@ -180,8 +180,7 @@
 				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
 				5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */,
 			);
-			name = Events;
-			path = "../../../Desktop/project-IOS/ProjetSwift/Events";
+			path = Events;
 			sourceTree = "<group>";
 		};
 		D7076CEF20570D2800886EDD /* Activity */ = {
@@ -192,7 +191,8 @@
 				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
 				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
 			);
-			path = Activity;
+			name = Activity;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D7076CF82057164C00886EDD /* Rdvs */ = {

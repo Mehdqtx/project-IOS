@@ -264,7 +264,6 @@
                                         <connections>
                                             <outlet property="dateEventLabel" destination="0cJ-EE-y6q" id="P2z-ED-dLF"/>
                                             <outlet property="eventLabel" destination="0Nq-Ym-kGh" id="EbY-NM-rbT"/>
-                                            <segue destination="9iA-5n-3wX" kind="show" identifier="showEventSegue" id="MGc-k6-VBo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -287,6 +286,7 @@
                     </view>
                     <connections>
                         <outlet property="eventsTable" destination="XKw-dz-2X8" id="5T5-Z3-56K"/>
+                        <segue destination="9iA-5n-3wX" kind="show" identifier="showEventSegue" id="Dxv-hu-d4M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvK-N2-eMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

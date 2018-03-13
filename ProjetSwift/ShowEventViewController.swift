@@ -71,7 +71,10 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier:"eventCell", for: indexPath) as! EventTableViewCell
         let event = self.eventsFetched.object(at: indexPath)
         cell.eventLabel.text = event.typeIncident
-        cell.dateEventLabel.text = String(describing: event.dateIncident)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: event.dateIncident as! Date)
+        cell.dateEventLabel.text = dateString
         cell.accessoryType = .detailButton
         return cell
     }
