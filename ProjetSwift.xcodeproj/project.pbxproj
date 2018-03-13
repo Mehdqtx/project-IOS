@@ -67,12 +67,12 @@
 		32CBE6D8203C66CF005B7A23 /* ProjetSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetSwiftUITests.swift; sourceTree = "<group>"; };
 		32CBE6DE203C66CF005B7A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIncidentViewController.swift; sourceTree = "<group>"; };
+		5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowIncidentViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/ShowIncidentViewController.swift"; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
-		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
-		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEventViewController.swift; sourceTree = "<group>"; };
+		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = "../../../../Documents/project-IOS/ProjetSwift/EventTableViewCell.swift"; sourceTree = "<group>"; };
+		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewEventViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/NewEventViewController.swift"; sourceTree = "<group>"; };
+		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowEventViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/ShowEventViewController.swift"; sourceTree = "<group>"; };
 		D7076CF02057160100886EDD /* ShowRdvsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvsViewController.swift; sourceTree = "<group>"; };
 		D7076CF22057161400886EDD /* ShowRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvViewController.swift; sourceTree = "<group>"; };
 		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
@@ -137,17 +137,14 @@
 			children = (
 				5D51943F204D965C00F05612 /* images */,
 				32CBE6B9203C66CF005B7A23 /* AppDelegate.swift */,
-				5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */,
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
-				5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
 				D7076CF82057164C00886EDD /* Rdvs */,
 				D7076CEF20570D2800886EDD /* Activity */,
-				5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */,
+				9D04E52420582DE50009433F /* Events */,
 				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
 				D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */,
-				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
 				D707E7E92055C65700509D4D /* Class Helpers */,
 				32CBE6C3203C66CF005B7A23 /* Assets.xcassets */,
 				32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */,
@@ -175,6 +172,18 @@
 			path = ProjetSwiftUITests;
 			sourceTree = "<group>";
 		};
+		9D04E52420582DE50009433F /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */,
+				5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */,
+				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
+				5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */,
+			);
+			name = Events;
+			path = "../../../Desktop/project-IOS/ProjetSwift/Events";
+			sourceTree = "<group>";
+		};
 		D7076CEF20570D2800886EDD /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,8 +192,7 @@
 				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
 				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
 			);
-			name = Activity;
-			path = "New Group";
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		D7076CF82057164C00886EDD /* Rdvs */ = {
