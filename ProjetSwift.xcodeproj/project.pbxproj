@@ -15,12 +15,17 @@
 		32CBE6C7203C66CF005B7A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */; };
 		32CBE6D2203C66CF005B7A23 /* ProjetSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6D1203C66CF005B7A23 /* ProjetSwiftTests.swift */; };
 		32CBE6DD203C66CF005B7A23 /* ProjetSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */; };
-		5D3533D32056EB3D00E52C00 /* ShowIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */; };
+		5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */; };
+		5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
 		5D519444204D9E1D00F05612 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D519443204D9E1D00F05612 /* roundButton.swift */; };
 		5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */; };
 		5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */; };
 		5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A536205064C400DF3ACF /* ShowEventViewController.swift */; };
+		5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C5205C919F00DAF1D7 /* ShowOrdosViewController.swift */; };
+		5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */; };
+		5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */; };
+		5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */; };
 		D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF052059C4A400846E17 /* ActivityDAO.swift */; };
 		D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */; };
 		D703BF0A2059C56300846E17 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF092059C56300846E17 /* Activity.swift */; };
@@ -32,7 +37,6 @@
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
 		D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */; };
 		D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */; };
-		D7F027F720409EEC006EB7B4 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */; };
 		D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */; };
 		D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533320507A75002283A7 /* ShowActivityViewController.swift */; };
 		D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533520508137002283A7 /* NewActivityViewController.swift */; };
@@ -70,12 +74,17 @@
 		32CBE6D8203C66CF005B7A23 /* ProjetSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetSwiftUITests.swift; sourceTree = "<group>"; };
 		32CBE6DE203C66CF005B7A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowIncidentViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/ShowIncidentViewController.swift"; sourceTree = "<group>"; };
+		5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
+		5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIncidentViewController.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
-		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = "../../../../Documents/project-IOS/ProjetSwift/EventTableViewCell.swift"; sourceTree = "<group>"; };
-		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewEventViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/NewEventViewController.swift"; sourceTree = "<group>"; };
-		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowEventViewController.swift; path = "../../../../Documents/project-IOS/ProjetSwift/ShowEventViewController.swift"; sourceTree = "<group>"; };
+		5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		5D69A536205064C400DF3ACF /* ShowEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEventViewController.swift; sourceTree = "<group>"; };
+		5D7956C5205C919F00DAF1D7 /* ShowOrdosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrdosViewController.swift; sourceTree = "<group>"; };
+		5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdosTableViewCell.swift; sourceTree = "<group>"; };
+		5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrdoViewController.swift; sourceTree = "<group>"; };
+		5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrdoViewController.swift; sourceTree = "<group>"; };
 		D703BF052059C4A400846E17 /* ActivityDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAO.swift; sourceTree = "<group>"; };
 		D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAOCoreData.swift; sourceTree = "<group>"; };
 		D703BF092059C56300846E17 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -85,12 +94,11 @@
 		D7076CF62057164400886EDD /* RdvsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvsTableViewCell.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
-		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
-		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivitiesViewController.swift; sourceTree = "<group>"; };
-		D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
+		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = ../Activity/ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivitiesViewController.swift; path = ../Activity/ShowActivitiesViewController.swift; sourceTree = "<group>"; };
 		D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
-		D7FA533320507A75002283A7 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityViewController.swift; sourceTree = "<group>"; };
-		D7FA533520508137002283A7 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		D7FA533320507A75002283A7 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivityViewController.swift; path = ../Activity/ShowActivityViewController.swift; sourceTree = "<group>"; };
+		D7FA533520508137002283A7 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewActivityViewController.swift; path = ../Activity/NewActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,12 +153,13 @@
 				32CBE6B9203C66CF005B7A23 /* AppDelegate.swift */,
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
+				5D7956CD205D2D5E00DAF1D7 /* Ordonnances */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
 				D7076CF82057164C00886EDD /* Rdvs */,
 				D7076CEF20570D2800886EDD /* Activity */,
 				9D04E52420582DE50009433F /* Events */,
 				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
-				D7F027F620409EEC006EB7B4 /* EditInfoViewController.swift */,
+				5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */,
 				D707E7E92055C65700509D4D /* Class Helpers */,
 				32CBE6C3203C66CF005B7A23 /* Assets.xcassets */,
 				32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */,
@@ -178,15 +187,26 @@
 			path = ProjetSwiftUITests;
 			sourceTree = "<group>";
 		};
+		5D7956CD205D2D5E00DAF1D7 /* Ordonnances */ = {
+			isa = PBXGroup;
+			children = (
+				5D7956C5205C919F00DAF1D7 /* ShowOrdosViewController.swift */,
+				5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */,
+				5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */,
+				5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */,
+			);
+			path = Ordonnances;
+			sourceTree = "<group>";
+		};
 		9D04E52420582DE50009433F /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				5D3533D22056EB3D00E52C00 /* ShowIncidentViewController.swift */,
+				5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */,
 				5D556D192054189C00C8BAA8 /* EventTableViewCell.swift */,
 				5D69A536205064C400DF3ACF /* ShowEventViewController.swift */,
 				5D556D1B20543E5700C8BAA8 /* NewEventViewController.swift */,
 			);
-			path = Events;
+			name = Events;
 			sourceTree = "<group>";
 		};
 		D7076CEF20570D2800886EDD /* Activity */ = {
@@ -364,12 +384,12 @@
 			files = (
 				D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */,
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
-				D7F027F720409EEC006EB7B4 /* EditInfoViewController.swift in Sources */,
-				5D3533D32056EB3D00E52C00 /* ShowIncidentViewController.swift in Sources */,
+				5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */,
 				32CBE6C2203C66CF005B7A23 /* ProjetSwift.xcdatamodeld in Sources */,
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
+				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
@@ -377,14 +397,18 @@
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
+				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */,
 				D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */,
+				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
 				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
+				5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */,
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				D703BF0A2059C56300846E17 /* Activity.swift in Sources */,
+				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
