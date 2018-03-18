@@ -15,6 +15,7 @@
 		32CBE6C7203C66CF005B7A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */; };
 		32CBE6D2203C66CF005B7A23 /* ProjetSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6D1203C66CF005B7A23 /* ProjetSwiftTests.swift */; };
 		32CBE6DD203C66CF005B7A23 /* ProjetSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */; };
+		5D1A28DD205ED65C008ABC52 /* Medicaments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1A28DC205ED65C008ABC52 /* Medicaments.swift */; };
 		5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */; };
 		5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
@@ -74,6 +75,7 @@
 		32CBE6D8203C66CF005B7A23 /* ProjetSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetSwiftUITests.swift; sourceTree = "<group>"; };
 		32CBE6DE203C66CF005B7A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D1A28DC205ED65C008ABC52 /* Medicaments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicaments.swift; sourceTree = "<group>"; };
 		5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIncidentViewController.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -153,13 +155,13 @@
 				32CBE6B9203C66CF005B7A23 /* AppDelegate.swift */,
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
 				5D519443204D9E1D00F05612 /* roundButton.swift */,
+				5D1A28DC205ED65C008ABC52 /* Medicaments.swift */,
 				5D7956CD205D2D5E00DAF1D7 /* Ordonnances */,
 				32CBE6BD203C66CF005B7A23 /* Main.storyboard */,
 				D7076CF82057164C00886EDD /* Rdvs */,
 				D7076CEF20570D2800886EDD /* Activity */,
 				9D04E52420582DE50009433F /* Events */,
-				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
-				5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */,
+				5D1A28D9205DCA55008ABC52 /* Informations */,
 				D707E7E92055C65700509D4D /* Class Helpers */,
 				32CBE6C3203C66CF005B7A23 /* Assets.xcassets */,
 				32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */,
@@ -185,6 +187,15 @@
 				32CBE6DE203C66CF005B7A23 /* Info.plist */,
 			);
 			path = ProjetSwiftUITests;
+			sourceTree = "<group>";
+		};
+		5D1A28D9205DCA55008ABC52 /* Informations */ = {
+			isa = PBXGroup;
+			children = (
+				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
+				5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */,
+			);
+			path = Informations;
 			sourceTree = "<group>";
 		};
 		5D7956CD205D2D5E00DAF1D7 /* Ordonnances */ = {
@@ -385,6 +396,7 @@
 				D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */,
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
 				5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */,
+				5D1A28DD205ED65C008ABC52 /* Medicaments.swift in Sources */,
 				32CBE6C2203C66CF005B7A23 /* ProjetSwift.xcdatamodeld in Sources */,
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
