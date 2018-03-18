@@ -53,8 +53,8 @@
         <attribute name="idMedicament" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="libMedicament" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nomMedicament" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="composer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dose" inverseName="composer" inverseEntity="Dose" syncable="YES"/>
-        <relationship name="utiliser" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="utiliser" inverseEntity="Ordonnance" syncable="YES"/>
+        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dose" inverseName="composer" inverseEntity="Dose" syncable="YES"/>
+        <relationship name="utiliser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="utiliser" inverseEntity="Ordonnance" syncable="YES"/>
     </entity>
     <entity name="Ordonnance" representedClassName="Ordonnance" syncable="YES" codeGenerationType="class">
         <attribute name="dateDebutOrdo" optional="YES" attributeType="String" syncable="YES"/>
@@ -129,7 +129,7 @@
         <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>
         <element name="Incident" positionX="-6626" positionY="-2356" width="128" height="105"/>
         <element name="Information" positionX="-7326" positionY="-2752" width="128" height="88"/>
-        <element name="Medicament" positionX="-7094" positionY="-2608" width="128" height="118"/>
+        <element name="Medicament" positionX="-7094" positionY="-2608" width="128" height="120"/>
         <element name="Ordonnance" positionX="-6894" positionY="-2646" width="128" height="165"/>
         <element name="Patient" positionX="-6788" positionY="-2448" width="128" height="178"/>
         <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="118"/>

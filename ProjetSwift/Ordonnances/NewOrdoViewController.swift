@@ -22,7 +22,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var pickedDose : String? = nil
    
     var medicaments = [Medicaments]()
-    
+    let dateDebutPicker = UIDatePicker()
+    let dateFinPicker = UIDatePicker()
 
 
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         // Do any additional setup after loading the view.
         
         initMedicamentSeed()
+        createDatePicker()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,7 +56,15 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
             return
         }
         let ordonnance = Ordonnance(context: CoreDataManager.context)
-        //let medicament = Medicament(context: CoreDataManager.context)
+        let medicament = Medicament(context: CoreDataManager.context)
+        let doseI = Dose(context: CoreDataManager.context)
+        
+        medicament.nomMedicament = nomMedicament
+        ordonnance.utiliser = medicament
+        
+        doseI.libDose = dose
+        ordonnance.utiliser?.composer = doseI
+        
         ordonnance.dateDebutOrdo = debutT
         ordonnance.dateFinOrdo = finT
         ordonnance.frequenceHebdo = frequence
@@ -137,6 +147,43 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         medicaments.append(Medicaments(medicamentNom : "EXELON (PATCH)", doses: ["4.6","9.5"]))
     }
     
+    // MARK: - Date Picker View management
+    func createDatePicker() {
+        
+        //format
+        dateDebutPicker.datePickerMode = .date
+        dateDebutPicker.locale = Locale(identifier:"fr_FR")
+        dateFinPicker.datePickerMode = .date
+        dateFinPicker.locale = Locale(identifier:"fr_FR")
+        
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: false)
+        
+        dateDebutLabel.inputAccessoryView = toolbar
+        dateFinLabel.inputAccessoryView = toolbar
+        
+        //assigning date picker to text field
+        dateDebutLabel.inputView = dateDebutPicker
+        dateFinLabel.inputView = dateFinPicker
+        
+    }
+    
+    func donePressed() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        
+        dateDebutLabel.text = dateFormatter.string(from: dateDebutPicker.date)
+        dateFinLabel.text = dateFormatter.string(from: dateFinPicker.date)
+        self.view.endEditing(true)
+    }
 
 
 }

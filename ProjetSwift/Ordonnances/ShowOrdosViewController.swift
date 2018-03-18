@@ -49,8 +49,8 @@ class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.ordosTable.dequeueReusableCell(withIdentifier: "ordoCell", for: indexPath) as! OrdosTableViewCell
         let ordonnance = self.ordosFetched.object(at: indexPath)
-        cell.medicamentLabel.text = ordonnance.nomMedicament
-        cell.doseLabel.text = ordonnance.doseMedicament
+        cell.medicamentLabel.text = ordonnance.utiliser?.nomMedicament
+        cell.doseLabel.text = ordonnance.utiliser?.composer?.libDose
         cell.dureeLabel.text = ordonnance.frequenceHebdo
         cell.dateFinLabel.text = "Fin du traitement: le " + ordonnance.dateFinOrdo!
         cell.accessoryType = .detailButton
