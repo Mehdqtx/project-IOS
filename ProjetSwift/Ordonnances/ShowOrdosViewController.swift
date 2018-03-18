@@ -12,7 +12,9 @@ import CoreData
 class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
     
     @IBOutlet weak var ordosTable: UITableView!
-
+    @IBOutlet var ordoPresenter: OrdoPresenter!
+    
+    
     
     fileprivate lazy var ordosFetched : NSFetchedResultsController<Ordonnance> = {
         let request : NSFetchRequest<Ordonnance> = Ordonnance.fetchRequest()
@@ -49,10 +51,7 @@ class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.ordosTable.dequeueReusableCell(withIdentifier: "ordoCell", for: indexPath) as! OrdosTableViewCell
         let ordonnance = self.ordosFetched.object(at: indexPath)
-        cell.medicamentLabel.text = ordonnance.utiliser?.nomMedicament
-        cell.doseLabel.text = ordonnance.utiliser?.composer?.libDose
-        cell.dureeLabel.text = ordonnance.frequenceHebdo
-        cell.dateFinLabel.text = "Fin du traitement: le " + ordonnance.dateFinOrdo!
+        self.ordoPresenter.configure(theCell: cell, forOrdo: ordonnance)
         cell.accessoryType = .detailButton
         return cell
     }

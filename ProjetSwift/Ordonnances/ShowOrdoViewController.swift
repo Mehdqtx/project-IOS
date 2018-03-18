@@ -24,8 +24,8 @@ class ShowOrdoViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         if let anOrdonnance = self.ordo{
-            self.medicamentLabel.text = anOrdonnance.nomMedicament
-            self.doseLabel.text = anOrdonnance.doseMedicament
+            self.medicamentLabel.text = anOrdonnance.utiliser?.nomMedicament
+            self.doseLabel.text = anOrdonnance.utiliser?.composer?.libDose
             self.frequenceLabel.text = anOrdonnance.frequenceHebdo
             self.dateFinLabel.text = "Fin du traitement: le " + anOrdonnance.dateFinOrdo!
             self.dateDebutLabel.text = "Début du traitement: le " + anOrdonnance.dateDebutOrdo!

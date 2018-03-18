@@ -68,8 +68,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         ordonnance.dateDebutOrdo = debutT
         ordonnance.dateFinOrdo = finT
         ordonnance.frequenceHebdo = frequence
-        ordonnance.nomMedicament = nomMedicament
-        ordonnance.doseMedicament = dose
+        
         self.dismiss(animated: true, completion: nil)
         
     }

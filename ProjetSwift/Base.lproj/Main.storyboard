@@ -162,10 +162,6 @@
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oM9-C8-flV">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="LhY-oe-UNA"/>
-                                    <constraint firstAttribute="height" constant="44" id="fh3-cG-HK6"/>
-                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ja5-5y-jXv"/>
                                     <barButtonItem title="Ajouter une ordonnance" id="RYA-eO-2n3">
@@ -190,10 +186,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ordoPresenter" destination="QcH-8o-bpx" id="4gb-T7-Cj0"/>
                         <outlet property="ordosTable" destination="Ov7-9k-cBM" id="15T-bC-ixR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYb-4l-a1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="QcH-8o-bpx" customClass="OrdoPresenter" customModule="ProjetSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1989.5999999999999" y="74.212893553223395"/>
         </scene>

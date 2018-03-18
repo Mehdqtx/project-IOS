@@ -16,6 +16,7 @@
 		32CBE6D2203C66CF005B7A23 /* ProjetSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6D1203C66CF005B7A23 /* ProjetSwiftTests.swift */; };
 		32CBE6DD203C66CF005B7A23 /* ProjetSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */; };
 		5D1A28DD205ED65C008ABC52 /* Medicaments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1A28DC205ED65C008ABC52 /* Medicaments.swift */; };
+		5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */; };
 		5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */; };
 		5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
@@ -78,6 +79,7 @@
 		32CBE6DC203C66CF005B7A23 /* ProjetSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetSwiftUITests.swift; sourceTree = "<group>"; };
 		32CBE6DE203C66CF005B7A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1A28DC205ED65C008ABC52 /* Medicaments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicaments.swift; sourceTree = "<group>"; };
+		5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdoPresenter.swift; sourceTree = "<group>"; };
 		5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIncidentViewController.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */,
 				5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */,
 				5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */,
+				5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */,
 			);
 			path = Ordonnances;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
+				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
