@@ -11,6 +11,7 @@ import CoreData
 
 class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+    @IBOutlet var rdvPresenter: RdvPresenter!
     @IBOutlet weak var rdvsTable: UITableView!
     
     fileprivate lazy var rdvsFetched : NSFetchedResultsController<RendezVous> = {
@@ -50,11 +51,7 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.rdvsTable.dequeueReusableCell(withIdentifier: "rdvCell", for: indexPath) as! RdvsTableViewCell
         let rdv = self.rdvsFetched.object(at: indexPath)
-        cell.praticienLabel.text = rdv.concerner?.nomPraticien
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM' à' hh' h 'mm a "
-        let dateString = formatter.string(from: rdv.dateRDV! as Date)
-        cell.dateLabel.text = dateString
+        self.rdvPresenter.configure(theCell: cell, forRdv: rdv)
         cell.accessoryType = .detailButton
         return cell
     }

@@ -587,11 +587,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="rdvPresenter" destination="PKE-GI-zUC" id="uFS-Xj-vlQ"/>
                         <outlet property="rdvsTable" destination="5AC-18-vQb" id="T4s-Cg-wUX"/>
                         <segue destination="JIM-RP-6JE" kind="show" identifier="showRdvSegue" id="L2M-Kt-UF7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fk7-1R-gxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="PKE-GI-zUC" customClass="RdvPresenter" customModule="ProjetSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1989.5999999999999" y="806.44677661169419"/>
         </scene>
@@ -696,10 +698,12 @@
                     </view>
                     <connections>
                         <outlet property="activitiesTable" destination="A2Q-fl-vhR" id="dnE-o1-Wkc"/>
+                        <outlet property="activityPresenter" destination="Lao-O2-wRt" id="g6M-B4-dNQ"/>
                         <segue destination="jFs-BU-Q10" kind="show" identifier="showActivitySegue" id="qSa-xq-OEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG9-TD-mBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Lao-O2-wRt" customClass="ActivityPresenter" customModule="ProjetSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-1170.4000000000001" y="1027.736131934033"/>
         </scene>

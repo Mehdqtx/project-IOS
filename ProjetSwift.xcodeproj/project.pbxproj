@@ -38,6 +38,8 @@
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
 		D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */; };
 		D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */; };
+		D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A3A6205F085200078C19 /* RdvPresenter.swift */; };
+		D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */; };
 		D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */; };
 		D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533320507A75002283A7 /* ShowActivityViewController.swift */; };
 		D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA533520508137002283A7 /* NewActivityViewController.swift */; };
@@ -98,6 +100,8 @@
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = ../Activity/ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivitiesViewController.swift; path = ../Activity/ShowActivitiesViewController.swift; sourceTree = "<group>"; };
+		D781A3A6205F085200078C19 /* RdvPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvPresenter.swift; sourceTree = "<group>"; };
+		D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPresenter.swift; sourceTree = "<group>"; };
 		D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
 		D7FA533320507A75002283A7 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivityViewController.swift; path = ../Activity/ShowActivityViewController.swift; sourceTree = "<group>"; };
 		D7FA533520508137002283A7 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewActivityViewController.swift; path = ../Activity/NewActivityViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				D703BF052059C4A400846E17 /* ActivityDAO.swift */,
 				D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */,
 				D703BF092059C56300846E17 /* Activity.swift */,
+				D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */,
 			);
 			name = Activity;
 			path = "New Group";
@@ -242,6 +247,7 @@
 				D7076CF22057161400886EDD /* ShowRdvViewController.swift */,
 				D7076CF42057162600886EDD /* NewRdvViewController.swift */,
 				D7076CF62057164400886EDD /* RdvsTableViewCell.swift */,
+				D781A3A6205F085200078C19 /* RdvPresenter.swift */,
 			);
 			path = Rdvs;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
+				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,
 				D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */,
 				D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */,
 				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
@@ -421,6 +428,7 @@
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				D703BF0A2059C56300846E17 /* Activity.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
+				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

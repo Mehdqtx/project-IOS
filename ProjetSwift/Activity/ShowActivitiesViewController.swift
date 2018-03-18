@@ -12,6 +12,7 @@ import CoreData
 class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     //var activities : [Activite] = []
+    @IBOutlet var activityPresenter: ActivityPresenter!
     
     fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
@@ -21,7 +22,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         return fetchResultController
     }()
     
-    @IBOutlet weak var TableActivities: UITableView!
+    @IBOutlet weak var activitiesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,47 +41,6 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Person data management -
-    /*
-    func saveNewActivity(withFrequency: String, andDuration: String, andName: String){
-        // Get Context
-        guard let context = self.getContext() else {return}
-        // Create object
-        let activity = Activite(context: context)
-        // Update values
-        activity.frequence = withFrequency
-        let durationConvert = Int32(andDuration) ?? 0
-        activity.dureeActivite = durationConvert
-        activity.libActivite = andName
-        // Save context
-        do{
-            try context.save()
-            self.activities.append(activity)
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return
-        }
-    }
-    */
-    
-    /*
-    func delete(activityWithIndex index: Int) -> Bool {
-        guard let context = self.getContext() else {return false}
-        let activity = self.activities[index]
-        context.delete(activity)
-        do{
-            try context.save()
-            self.activities.remove(at: index)
-            return true
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return false
-        }
-    }
-    */
-    
     // MARK: - Table View Data Source Protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,11 +51,9 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.TableActivities.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
+        let cell = self.activitiesTable.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
         let activity = self.activitiesFetched.object(at: indexPath)
-        cell.frequencyLabel.text = activity.frequence! + " fois par semaine"
-        cell.durationLabel.text = String(activity.dureeActivite) + " minutes"
-        cell.activityName.text = activity.libActivite
+        self.activityPresenter.configure(theCell: cell, forActivity: activity)
         cell.accessoryType = .detailButton
         return cell
     }
@@ -132,11 +90,11 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - NSFetchedResultsController Delegate protocol -
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.TableActivities.beginUpdates()
+        self.activitiesTable.beginUpdates()
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.TableActivities.endUpdates()
+        self.activitiesTable.endUpdates()
         CoreDataManager.save()
     }
     
@@ -144,11 +102,11 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         switch type {
         case .delete:
             if let indexPath = indexPath{
-                self.TableActivities.deleteRows(at: [indexPath], with: .automatic)
+                self.activitiesTable.deleteRows(at: [indexPath], with: .automatic)
             }
         case .insert:
             if let newIndexPath = newIndexPath{
-                self.TableActivities.insertRows(at: [newIndexPath], with: .fade)
+                self.activitiesTable.insertRows(at: [newIndexPath], with: .fade)
             }
         default:
             break
@@ -166,21 +124,10 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
                 let showActivityViewController = segue.destination as! ShowActivityViewController
                 let activity = self.activitiesFetched.object(at: indexPath)
                 showActivityViewController.activity = activity
-                self.TableActivities.deselectRow(at: indexPath, animated: true)
+                self.activitiesTable.deselectRow(at: indexPath, animated: true)
             }
         }
     }
-    
-    /*
-    @IBAction func unwindToActivitiesAfterSavingNewActivity(segue: UIStoryboardSegue){
-        let newActivityViewController = segue.source as! NewActivityViewController
-        let frequency = newActivityViewController.frequency.text ?? ""
-        let duration = newActivityViewController.duration.text ?? ""
-        let nomActivite = newActivityViewController.pickedActivity ?? ""
-        self.saveNewActivity(withFrequency: frequency, andDuration: duration, andName: nomActivite)
-        self.TableActivities.reloadData()
-    }
-    */
     
     // MARK - helper methods
     func getContext()-> NSManagedObjectContext?{
