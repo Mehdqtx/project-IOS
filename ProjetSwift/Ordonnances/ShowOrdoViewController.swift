@@ -28,7 +28,7 @@ class ShowOrdoViewController: UIViewController {
             self.doseLabel.text = anOrdonnance.utiliser?.composer?.libDose
             self.frequenceLabel.text = anOrdonnance.frequenceHebdo
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
+            formatter.dateFormat = "dd/MM/yyyy"
             let dateSD = formatter.string(from: anOrdonnance.dateDebutOrdo! as Date)
             let dateSF = formatter.string(from: anOrdonnance.dateFinOrdo! as Date)
             self.dateFinLabel.text = "Fin du traitement: le " + dateSF
