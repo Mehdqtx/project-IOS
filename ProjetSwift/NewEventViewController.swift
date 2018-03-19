@@ -49,7 +49,6 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func saveEvent(_ sender: Any) {
         
-        //let dateIncident : NSDate = DateFormatter().date(from: datePickerText.text!)! as NSDate
         let dateIncident : String = datePickerText.text ?? ""
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"

@@ -64,6 +64,11 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let dateD = formatter.date(from:debutT)
+        let dateF = formatter.date(from:finT)
+        
         let ordonnance = Ordonnance(context: CoreDataManager.context)
         let medicament = Medicament(context: CoreDataManager.context)
         let doseI = Dose(context: CoreDataManager.context)
@@ -74,8 +79,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         doseI.libDose = dose
         ordonnance.utiliser?.composer = doseI
         
-        ordonnance.dateDebutOrdo = debutT
-        ordonnance.dateFinOrdo = finT
+        ordonnance.dateDebutOrdo = dateD as NSDate?
+        ordonnance.dateFinOrdo = dateF as NSDate?
         ordonnance.frequenceHebdo = frequence
         
         self.dismiss(animated: true, completion: nil)
