@@ -13,6 +13,7 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
 
     
     @IBOutlet weak var eventsTable: UITableView!
+    @IBOutlet var eventPresenter: EventPresenter!
     
     
     var events : [Incident] = []
@@ -70,11 +71,7 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.eventsTable.dequeueReusableCell(withIdentifier:"eventCell", for: indexPath) as! EventTableViewCell
         let event = self.eventsFetched.object(at: indexPath)
-        cell.eventLabel.text = event.typeIncident
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateString = formatter.string(from: event.dateIncident! as Date)
-        cell.dateEventLabel.text = dateString
+        self.eventPresenter.configure(theCell: cell, forEvent: event)
         cell.accessoryType = .detailButton
         return cell
     }
