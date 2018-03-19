@@ -17,9 +17,17 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var medicPickerView: UIPickerView!
     @IBOutlet weak var dateDebutLabel: UITextField!
     @IBOutlet weak var dateFinLabel: UITextField!
-    @IBOutlet weak var frequenceLabel: UITextField!
+    
+    @IBOutlet weak var matinSwitch: UISwitch!
+    @IBOutlet weak var midiSwitch: UISwitch!
+    @IBOutlet weak var soirSwitch: UISwitch!
+    
+    
     var pickedMedic : String? = nil
     var pickedDose : String? = nil
+    var pickedMatin : String? = ""
+    var pickedMidi : String? = ""
+    var pickedSoir : String? = ""
    
     var medicaments = [Medicaments]()
     let dateDebutPicker = UIDatePicker()
@@ -32,7 +40,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         // Do any additional setup after loading the view.
         
         initMedicamentSeed()
-        createDatePicker()
+        createDateDebutPicker()
+        //createDateFinPicker()
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,8 +59,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dose : String = pickedDose ?? ""
         let debutT : String = dateDebutLabel.text ?? ""
         let finT : String = dateFinLabel.text ?? ""
-        let frequence : String = frequenceLabel.text ?? ""
-        guard (nomMedicament != "") && (dose != "") && (debutT != "") && (finT != "") && (frequence != "") else {
+        let frequence : String = pickedMatin! + pickedMidi! + pickedSoir!
+        guard (nomMedicament != "") && (dose != "") && ((debutT != "") || (finT != "")) && (frequence != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
@@ -72,6 +81,37 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    //Mark: - Switch management
+    
+    
+    @IBAction func matinChanged(_ sender: UISwitch) {
+        if matinSwitch.isOn {
+            pickedMatin = "[Matin]"
+        }
+        else{
+            pickedMatin = ""
+        }
+    }
+    
+    @IBAction func midiChanged(_ sender: UISwitch) {
+        if midiSwitch.isOn {
+            pickedMidi = "[Midi]"
+        }
+        else{
+            pickedMidi = ""
+        }
+    }
+    
+    @IBAction func soirChanged(_ sender: UISwitch) {
+        if soirSwitch.isOn {
+            pickedSoir = "[Soir]"
+        }
+        else{
+            pickedSoir = ""
+        }
+    }
+    
     
     // MARK: - TextFieldDelegate
     
@@ -147,7 +187,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     // MARK: - Date Picker View management
-    func createDatePicker() {
+    func createDateDebutPicker() {
         
         //format
         dateDebutPicker.datePickerMode = .date
@@ -156,20 +196,23 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         dateFinPicker.locale = Locale(identifier:"fr_FR")
         
         //toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+        let toolbarD = UIToolbar()
+        toolbarD.sizeToFit()
+        let toolbarF = UIToolbar()
+        toolbarF.sizeToFit()
         
         //bar button item
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([doneButton], animated: false)
+        let doneButton1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneButton2 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed2))
+        toolbarF.setItems([doneButton2], animated: false)
+        toolbarD.setItems([doneButton1], animated: false)
         
-        dateDebutLabel.inputAccessoryView = toolbar
-        dateFinLabel.inputAccessoryView = toolbar
+        dateDebutLabel.inputAccessoryView = toolbarD
+        dateFinLabel.inputAccessoryView = toolbarF
         
         //assigning date picker to text field
         dateDebutLabel.inputView = dateDebutPicker
         dateFinLabel.inputView = dateFinPicker
-        
     }
     
     func donePressed() {
@@ -180,6 +223,16 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         dateFormatter.locale = Locale(identifier:"fr_FR")
         
         dateDebutLabel.text = dateFormatter.string(from: dateDebutPicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func donePressed2() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        
         dateFinLabel.text = dateFormatter.string(from: dateFinPicker.date)
         self.view.endEditing(true)
     }
