@@ -1,43 +1,38 @@
 //
-//  ShowActivitiesViewController.swift
+//  ShowASsViewController.swift
 //  ProjetSwift
 //
-//  Created by Maxime Soustelle on 04/03/2018.
+//  Created by Maxime Soustelle on 19/03/2018.
 //  Copyright © 2018 Maxime SOUSTELLE - Mehdi DELVAUX. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-    
-    @IBAction func validateAction(_ sender: Any) {
-        DialogBoxHelper.alert(view: self, withTitle: "Bravo !", andMessage: "Activité validée pour aujourd'hui !")
-    }
-    @IBOutlet var activityPresenter: ActivityPresenter!
-    
-    fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
-        let request : NSFetchRequest<Activite> = Activite.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Activite.libActivite), ascending: true)]
+class ShowASsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+    fileprivate lazy var asFetched : NSFetchedResultsController<Autosurveillance> = {
+        let request : NSFetchRequest<Autosurveillance> = Autosurveillance.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Autosurveillance.dateRDVNeurologue), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController
     }()
+    @IBOutlet weak var asTable: UITableView!
     
-    @IBOutlet weak var activitiesTable: UITableView!
+    @IBOutlet var asPresenter: ASPresenter!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         // Load context
         do{
-            try self.activitiesFetched.performFetch()
+            try self.asFetched.performFetch()
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,16 +41,16 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - Table View Data Source Protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = self.activitiesFetched.sections?[section] else {
+        guard let section = self.asFetched.sections?[section] else {
             fatalError("Nombre de sections erroné")
         }
         return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.activitiesTable.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-        let activity = self.activitiesFetched.object(at: indexPath)
-        self.activityPresenter.configure(theCell: cell, forActivity: activity)
+        let cell = self.asTable.dequeueReusableCell(withIdentifier: "asCell", for: indexPath) as! ASTableViewCell
+        let autosurveillance = self.asFetched.object(at: indexPath)
+        self.asPresenter.configure(theCell: cell, forAS: autosurveillance)
         cell.accessoryType = .detailButton
         return cell
     }
@@ -65,8 +60,8 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        let activity = self.activitiesFetched.object(at: indexPath)
-        CoreDataManager.context.delete(activity)
+        let autosurveillance = self.asFetched.object(at: indexPath)
+        CoreDataManager.context.delete(autosurveillance)
     }
     
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
@@ -80,23 +75,23 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
     }
-    
+
     // MARK: - TableView Delegate protocol -
     var indexPathForShow: IndexPath? = nil
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         self.indexPathForShow = indexPath
-        self.performSegue(withIdentifier: self.segueShowActivity, sender: self)
+        self.performSegue(withIdentifier: self.segueShowAS, sender: self)
     }
     
     // MARK: - NSFetchedResultsController Delegate protocol -
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.activitiesTable.beginUpdates()
+        self.asTable.beginUpdates()
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.activitiesTable.endUpdates()
+        self.asTable.endUpdates()
         CoreDataManager.save()
     }
     
@@ -104,29 +99,29 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         switch type {
         case .delete:
             if let indexPath = indexPath{
-                self.activitiesTable.deleteRows(at: [indexPath], with: .automatic)
+                self.asTable.deleteRows(at: [indexPath], with: .automatic)
             }
         case .insert:
             if let newIndexPath = newIndexPath{
-                self.activitiesTable.insertRows(at: [newIndexPath], with: .fade)
+                self.asTable.insertRows(at: [newIndexPath], with: .fade)
             }
         default:
             break
         }
     }
     // MARK: - Navigation -
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    let segueShowActivity = "showActivitySegue"
+    let segueShowAS = "showAutosurveillanceSegue"
     // Giving actual informations to show it in the text fields
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == self.segueShowActivity{
+        if segue.identifier == self.segueShowAS{
             if let indexPath = self.indexPathForShow{
-                let showActivityViewController = segue.destination as! ShowActivityViewController
-                let activity = self.activitiesFetched.object(at: indexPath)
-                showActivityViewController.activity = activity
-                self.activitiesTable.deselectRow(at: indexPath, animated: true)
+                let showASViewController = segue.destination as! ShowASViewController
+                let autosurveillance = self.asFetched.object(at: indexPath)
+                //showASViewController.autosurveillance = autosurveillance
+                self.asTable.deselectRow(at: indexPath, animated: true)
             }
         }
     }
@@ -139,7 +134,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
-
+    
     func alert(error: NSError){
         self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
     }

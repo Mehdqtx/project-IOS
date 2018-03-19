@@ -37,6 +37,11 @@
 		D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF62057164400886EDD /* RdvsTableViewCell.swift */; };
 		D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E52055C3D600509D4D /* CoreDataManager.swift */; };
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
+		D71918792060544D00633ECA /* ShowASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71918782060544D00633ECA /* ShowASViewController.swift */; };
+		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
+		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
+		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
+		D71918812060592500633ECA /* ASPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71918802060592500633ECA /* ASPresenter.swift */; };
 		D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */; };
 		D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */; };
 		D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A3A6205F085200078C19 /* RdvPresenter.swift */; };
@@ -100,6 +105,11 @@
 		D7076CF62057164400886EDD /* RdvsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvsTableViewCell.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		D71918782060544D00633ECA /* ShowASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASViewController.swift; sourceTree = "<group>"; };
+		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
+		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
+		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
+		D71918802060592500633ECA /* ASPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPresenter.swift; sourceTree = "<group>"; };
 		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = ../Activity/ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivitiesViewController.swift; path = ../Activity/ShowActivitiesViewController.swift; sourceTree = "<group>"; };
 		D781A3A6205F085200078C19 /* RdvPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvPresenter.swift; sourceTree = "<group>"; };
@@ -173,6 +183,7 @@
 				32CBE6C5203C66CF005B7A23 /* LaunchScreen.storyboard */,
 				32CBE6C8203C66CF005B7A23 /* Info.plist */,
 				32CBE6C0203C66CF005B7A23 /* ProjetSwift.xcdatamodeld */,
+				D7191877206053E800633ECA /* AutoSurveillance */,
 			);
 			path = ProjetSwift;
 			sourceTree = "<group>";
@@ -262,6 +273,18 @@
 				D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */,
 			);
 			path = "Class Helpers";
+			sourceTree = "<group>";
+		};
+		D7191877206053E800633ECA /* AutoSurveillance */ = {
+			isa = PBXGroup;
+			children = (
+				D71918782060544D00633ECA /* ShowASViewController.swift */,
+				D719187A2060552200633ECA /* ShowASsViewController.swift */,
+				D719187C2060570200633ECA /* ASTableViewCell.swift */,
+				D719187E2060572800633ECA /* NewASViewController.swift */,
+				D71918802060592500633ECA /* ASPresenter.swift */,
+			);
+			path = AutoSurveillance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +434,7 @@
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
+				D71918792060544D00633ECA /* ShowASViewController.swift in Sources */,
 				D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
@@ -421,15 +445,19 @@
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,
+				D719187F2060572800633ECA /* NewASViewController.swift in Sources */,
+				D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */,
 				D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */,
 				D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */,
 				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
+				D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */,
 				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
 				5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */,
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
+				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
 				D703BF0A2059C56300846E17 /* Activity.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,
