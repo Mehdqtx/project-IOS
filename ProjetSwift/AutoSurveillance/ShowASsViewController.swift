@@ -118,9 +118,9 @@ class ShowASsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.segueShowAS{
             if let indexPath = self.indexPathForShow{
-                //let showASViewController = segue.destination as! ShowASViewController
+                let showASViewController = segue.destination as! ShowASViewController
                 let autosurveillance = self.asFetched.object(at: indexPath)
-                //showASViewController.autosurveillance = autosurveillance
+                showASViewController.autosurveillance = autosurveillance
                 self.asTable.deselectRow(at: indexPath, animated: true)
             }
         }

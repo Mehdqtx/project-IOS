@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="dateDebutActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateFinActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -20,6 +20,7 @@
         <attribute name="heureRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idAutosurveillance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Etat" inverseName="composer" inverseEntity="Etat" syncable="YES"/>
+        <relationship name="posseder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Praticien" inverseName="posseder" inverseEntity="Praticien" syncable="YES"/>
         <relationship name="preparer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="preparer" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <entity name="Dose" representedClassName="Dose" syncable="YES" codeGenerationType="class">
@@ -80,6 +81,7 @@
         <attribute name="nomPraticien" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prenomPraticien" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="concerner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RendezVous" inverseName="concerner" inverseEntity="RendezVous" syncable="YES"/>
+        <relationship name="posseder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Autosurveillance" inverseName="posseder" inverseEntity="Autosurveillance" syncable="YES"/>
         <relationship name="specialiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specialite" inverseName="specialiser" inverseEntity="Specialite" syncable="YES"/>
     </entity>
     <entity name="PriseReelle" representedClassName="PriseReelle" syncable="YES" codeGenerationType="class">
@@ -121,7 +123,7 @@
     </entity>
     <elements>
         <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="180"/>
-        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="178"/>
+        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="193"/>
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
         <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
         <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>
@@ -130,7 +132,7 @@
         <element name="Medicament" positionX="-7094" positionY="-2608" width="128" height="120"/>
         <element name="Ordonnance" positionX="-6894" positionY="-2646" width="128" height="135"/>
         <element name="Patient" positionX="-6788" positionY="-2448" width="128" height="178"/>
-        <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="118"/>
+        <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="133"/>
         <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="103"/>
         <element name="RendezVous" positionX="-6644" positionY="-2592" width="128" height="165"/>
         <element name="Specialite" positionX="-6822" positionY="-2797" width="128" height="88"/>

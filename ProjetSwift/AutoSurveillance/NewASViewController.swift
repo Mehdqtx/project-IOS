@@ -10,6 +10,7 @@ import UIKit
 
 class NewASViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var praticienTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
@@ -25,7 +26,15 @@ class NewASViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        let praticien : String = self.praticienTextField.text ?? ""
+        guard (praticien != "") else {
+            DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
+            return
+        }
         let autosurveillance = Autosurveillance(context: CoreDataManager.context)
+        let prt = Praticien(context: CoreDataManager.context)
+        prt.nomPraticien = praticien
+        autosurveillance.posseder = prt
         autosurveillance.dateRDVNeurologue = datePicker.date as NSDate?
         self.dismiss(animated: true, completion: nil)
     }
