@@ -37,6 +37,9 @@
 		D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF42057162600886EDD /* NewRdvViewController.swift */; };
 		D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF62057164400886EDD /* RdvsTableViewCell.swift */; };
 		D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7079FE0206118F9000B93A9 /* ShowASViewController.swift */; };
+		D7079FE320611DB4000B93A9 /* StateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7079FE220611DB4000B93A9 /* StateTableViewCell.swift */; };
+		D7079FE52061203A000B93A9 /* NewStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7079FE42061203A000B93A9 /* NewStateViewController.swift */; };
+		D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7079FE620612C45000B93A9 /* StatePresenter.swift */; };
 		D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E52055C3D600509D4D /* CoreDataManager.swift */; };
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
@@ -106,6 +109,9 @@
 		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
 		D7076CF62057164400886EDD /* RdvsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvsTableViewCell.swift; sourceTree = "<group>"; };
 		D7079FE0206118F9000B93A9 /* ShowASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASViewController.swift; sourceTree = "<group>"; };
+		D7079FE220611DB4000B93A9 /* StateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTableViewCell.swift; sourceTree = "<group>"; };
+		D7079FE42061203A000B93A9 /* NewStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStateViewController.swift; sourceTree = "<group>"; };
+		D7079FE620612C45000B93A9 /* StatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePresenter.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +292,9 @@
 				D719187E2060572800633ECA /* NewASViewController.swift */,
 				D71918802060592500633ECA /* ASPresenter.swift */,
 				D7079FE0206118F9000B93A9 /* ShowASViewController.swift */,
+				D7079FE220611DB4000B93A9 /* StateTableViewCell.swift */,
+				D7079FE42061203A000B93A9 /* NewStateViewController.swift */,
+				D7079FE620612C45000B93A9 /* StatePresenter.swift */,
 			);
 			path = AutoSurveillance;
 			sourceTree = "<group>";
@@ -431,6 +440,8 @@
 				D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */,
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
 				5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */,
+				D7079FE320611DB4000B93A9 /* StateTableViewCell.swift in Sources */,
+				D7079FE52061203A000B93A9 /* NewStateViewController.swift in Sources */,
 				5D1A28DD205ED65C008ABC52 /* Medicaments.swift in Sources */,
 				32CBE6C2203C66CF005B7A23 /* ProjetSwift.xcdatamodeld in Sources */,
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
@@ -442,6 +453,7 @@
 				D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
+				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,

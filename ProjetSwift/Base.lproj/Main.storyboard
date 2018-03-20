@@ -1849,7 +1849,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="asCell" rowHeight="61" id="3c5-55-L3g" customClass="ASTableViewCell" customModule="ProjetSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stateCell" rowHeight="61" id="3c5-55-L3g" customClass="StateTableViewCell" customModule="ProjetSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3c5-55-L3g" id="kKO-rI-jSp">
@@ -1869,7 +1869,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="kg4-Zl-0RK" id="QIM-8H-3fQ"/>
+                                            <outlet property="stateLabel" destination="kg4-Zl-0RK" id="Apf-8d-kqz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1886,6 +1886,7 @@
                                     <barButtonItem title="Ajouter Etat" id="RnO-0t-aaN">
                                         <connections>
                                             <action selector="cancelAction:" destination="gBq-Sq-as3" id="F4l-yR-ybP"/>
+                                            <segue destination="hFV-6b-veR" kind="presentation" id="NnQ-E9-x6d"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S1A-ad-qN2"/>
@@ -1900,11 +1901,100 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="T3d-Gb-zsh" id="55Q-Uf-n9f"/>
+                        <outlet property="statePresenter" destination="QqC-MC-YTE" id="e2a-AK-Bpq"/>
+                        <outlet property="stateTable" destination="IGe-yO-GTj" id="7PM-8G-skM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWh-n5-6Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="QqC-MC-YTE" customClass="StatePresenter" customModule="ProjetSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-372" y="1763.568215892054"/>
+        </scene>
+        <!--New State View Controller-->
+        <scene sceneID="2bN-q7-1hW">
+            <objects>
+                <viewController id="hFV-6b-veR" customClass="NewStateViewController" customModule="ProjetSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mFa-k9-tp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3pV-ML-K90"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aT0-P1-1G8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Gt-5H-MJM">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SI9-YC-LO9"/>
+                                    <barButtonItem title="Annuler" id="Gum-Tb-Vpi">
+                                        <connections>
+                                            <action selector="cancelAction:" destination="hFV-6b-veR" id="KYc-sq-CHj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ITd-pF-dDs"/>
+                                    <barButtonItem title="Sauvegarder" id="UZ5-s4-JJb">
+                                        <connections>
+                                            <action selector="saveAction:" destination="hFV-6b-veR" id="LQY-AT-yNx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sXX-oH-BaZ"/>
+                                </items>
+                            </toolbar>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P3c-Jn-2Wu">
+                                <rect key="frame" x="75" y="98" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onAction:" destination="hFV-6b-veR" eventType="valueChanged" id="rwQ-hq-xgn"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0ax-xp-sj7">
+                                <rect key="frame" x="75" y="155" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="offAction:" destination="hFV-6b-veR" eventType="valueChanged" id="NuK-Fm-nRu"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dni-Ap-Puy">
+                                <rect key="frame" x="75" y="219" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="dyskAction:" destination="hFV-6b-veR" eventType="valueChanged" id="VAr-iD-shK"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLH-XN-KrS">
+                                <rect key="frame" x="166" y="103" width="25" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaD-QG-MJJ">
+                                <rect key="frame" x="166" y="160" width="32" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DYSK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0o-bP-Fm3">
+                                <rect key="frame" x="166" y="224" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.56801062820000003" green="0.7396560311" blue="0.87844574450000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <connections>
+                        <outlet property="dyskSwitch" destination="Dni-Ap-Puy" id="QIj-7E-FKc"/>
+                        <outlet property="offSwitch" destination="0ax-xp-sj7" id="2QO-1N-ZQ9"/>
+                        <outlet property="onSwitch" destination="P3c-Jn-2Wu" id="YdV-0T-1wZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOn-BU-9nA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="2484"/>
         </scene>
         <!--NewAS View Controller-->
         <scene sceneID="A9u-mX-c9h">
