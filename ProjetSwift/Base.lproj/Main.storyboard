@@ -1857,15 +1857,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Résultat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-Zl-0RK">
-                                                    <rect key="frame" x="140" y="20" width="63" height="21"/>
+                                                    <rect key="frame" x="15" y="20" width="63" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="yTw-Wf-QV5"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kg4-Zl-0RK" firstAttribute="centerX" secondItem="kKO-rI-jSp" secondAttribute="centerX" id="bTZ-XM-7Mo"/>
-                                                <constraint firstItem="kg4-Zl-0RK" firstAttribute="top" secondItem="kKO-rI-jSp" secondAttribute="top" constant="20" id="fla-cg-HXi"/>
+                                                <constraint firstItem="kg4-Zl-0RK" firstAttribute="top" secondItem="kKO-rI-jSp" secondAttribute="topMargin" constant="9" id="gxU-db-7pM"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kg4-Zl-0RK" secondAttribute="trailingMargin" id="kfE-D2-fim"/>
+                                                <constraint firstItem="kg4-Zl-0RK" firstAttribute="leading" secondItem="kKO-rI-jSp" secondAttribute="leadingMargin" id="scW-kn-Is1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1874,8 +1878,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="sTr-Qa-fhb" id="3Ne-a4-CH4"/>
-                                    <outlet property="delegate" destination="sTr-Qa-fhb" id="J67-gH-DAp"/>
+                                    <outlet property="dataSource" destination="5D6-Oc-hcq" id="2H0-Oe-7Vt"/>
+                                    <outlet property="delegate" destination="5D6-Oc-hcq" id="Ibn-gg-W7H"/>
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AtE-Ah-G8q">

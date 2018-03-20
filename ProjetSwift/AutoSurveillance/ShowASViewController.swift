@@ -61,7 +61,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
         let cell = self.stateTable.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath) as! StateTableViewCell
         let state = self.stateFetched.object(at: indexPath)
         self.statePresenter.configure(theCell: cell, forState: state)
-        cell.accessoryType = .detailButton
         return cell
     }
     
@@ -88,11 +87,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
     
     // MARK: - TableView Delegate protocol -
     var indexPathForShow: IndexPath? = nil
-    
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        self.indexPathForShow = indexPath
-        self.performSegue(withIdentifier: self.segueShowState, sender: self)
-    }
     
     // MARK: - NSFetchedResultsController Delegate protocol -
     

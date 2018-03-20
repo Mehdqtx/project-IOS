@@ -55,6 +55,7 @@ class NewStateViewController: UIViewController {
         let typeEtat = TypeEtat(context: CoreDataManager.context)
         typeEtat.nomTypeEtat = switchSelected
         etat.caracteriser = typeEtat
+        etat.dateEtat = Date() as NSDate
         self.dismiss(animated: true, completion: nil)
     }
     
