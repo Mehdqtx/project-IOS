@@ -17,6 +17,11 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var medicPickerView: UIPickerView!
     @IBOutlet weak var dateDebutLabel: UITextField!
     @IBOutlet weak var dateFinLabel: UITextField!
+    @IBOutlet weak var heureMatinLabel: UITextField!
+    @IBOutlet weak var heureMidiLabel: UITextField!
+    @IBOutlet weak var heureSoirLabel: UITextField!
+
+   
     
     @IBOutlet weak var matinSwitch: UISwitch!
     @IBOutlet weak var midiSwitch: UISwitch!
@@ -32,7 +37,9 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var medicaments = [Medicaments]()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
-
+    let heureMatinPicker = UIDatePicker()
+    let heureMidiPicker = UIDatePicker()
+    let heureSoirPicker = UIDatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +47,10 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         // Do any additional setup after loading the view.
         
         initMedicamentSeed()
-        createDateDebutPicker()
-        //createDateFinPicker()
+        createDatePicker()
+        heureMatinLabel.isHidden = true
+        heureMidiLabel.isHidden = true
+        heureSoirLabel.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +69,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let debutT : String = dateDebutLabel.text ?? ""
         let finT : String = dateFinLabel.text ?? ""
         let frequence : String = pickedMatin! + pickedMidi! + pickedSoir!
+
         guard (nomMedicament != "") && (dose != "") && ((debutT != "") || (finT != "")) && (frequence != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
@@ -79,6 +89,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         doseI.libDose = dose
         ordonnance.utiliser?.composer = doseI
         
+
         ordonnance.dateDebutOrdo = dateD as NSDate?
         ordonnance.dateFinOrdo = dateF as NSDate?
         ordonnance.frequenceHebdo = frequence
@@ -93,27 +104,36 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBAction func matinChanged(_ sender: UISwitch) {
         if matinSwitch.isOn {
             pickedMatin = "[Matin]"
+            heureMatinLabel.isHidden = false
         }
         else{
             pickedMatin = ""
+            heureMatinLabel.isHidden = true
+            heureMatinLabel.text = ""
         }
     }
     
     @IBAction func midiChanged(_ sender: UISwitch) {
         if midiSwitch.isOn {
             pickedMidi = "[Midi]"
+            heureMidiLabel.isHidden = false
         }
         else{
             pickedMidi = ""
+            heureMidiLabel.isHidden = true
+            heureMidiLabel.text = ""
         }
     }
     
     @IBAction func soirChanged(_ sender: UISwitch) {
         if soirSwitch.isOn {
             pickedSoir = "[Soir]"
+            heureSoirLabel.isHidden = false
         }
         else{
             pickedSoir = ""
+            heureSoirLabel.isHidden = true
+            heureSoirLabel.text = ""
         }
     }
     
@@ -192,39 +212,65 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     // MARK: - Date Picker View management
-    func createDateDebutPicker() {
+    func createDatePicker() {
         
         //format
         dateDebutPicker.datePickerMode = .date
         dateDebutPicker.locale = Locale(identifier:"fr_FR")
         dateFinPicker.datePickerMode = .date
         dateFinPicker.locale = Locale(identifier:"fr_FR")
+        heureMatinPicker.datePickerMode = .time
+        heureMatinPicker.locale = Locale(identifier:"fr_FR")
+        heureMidiPicker.datePickerMode = .time
+        heureMidiPicker.locale = Locale(identifier:"fr_FR")
+        heureSoirPicker.datePickerMode = .time
+        heureSoirPicker.locale = Locale(identifier:"fr_FR")
+        
         
         //toolbar
         let toolbarD = UIToolbar()
         toolbarD.sizeToFit()
         let toolbarF = UIToolbar()
         toolbarF.sizeToFit()
+        let toolbarHeureMatin = UIToolbar()
+        toolbarHeureMatin.sizeToFit()
+        let toolbarHeureMidi = UIToolbar()
+        toolbarHeureMidi.sizeToFit()
+        let toolbarHeureSoir = UIToolbar()
+        toolbarHeureSoir.sizeToFit()
         
         //bar button item
         let doneButton1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         let doneButton2 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed2))
+        let doneButtonHeureMatin = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureMatin))
+        let doneButtonHeureMidi = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureMidi))
+        let doneButtonHeureSoir = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureSoir))
+        
         toolbarF.setItems([doneButton2], animated: false)
         toolbarD.setItems([doneButton1], animated: false)
+        toolbarHeureMatin.setItems([doneButtonHeureMatin], animated: false)
+        toolbarHeureMidi.setItems([doneButtonHeureMidi], animated: false)
+        toolbarHeureSoir.setItems([doneButtonHeureSoir], animated: false)
+        
         
         dateDebutLabel.inputAccessoryView = toolbarD
         dateFinLabel.inputAccessoryView = toolbarF
+        heureMatinLabel.inputAccessoryView = toolbarHeureMatin
+        heureMidiLabel.inputAccessoryView = toolbarHeureMidi
+        heureSoirLabel.inputAccessoryView = toolbarHeureSoir
         
         //assigning date picker to text field
         dateDebutLabel.inputView = dateDebutPicker
         dateFinLabel.inputView = dateFinPicker
+        heureMatinLabel.inputView = heureMatinPicker
+        heureMidiLabel.inputView = heureMidiPicker
+        heureSoirLabel.inputView = heureSoirPicker
     }
     
     func donePressed() {
         //format
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier:"fr_FR")
         
         dateDebutLabel.text = dateFormatter.string(from: dateDebutPicker.date)
@@ -237,10 +283,46 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier:"fr_FR")
-        
         dateFinLabel.text = dateFormatter.string(from: dateFinPicker.date)
         self.view.endEditing(true)
     }
+    
+    func donePressedHeureMatin() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        
+        heureMatinLabel.text = dateFormatter.string(from: heureMatinPicker.date)
+        self.view.endEditing(true)
+    }
+    func donePressedHeureMidi() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .full
+        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        
+        heureMidiLabel.text = dateFormatter.string(from: heureMidiPicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func donePressedHeureSoir() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateFormat = "hh.mm"
+        
+        
+        heureSoirLabel.text = dateFormatter.string(from: heureSoirPicker.date)
+        self.view.endEditing(true)
+    }
+
 
 
 }
