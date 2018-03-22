@@ -13,6 +13,8 @@ class NewStateViewController: UIViewController {
     @IBOutlet weak var onSwitch: UISwitch!
     @IBOutlet weak var offSwitch: UISwitch!
     @IBOutlet weak var dyskSwitch: UISwitch!
+    var autosurveillance : Autosurveillance? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +57,8 @@ class NewStateViewController: UIViewController {
         let typeEtat = TypeEtat(context: CoreDataManager.context)
         typeEtat.nomTypeEtat = switchSelected
         etat.caracteriser = typeEtat
+        etat.composer = self.autosurveillance
+        print(etat.composer?.dateRDVNeurologue)
         etat.dateEtat = Date() as NSDate
         self.dismiss(animated: true, completion: nil)
     }

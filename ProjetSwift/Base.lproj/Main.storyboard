@@ -1890,7 +1890,7 @@
                                     <barButtonItem title="Ajouter Etat" id="RnO-0t-aaN">
                                         <connections>
                                             <action selector="cancelAction:" destination="gBq-Sq-as3" id="F4l-yR-ybP"/>
-                                            <segue destination="hFV-6b-veR" kind="presentation" id="NnQ-E9-x6d"/>
+                                            <segue destination="hFV-6b-veR" kind="presentation" identifier="newStateSegue" id="NnQ-E9-x6d"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S1A-ad-qN2"/>
