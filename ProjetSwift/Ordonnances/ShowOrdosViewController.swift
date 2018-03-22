@@ -18,7 +18,7 @@ class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableV
     
     fileprivate lazy var ordosFetched : NSFetchedResultsController<Ordonnance> = {
         let request : NSFetchRequest<Ordonnance> = Ordonnance.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Ordonnance.dateDebutOrdo), ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Ordonnance.utiliser.nomMedicament), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
         fetchResultController.delegate = self
         return fetchResultController

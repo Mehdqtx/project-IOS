@@ -16,6 +16,8 @@ class ShowOrdoViewController: UIViewController {
     @IBOutlet weak var dateFinLabel: UILabel!
     @IBOutlet weak var doseLabel: UILabel!
     @IBOutlet weak var dateDebutLabel: UILabel!
+    @IBOutlet weak var heureReelLabel: UILabel!
+    @IBOutlet weak var dateReelLabel: UILabel!
     
     var ordo : Ordonnance? = nil
     
@@ -49,5 +51,26 @@ class ShowOrdoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func savePriseReel(_ sender: UIButton) {
+        
+        let date = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy.HH.mm"
+        
+        let prise = PriseReelle(context:CoreDataManager.context)
+        
+        prise.datePriseReelle = date
+        self.ordo?.associer = prise
+        
+        print(prise.datePriseReelle)
+        print(self.ordo?.associer)
+        print(self.ordo?.utiliser?.nomMedicament)
+        let result = formatter.string(from: date as Date)
+        print(result)
+        dateReelLabel.text = result
+    
+    }
+    
     
 }
