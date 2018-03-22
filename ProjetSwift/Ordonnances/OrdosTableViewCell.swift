@@ -12,9 +12,9 @@ class OrdosTableViewCell: UITableViewCell {
 
     @IBOutlet weak var medicamentLabel: UILabel!
     @IBOutlet weak var doseLabel: UILabel!
-    @IBOutlet weak var dureeLabel: UILabel!
     @IBOutlet weak var dateDebutLabel: UILabel!
     @IBOutlet weak var dateFinLabel: UILabel!
+    @IBOutlet weak var heuresLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

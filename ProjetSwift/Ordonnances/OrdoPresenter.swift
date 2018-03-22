@@ -14,6 +14,7 @@ class OrdoPresenter: NSObject {
     fileprivate var dateDebut : String = ""
     fileprivate var dateFin : String = ""
     fileprivate var frequence : String = ""
+    fileprivate var heures : [String] = []
     
     fileprivate var ordonnance : Ordonnance? = nil {
         didSet{
@@ -53,11 +54,11 @@ class OrdoPresenter: NSObject {
                 else {
                     self.dateFin = "Durée indéterminée"
                 }
-                if let freq = ordonnance.frequenceHebdo{
-                    self.frequence = "A prendre tous les " + freq
+                if let heuresO = ordonnance.heuresOrdo{
+                    self.heures = heuresO as! [String]
                 }
-                else {
-                    self.frequence = "N/A"
+                else{
+                    self.heures = ["Aucune heure précisée"]
                 }
             }
             else {
@@ -65,7 +66,7 @@ class OrdoPresenter: NSObject {
                 self.dose = ""
                 self.dateDebut = ""
                 self.dateFin = ""
-                self.frequence = ""
+                self.heures = []
             }
         }
     }
@@ -76,6 +77,8 @@ class OrdoPresenter: NSObject {
         cell.medicamentLabel.text = self.medicament
         cell.doseLabel.text = self.dose
         cell.dateFinLabel.text = self.dateFin
-        cell.dureeLabel.text = self.frequence
+        cell.heuresLabel.text = heures.flatMap({$0}).joined(separator: ", ")
+
+    
     }
 }

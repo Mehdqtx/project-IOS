@@ -12,7 +12,7 @@ class ShowOrdoViewController: UIViewController {
     
     @IBOutlet weak var medicamentLabel: UILabel!
     
-    @IBOutlet weak var frequenceLabel: UILabel!
+
     @IBOutlet weak var dateFinLabel: UILabel!
     @IBOutlet weak var doseLabel: UILabel!
     @IBOutlet weak var dateDebutLabel: UILabel!
@@ -26,12 +26,20 @@ class ShowOrdoViewController: UIViewController {
         if let anOrdonnance = self.ordo{
             self.medicamentLabel.text = anOrdonnance.utiliser?.nomMedicament
             self.doseLabel.text = anOrdonnance.utiliser?.composer?.libDose
-            self.frequenceLabel.text = anOrdonnance.frequenceHebdo
+
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy"
             let dateSD = formatter.string(from: anOrdonnance.dateDebutOrdo! as Date)
-            let dateSF = formatter.string(from: anOrdonnance.dateFinOrdo! as Date)
-            self.dateFinLabel.text = "Fin du traitement: le " + dateSF
+            
+            if anOrdonnance.dateFinOrdo != nil {
+                let dateSF = formatter.string(from: anOrdonnance.dateFinOrdo! as Date)
+                self.dateFinLabel.text = "Fin du traitement: le " + dateSF
+            }
+            else{
+                self.dateFinLabel.text = "Durée indeterminée"
+            }
+            
+            
             self.dateDebutLabel.text = "Début du traitement: le " + dateSD
         }
     

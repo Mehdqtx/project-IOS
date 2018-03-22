@@ -15,32 +15,33 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBOutlet weak var dosePickerView: UIPickerView!
     @IBOutlet weak var medicPickerView: UIPickerView!
+    
     @IBOutlet weak var dateDebutLabel: UITextField!
     @IBOutlet weak var dateFinLabel: UITextField!
     @IBOutlet weak var heureMatinLabel: UITextField!
     @IBOutlet weak var heureMidiLabel: UITextField!
     @IBOutlet weak var heureSoirLabel: UITextField!
-
-   
+    @IBOutlet weak var heureAutreLabel: UITextField!
     
     @IBOutlet weak var matinSwitch: UISwitch!
     @IBOutlet weak var midiSwitch: UISwitch!
     @IBOutlet weak var soirSwitch: UISwitch!
+    @IBOutlet weak var autreSwitch: UISwitch!
     
     
     var pickedMedic : String? = nil
     var pickedDose : String? = nil
-    var pickedMatin : String? = ""
-    var pickedMidi : String? = ""
-    var pickedSoir : String? = ""
+
    
     var medicaments = [Medicaments]()
+    var tabHeures = [String]()
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
     let heureMatinPicker = UIDatePicker()
     let heureMidiPicker = UIDatePicker()
     let heureSoirPicker = UIDatePicker()
-
+    let heureAutrePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +52,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         heureMatinLabel.isHidden = true
         heureMidiLabel.isHidden = true
         heureSoirLabel.isHidden = true
+        heureAutreLabel.isHidden = true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,12 +71,36 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dose : String = pickedDose ?? ""
         let debutT : String = dateDebutLabel.text ?? ""
         let finT : String = dateFinLabel.text ?? ""
-        let frequence : String = pickedMatin! + pickedMidi! + pickedSoir!
-
-        guard (nomMedicament != "") && (dose != "") && ((debutT != "") || (finT != "")) && (frequence != "") else {
+        let heureMatin : String = heureMatinLabel.text ?? ""
+        let heureMidi : String = heureMidiLabel.text ?? ""
+        let heureSoir : String = heureSoirLabel.text ?? ""
+        let heureAutre : String = heureAutreLabel.text ?? ""
+        
+        guard (nomMedicament != "") && (dose != "") && ((debutT != "") || (finT != "")) else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
+
+        guard (heureMatin != "") || (heureMidi != "") || (heureSoir != "") || (heureAutre != "")else{
+            DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner au moins une heure.")
+            return
+        }
+        
+        
+        if(heureMatin != ""){
+            tabHeures.append(heureMatin)
+        }
+        if(heureMidi != ""){
+            tabHeures.append(heureMidi)
+        }
+        if(heureAutre != ""){
+            tabHeures.append(heureSoir)
+        }
+        if(heureSoir != ""){
+            tabHeures.append(heureSoir)
+        }
+        
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         let dateD = formatter.date(from:debutT)
@@ -82,6 +109,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let ordonnance = Ordonnance(context: CoreDataManager.context)
         let medicament = Medicament(context: CoreDataManager.context)
         let doseI = Dose(context: CoreDataManager.context)
+        
         
         medicament.nomMedicament = nomMedicament
         ordonnance.utiliser = medicament
@@ -92,7 +120,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
 
         ordonnance.dateDebutOrdo = dateD as NSDate?
         ordonnance.dateFinOrdo = dateF as NSDate?
-        ordonnance.frequenceHebdo = frequence
+        ordonnance.heuresOrdo = tabHeures as NSObject
         
         self.dismiss(animated: true, completion: nil)
         
@@ -103,11 +131,9 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBAction func matinChanged(_ sender: UISwitch) {
         if matinSwitch.isOn {
-            pickedMatin = "[Matin]"
             heureMatinLabel.isHidden = false
         }
         else{
-            pickedMatin = ""
             heureMatinLabel.isHidden = true
             heureMatinLabel.text = ""
         }
@@ -115,11 +141,9 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBAction func midiChanged(_ sender: UISwitch) {
         if midiSwitch.isOn {
-            pickedMidi = "[Midi]"
             heureMidiLabel.isHidden = false
         }
         else{
-            pickedMidi = ""
             heureMidiLabel.isHidden = true
             heureMidiLabel.text = ""
         }
@@ -127,16 +151,23 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBAction func soirChanged(_ sender: UISwitch) {
         if soirSwitch.isOn {
-            pickedSoir = "[Soir]"
             heureSoirLabel.isHidden = false
         }
         else{
-            pickedSoir = ""
             heureSoirLabel.isHidden = true
             heureSoirLabel.text = ""
         }
     }
     
+    @IBAction func autreChanged(_ sender: UISwitch) {
+        if autreSwitch.isOn {
+            heureAutreLabel.isHidden = false
+        }
+        else{
+            heureAutreLabel.isHidden = true
+            heureAutreLabel.text = ""
+        }
+    }
     
     // MARK: - TextFieldDelegate
     
@@ -225,7 +256,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         heureMidiPicker.locale = Locale(identifier:"fr_FR")
         heureSoirPicker.datePickerMode = .time
         heureSoirPicker.locale = Locale(identifier:"fr_FR")
-        
+        heureAutrePicker.datePickerMode = .time
+        heureAutrePicker.locale = Locale(identifier:"fr_FR")
         
         //toolbar
         let toolbarD = UIToolbar()
@@ -238,6 +270,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         toolbarHeureMidi.sizeToFit()
         let toolbarHeureSoir = UIToolbar()
         toolbarHeureSoir.sizeToFit()
+        let toolbarHeureAutre = UIToolbar()
+        toolbarHeureAutre.sizeToFit()
         
         //bar button item
         let doneButton1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
@@ -245,19 +279,21 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let doneButtonHeureMatin = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureMatin))
         let doneButtonHeureMidi = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureMidi))
         let doneButtonHeureSoir = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureSoir))
+        let doneButtonHeureAutre = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedHeureAutre))
         
         toolbarF.setItems([doneButton2], animated: false)
         toolbarD.setItems([doneButton1], animated: false)
         toolbarHeureMatin.setItems([doneButtonHeureMatin], animated: false)
         toolbarHeureMidi.setItems([doneButtonHeureMidi], animated: false)
         toolbarHeureSoir.setItems([doneButtonHeureSoir], animated: false)
-        
+        toolbarHeureAutre.setItems([doneButtonHeureAutre], animated: false)
         
         dateDebutLabel.inputAccessoryView = toolbarD
         dateFinLabel.inputAccessoryView = toolbarF
         heureMatinLabel.inputAccessoryView = toolbarHeureMatin
         heureMidiLabel.inputAccessoryView = toolbarHeureMidi
         heureSoirLabel.inputAccessoryView = toolbarHeureSoir
+        heureAutreLabel.inputAccessoryView = toolbarHeureAutre
         
         //assigning date picker to text field
         dateDebutLabel.inputView = dateDebutPicker
@@ -265,6 +301,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         heureMatinLabel.inputView = heureMatinPicker
         heureMidiLabel.inputView = heureMidiPicker
         heureSoirLabel.inputView = heureSoirPicker
+        heureAutreLabel.inputView = heureAutrePicker
     }
     
     func donePressed() {
@@ -291,8 +328,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         //format
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
-        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier:"fr_FR")
         
         heureMatinLabel.text = dateFormatter.string(from: heureMatinPicker.date)
@@ -302,8 +338,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         //format
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .full
-        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier:"fr_FR")
         
         heureMidiLabel.text = dateFormatter.string(from: heureMidiPicker.date)
@@ -315,11 +350,21 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.locale = Locale(identifier:"fr_FR")
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.dateFormat = "HH:mm"
         
         
         heureSoirLabel.text = dateFormatter.string(from: heureSoirPicker.date)
+        self.view.endEditing(true)
+    }
+    func donePressedHeureAutre() {
+        //format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.locale = Locale(identifier:"fr_FR")
+        dateFormatter.dateFormat = "HH:mm"
+        
+        
+        heureAutreLabel.text = dateFormatter.string(from: heureAutrePicker.date)
         self.view.endEditing(true)
     }
 
