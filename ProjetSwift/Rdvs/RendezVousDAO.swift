@@ -1,5 +1,5 @@
 //
-//  ActiviteDAO.swift
+//  RendezVousDAO.swift
 //  ProjetSwift
 //
 //  Created by Maxime Soustelle on 23/03/2018.
@@ -9,17 +9,17 @@
 import Foundation
 import CoreData
 
-class ActiviteDAO{
-    static let request : NSFetchRequest<Activite> = Activite.fetchRequest()
+class RendezVousDAO{
+    static let request : NSFetchRequest<RendezVous> = RendezVous.fetchRequest()
     
     static func save(){
         CoreDataManager.save()
     }
-    static func delete(activity: Activite){
-        CoreDataManager.context.delete(activity)
+    static func delete(rdv: RendezVous){
+        CoreDataManager.context.delete(rdv)
     }
     
-    static func fetchAll() -> [Activite]?{
+    static func fetchAll() -> [RendezVous]?{
         self.request.predicate = nil
         do{
             return try CoreDataManager.context.fetch(self.request)
@@ -39,15 +39,16 @@ class ActiviteDAO{
         }
     }
     
-    static private func createActivity() -> Activite{
-        return Activite(context: CoreDataManager.context)
+    static private func createRdv() -> RendezVous{
+        return RendezVous(context: CoreDataManager.context)
     }
     
-    static func createActivity(name: String, duration: Int32, frequency: String) -> Activite{
-        let dao = self.createActivity()
-        dao.libActivite = name
-        dao.dureeActivite = duration
-        dao.frequence = frequency
+    static func createRdv(date: NSDate, prepDuration: NSDate, travelDuration: NSDate, doctorName: String) -> RendezVous{
+        let dao = self.createRdv()
+        dao.dateRDV = date
+        dao.dureeTrajetRDV = travelDuration
+        dao.dureePrepRDV = prepDuration
+        dao.concerner?.nomPraticien = doctorName
         return dao
     }
 }

@@ -18,8 +18,8 @@ class ShowActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let anActivity = self.activity{
-            self.frequency.text = anActivity.frequence
-            self.duration.text = String(anActivity.dureeActivite)
+            self.frequency.text = anActivity.frequence! + " fois par semaine"
+            self.duration.text = String(anActivity.dureeActivite) + " minutes par séance"
             self.activityName.text = anActivity.libActivite
         }
         // Do any additional setup after loading the view.
@@ -29,16 +29,4 @@ class ShowActivityViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

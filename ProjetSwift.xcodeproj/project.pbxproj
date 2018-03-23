@@ -42,6 +42,9 @@
 		D7086D462064E1EE00B0AF18 /* Activite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D452064E1EE00B0AF18 /* Activite.swift */; };
 		D7086D482064E64700B0AF18 /* ActiviteSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D472064E64700B0AF18 /* ActiviteSet.swift */; };
 		D7086D4A2064E8C700B0AF18 /* ActiviteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D492064E8C700B0AF18 /* ActiviteDAO.swift */; };
+		D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4B2064FEAC00B0AF18 /* RendezVous.swift */; };
+		D7086D4E2064FECE00B0AF18 /* RendezVousDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4D2064FECE00B0AF18 /* RendezVousDAO.swift */; };
+		D7086D502064FEE900B0AF18 /* RendezVousSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4F2064FEE900B0AF18 /* RendezVousSet.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
 		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
 		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
@@ -114,6 +117,9 @@
 		D7086D452064E1EE00B0AF18 /* Activite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activite.swift; sourceTree = "<group>"; };
 		D7086D472064E64700B0AF18 /* ActiviteSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteSet.swift; sourceTree = "<group>"; };
 		D7086D492064E8C700B0AF18 /* ActiviteDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteDAO.swift; sourceTree = "<group>"; };
+		D7086D4B2064FEAC00B0AF18 /* RendezVous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVous.swift; sourceTree = "<group>"; };
+		D7086D4D2064FECE00B0AF18 /* RendezVousDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousDAO.swift; sourceTree = "<group>"; };
+		D7086D4F2064FEE900B0AF18 /* RendezVousSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousSet.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
 		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
 		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +277,9 @@
 				D7076CF42057162600886EDD /* NewRdvViewController.swift */,
 				D7076CF62057164400886EDD /* RdvsTableViewCell.swift */,
 				D781A3A6205F085200078C19 /* RdvPresenter.swift */,
+				D7086D4B2064FEAC00B0AF18 /* RendezVous.swift */,
+				D7086D4D2064FECE00B0AF18 /* RendezVousDAO.swift */,
+				D7086D4F2064FEE900B0AF18 /* RendezVousSet.swift */,
 			);
 			path = Rdvs;
 			sourceTree = "<group>";
@@ -448,6 +457,7 @@
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				D7086D4A2064E8C700B0AF18 /* ActiviteDAO.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
+				D7086D4E2064FECE00B0AF18 /* RendezVousDAO.swift in Sources */,
 				D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
@@ -458,6 +468,8 @@
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
+				D7086D502064FEE900B0AF18 /* RendezVousSet.swift in Sources */,
+				D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,

@@ -11,11 +11,11 @@ import CoreData
 
 // MARK: -
 /**
- Activity type
+ Activite type
  
- **name**: Activity -> String
- **duration**: Activity -> String
- **frequency**: Activity -> String
+ **name**: Activite -> String
+ **duration**: Activite -> String
+ **frequency**: Activite -> String
  */
 
 extension Activite{
@@ -40,4 +40,3 @@ extension Activite{
         self.frequence = frequency
     }
 }
-

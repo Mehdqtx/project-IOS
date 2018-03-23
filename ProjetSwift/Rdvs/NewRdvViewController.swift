@@ -28,6 +28,8 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var pathTextField: UITextField!
     @IBOutlet weak var prepTextField: UITextField!
+    
+    var newRendezVous: RendezVous?
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +82,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
+        /*
         let rdv = RendezVous(context: CoreDataManager.context)
         let prt = Praticien(context: CoreDataManager.context)
         prt.nomPraticien = praticien
@@ -91,6 +94,13 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
         rdv.dureePrepRDV = prep as NSDate?
         let trajet = formatter.date(from: path)
         rdv.dureeTrajetRDV = trajet as NSDate?
+        */
+        let dateRDV = datePicker.date as NSDate?
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm"
+        let prep = formatter.date(from: preparation) as NSDate?
+        let trajet = formatter.date(from: path) as NSDate?
+        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep!, travelDuration: trajet!, doctorName: praticien)
         self.dismiss(animated: true, completion: nil)
     }
     
