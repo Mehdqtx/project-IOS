@@ -29,9 +29,6 @@
 		5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */; };
 		5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */; };
 		5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */; };
-		D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF052059C4A400846E17 /* ActivityDAO.swift */; };
-		D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */; };
-		D703BF0A2059C56300846E17 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703BF092059C56300846E17 /* Activity.swift */; };
 		D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF02057160100886EDD /* ShowRdvsViewController.swift */; };
 		D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF22057161400886EDD /* ShowRdvViewController.swift */; };
 		D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF42057162600886EDD /* NewRdvViewController.swift */; };
@@ -42,6 +39,9 @@
 		D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7079FE620612C45000B93A9 /* StatePresenter.swift */; };
 		D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E52055C3D600509D4D /* CoreDataManager.swift */; };
 		D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */; };
+		D7086D462064E1EE00B0AF18 /* Activite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D452064E1EE00B0AF18 /* Activite.swift */; };
+		D7086D482064E64700B0AF18 /* ActiviteSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D472064E64700B0AF18 /* ActiviteSet.swift */; };
+		D7086D4A2064E8C700B0AF18 /* ActiviteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D492064E8C700B0AF18 /* ActiviteDAO.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
 		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
 		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
@@ -101,9 +101,6 @@
 		5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdosTableViewCell.swift; sourceTree = "<group>"; };
 		5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrdoViewController.swift; sourceTree = "<group>"; };
 		5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrdoViewController.swift; sourceTree = "<group>"; };
-		D703BF052059C4A400846E17 /* ActivityDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAO.swift; sourceTree = "<group>"; };
-		D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAOCoreData.swift; sourceTree = "<group>"; };
-		D703BF092059C56300846E17 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D7076CF02057160100886EDD /* ShowRdvsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvsViewController.swift; sourceTree = "<group>"; };
 		D7076CF22057161400886EDD /* ShowRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvViewController.swift; sourceTree = "<group>"; };
 		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +111,9 @@
 		D7079FE620612C45000B93A9 /* StatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePresenter.swift; sourceTree = "<group>"; };
 		D707E7E52055C3D600509D4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		D7086D452064E1EE00B0AF18 /* Activite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activite.swift; sourceTree = "<group>"; };
+		D7086D472064E64700B0AF18 /* ActiviteSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteSet.swift; sourceTree = "<group>"; };
+		D7086D492064E8C700B0AF18 /* ActiviteDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiviteDAO.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
 		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
 		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
@@ -254,10 +254,10 @@
 				D7FA533320507A75002283A7 /* ShowActivityViewController.swift */,
 				D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */,
 				D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */,
-				D703BF052059C4A400846E17 /* ActivityDAO.swift */,
-				D703BF072059C4C800846E17 /* ActivityDAOCoreData.swift */,
-				D703BF092059C56300846E17 /* Activity.swift */,
 				D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */,
+				D7086D452064E1EE00B0AF18 /* Activite.swift */,
+				D7086D472064E64700B0AF18 /* ActiviteSet.swift */,
+				D7086D492064E8C700B0AF18 /* ActiviteDAO.swift */,
 			);
 			name = Activity;
 			path = "New Group";
@@ -446,11 +446,11 @@
 				32CBE6C2203C66CF005B7A23 /* ProjetSwift.xcdatamodeld in Sources */,
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
+				D7086D4A2064E8C700B0AF18 /* ActiviteDAO.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
 				D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
-				D703BF062059C4A400846E17 /* ActivityDAO.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
 				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
@@ -464,7 +464,7 @@
 				D719187F2060572800633ECA /* NewASViewController.swift in Sources */,
 				D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */,
 				D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */,
-				D703BF082059C4C800846E17 /* ActivityDAOCoreData.swift in Sources */,
+				D7086D462064E1EE00B0AF18 /* Activite.swift in Sources */,
 				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
 				D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */,
@@ -474,9 +474,9 @@
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
-				D703BF0A2059C56300846E17 /* Activity.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,
+				D7086D482064E64700B0AF18 /* ActiviteSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
