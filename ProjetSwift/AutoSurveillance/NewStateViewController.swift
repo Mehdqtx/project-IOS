@@ -14,6 +14,7 @@ class NewStateViewController: UIViewController {
     @IBOutlet weak var offSwitch: UISwitch!
     @IBOutlet weak var dyskSwitch: UISwitch!
     var autosurveillance : Autosurveillance? = nil
+    var newEtat: Etat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class NewStateViewController: UIViewController {
         else{
             switchSelected = "DYSK"
         }
+        /*
         let etat = Etat(context: CoreDataManager.context)
         let typeEtat = TypeEtat(context: CoreDataManager.context)
         typeEtat.nomTypeEtat = switchSelected
@@ -60,6 +62,8 @@ class NewStateViewController: UIViewController {
         etat.composer = self.autosurveillance
         print(etat.composer?.dateRDVNeurologue)
         etat.dateEtat = Date() as NSDate
+        */
+        self.newEtat = Etat(date: Date() as NSDate, type: switchSelected)
         self.dismiss(animated: true, completion: nil)
     }
     

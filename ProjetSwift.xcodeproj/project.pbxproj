@@ -50,6 +50,12 @@
 		D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */; };
 		D7086D5420666C6A00B0AF18 /* AutosurveillanceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */; };
 		D7086D5620666C7800B0AF18 /* AutosurveillanceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */; };
+		D7086D582066A9E300B0AF18 /* Praticien.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D572066A9E300B0AF18 /* Praticien.swift */; };
+		D7086D5A2066A9F100B0AF18 /* PraticienDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D592066A9F100B0AF18 /* PraticienDAO.swift */; };
+		D7086D5C2066A9FC00B0AF18 /* PraticienSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5B2066A9FC00B0AF18 /* PraticienSet.swift */; };
+		D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5D2066AE6E00B0AF18 /* Etat.swift */; };
+		D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5F2066AE8000B0AF18 /* EtatSet.swift */; };
+		D7086D622066AE8C00B0AF18 /* EtatDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D612066AE8C00B0AF18 /* EtatDAO.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
 		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
 		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
@@ -130,6 +136,12 @@
 		D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autosurveillance.swift; sourceTree = "<group>"; };
 		D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosurveillanceSet.swift; sourceTree = "<group>"; };
 		D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosurveillanceDAO.swift; sourceTree = "<group>"; };
+		D7086D572066A9E300B0AF18 /* Praticien.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Praticien.swift; sourceTree = "<group>"; };
+		D7086D592066A9F100B0AF18 /* PraticienDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PraticienDAO.swift; sourceTree = "<group>"; };
+		D7086D5B2066A9FC00B0AF18 /* PraticienSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PraticienSet.swift; sourceTree = "<group>"; };
+		D7086D5D2066AE6E00B0AF18 /* Etat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etat.swift; sourceTree = "<group>"; };
+		D7086D5F2066AE8000B0AF18 /* EtatSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtatSet.swift; sourceTree = "<group>"; };
+		D7086D612066AE8C00B0AF18 /* EtatDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtatDAO.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
 		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
 		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +247,9 @@
 			children = (
 				D7F027F82040A18F006EB7B4 /* ShowInfoViewController.swift */,
 				5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */,
+				D7086D572066A9E300B0AF18 /* Praticien.swift */,
+				D7086D592066A9F100B0AF18 /* PraticienDAO.swift */,
+				D7086D5B2066A9FC00B0AF18 /* PraticienSet.swift */,
 			);
 			path = Informations;
 			sourceTree = "<group>";
@@ -319,6 +334,9 @@
 				D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */,
 				D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */,
 				D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */,
+				D7086D5D2066AE6E00B0AF18 /* Etat.swift */,
+				D7086D5F2066AE8000B0AF18 /* EtatSet.swift */,
+				D7086D612066AE8C00B0AF18 /* EtatDAO.swift */,
 			);
 			path = AutoSurveillance;
 			sourceTree = "<group>";
@@ -463,6 +481,7 @@
 			files = (
 				D7076CF72057164400886EDD /* RdvsTableViewCell.swift in Sources */,
 				5D519444204D9E1D00F05612 /* roundButton.swift in Sources */,
+				D7086D5A2066A9F100B0AF18 /* PraticienDAO.swift in Sources */,
 				5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */,
 				D7079FE320611DB4000B93A9 /* StateTableViewCell.swift in Sources */,
 				5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */,
@@ -482,14 +501,17 @@
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
+				D7086D622066AE8C00B0AF18 /* EtatDAO.swift in Sources */,
 				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
+				D7086D582066A9E300B0AF18 /* Praticien.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
 				D7086D502064FEE900B0AF18 /* RendezVousSet.swift in Sources */,
 				D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */,
+				D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,
@@ -500,11 +522,13 @@
 				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
 				D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */,
+				D7086D5C2066A9FC00B0AF18 /* PraticienSet.swift in Sources */,
 				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
 				5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */,
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
+				D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */,
 				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,

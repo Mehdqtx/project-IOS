@@ -15,7 +15,7 @@ import CoreData
 ///
 /// *remove*: `AutosurveillanceSet` x `Autosurveillance` -> `AutosurveillanceSet` -- remove a `Autosurveillance` from the collection
 ///
-/// *getSize*: `AutosurveillanceSet` -> `Int` -- number of `Autosurveillance` in the collection
+/// *count*: `AutosurveillanceSet` -> `Int` -- number of `Autosurveillance` in the collection
 ///
 /// *createIterator*: returns an iterator on collection
 ///

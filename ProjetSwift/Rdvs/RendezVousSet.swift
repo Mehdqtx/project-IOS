@@ -15,7 +15,7 @@ import CoreData
 ///
 /// *remove*: `RendezVousSet` x `RendezVous` -> `RendezVousSet` -- remove a `RendezVous` from the collection
 ///
-/// *getSize*: `RendezVousSet` -> `Int` -- number of `RendezVous` in the collection
+/// *count*: `RendezVousSet` -> `Int` -- number of `RendezVous` in the collection
 ///
 /// *createIterator*: returns an iterator on collection
 ///

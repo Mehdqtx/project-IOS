@@ -13,9 +13,9 @@ import CoreData
 ///
 /// *add*: `ActiviteSet` x `Activite` -> `Activite` -- add a `Activite` to the collection
 ///
-/// *remove*: `ActiviteSet` x `Activite` -> `ActiviteSet` -- remove a `Activite` to the collection
+/// *remove*: `ActiviteSet` x `Activite` -> `ActiviteSet` -- remove a `Activite` from the collection
 ///
-/// *getSize*: `ActiviteSet` -> `Int` -- number of `Activite` in the collection
+/// *count*: `ActiviteSet` -> `Int` -- number of `Activite` in the collection
 ///
 /// *createIterator*: returns an iterator on collection
 ///

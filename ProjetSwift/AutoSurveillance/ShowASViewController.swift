@@ -60,12 +60,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.stateTable.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath) as! StateTableViewCell
         let state = self.stateFetched.object(at: indexPath)
-        do{
-            try self.stateFetched.performFetch()
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
         print(state.caracteriser?.nomTypeEtat)
         self.statePresenter.configure(theCell: cell, forState: state, andDate: self.autosurveillance?.dateRDVNeurologue)
         return cell
