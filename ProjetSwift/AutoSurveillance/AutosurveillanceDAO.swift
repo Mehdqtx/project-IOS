@@ -43,9 +43,11 @@ class AutosurveillanceDAO{
         return Autosurveillance(context: CoreDataManager.context)
     }
     
-    static func createAutosurveillance(date: NSDate, doctorName: String) -> Autosurveillance{
+    static func createAutosurveillance(date: NSDate, doctorName: String, prepDuration: NSDate, travelDuration: NSDate) -> Autosurveillance{
         let dao = self.createAutosurveillance()
         dao.dateRDVNeurologue = date
+        dao.dureeTrajet = travelDuration
+        dao.dureePreparation = prepDuration
         dao.posseder?.nomPraticien = doctorName
         return dao
     }

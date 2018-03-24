@@ -2321,6 +2321,8 @@
                     <connections>
                         <outlet property="datePicker" destination="o45-kC-QgC" id="A13-qE-IYm"/>
                         <outlet property="praticienTextField" destination="Qrm-qD-9vO" id="W6c-nw-c2n"/>
+                        <outlet property="prepTextField" destination="uf4-zX-GBU" id="bBA-ky-GQj"/>
+                        <outlet property="travelTextField" destination="hdv-JJ-5Jq" id="DTe-jI-Enc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlE-mx-kTn" userLabel="First Responder" sceneMemberID="firstResponder"/>

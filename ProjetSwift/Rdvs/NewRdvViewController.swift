@@ -82,19 +82,6 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
-        /*
-        let rdv = RendezVous(context: CoreDataManager.context)
-        let prt = Praticien(context: CoreDataManager.context)
-        prt.nomPraticien = praticien
-        rdv.concerner = prt
-        rdv.dateRDV = datePicker.date as NSDate?
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm"
-        let prep = formatter.date(from: preparation)
-        rdv.dureePrepRDV = prep as NSDate?
-        let trajet = formatter.date(from: path)
-        rdv.dureeTrajetRDV = trajet as NSDate?
-        */
         let dateRDV = datePicker.date as NSDate?
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"

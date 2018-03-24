@@ -15,6 +15,8 @@ import CoreData
  
  **praticien**: Autosurveillance -> Praticien
  **date**: Autosurveillance -> NSDate
+ **prepDuration**: RendezVous -> NSDate
+ **travelDuration**: RendezVous -> NSDate
  */
 
 extension Autosurveillance{
@@ -27,9 +29,19 @@ extension Autosurveillance{
         return self.dateRDVNeurologue!
     }
     
-    convenience init(date: NSDate, doctorName: String){
+    public var prepDuration : NSDate{
+        return self.dureePreparation!
+    }
+    
+    public var travelDuration : NSDate{
+        return self.dureeTrajet!
+    }
+    
+    convenience init(date: NSDate, doctorName: String, prepDuration: NSDate, travelDuration: NSDate){
         self.init(context: CoreDataManager.context)
         self.dateRDVNeurologue = date
+        self.dureeTrajet = travelDuration
+        self.dureePreparation = prepDuration
         let prt = Praticien(context: CoreDataManager.context)
         prt.nomPraticien = doctorName
         self.posseder = prt

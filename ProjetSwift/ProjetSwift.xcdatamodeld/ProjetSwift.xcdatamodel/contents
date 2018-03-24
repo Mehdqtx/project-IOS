@@ -13,8 +13,8 @@
     </entity>
     <entity name="Autosurveillance" representedClassName="Autosurveillance" syncable="YES" codeGenerationType="class">
         <attribute name="dateRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="dureePreparation" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dureeTrajet" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dureePreparation" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dureeTrajet" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureDebutTest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureFinTest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -123,7 +123,7 @@
     </entity>
     <elements>
         <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="180"/>
-        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="193"/>
+        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="195"/>
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
         <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
         <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>

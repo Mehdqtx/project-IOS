@@ -10,6 +10,8 @@ import UIKit
 
 class NewASViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var travelTextField: UITextField!
+    @IBOutlet weak var prepTextField: UITextField!
     @IBOutlet weak var praticienTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     var newAutosurveillance: Autosurveillance?
@@ -28,18 +30,17 @@ class NewASViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveAction(_ sender: Any) {
         let praticien : String = self.praticienTextField.text ?? ""
-        guard (praticien != "") else {
+        let travel : String = self.travelTextField.text ?? ""
+        let preparation : String = self.prepTextField.text ?? ""
+        guard (praticien != "") && (travel != "") && (preparation != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
-        /*
-        let autosurveillance = Autosurveillance(context: CoreDataManager.context)
-        let prt = Praticien(context: CoreDataManager.context)
-        prt.nomPraticien = praticien
-        autosurveillance.posseder = prt
-        autosurveillance.dateRDVNeurologue = datePicker.date as NSDate?
-         */
-        self.newAutosurveillance = Autosurveillance(date: datePicker.date as NSDate, doctorName: praticien)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm"
+        let prep = formatter.date(from: preparation) as NSDate?
+        let trajet = formatter.date(from: travel) as NSDate?
+        self.newAutosurveillance = Autosurveillance(date: datePicker.date as NSDate, doctorName: praticien, prepDuration: prep!, travelDuration: trajet!)
         self.dismiss(animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {
