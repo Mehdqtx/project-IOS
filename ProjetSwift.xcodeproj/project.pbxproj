@@ -31,6 +31,8 @@
 		5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */; };
 		5DC349472066675500C09A94 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC349462066675500C09A94 /* Incident.swift */; };
 		5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC34948206669B700C09A94 /* IncidentDAO.swift */; };
+		5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494A20666EF300C09A94 /* Ordonnance.swift */; };
+		5DC3494D2066747500C09A94 /* OrdonnanceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */; };
 		D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF02057160100886EDD /* ShowRdvsViewController.swift */; };
 		D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF22057161400886EDD /* ShowRdvViewController.swift */; };
 		D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF42057162600886EDD /* NewRdvViewController.swift */; };
@@ -108,6 +110,8 @@
 		5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrdoViewController.swift; sourceTree = "<group>"; };
 		5DC349462066675500C09A94 /* Incident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 		5DC34948206669B700C09A94 /* IncidentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentDAO.swift; sourceTree = "<group>"; };
+		5DC3494A20666EF300C09A94 /* Ordonnance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ordonnance.swift; sourceTree = "<group>"; };
+		5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdonnanceDAO.swift; sourceTree = "<group>"; };
 		D7076CF02057160100886EDD /* ShowRdvsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvsViewController.swift; sourceTree = "<group>"; };
 		D7076CF22057161400886EDD /* ShowRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvViewController.swift; sourceTree = "<group>"; };
 		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				5D7956C5205C919F00DAF1D7 /* ShowOrdosViewController.swift */,
 				5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */,
 				5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */,
+				5DC3494A20666EF300C09A94 /* Ordonnance.swift */,
+				5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */,
 				5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */,
 				5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */,
 			);
@@ -468,6 +474,7 @@
 				D7086D4E2064FECE00B0AF18 /* RendezVousDAO.swift in Sources */,
 				D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
+				5DC3494D2066747500C09A94 /* OrdonnanceDAO.swift in Sources */,
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
@@ -496,6 +503,7 @@
 				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,
+				5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */,
 				D7086D482064E64700B0AF18 /* ActiviteSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

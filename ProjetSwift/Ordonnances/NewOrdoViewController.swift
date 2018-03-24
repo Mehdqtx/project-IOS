@@ -41,6 +41,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     let heureMidiPicker = UIDatePicker()
     let heureSoirPicker = UIDatePicker()
     let heureAutrePicker = UIDatePicker()
+    var newOrdonnance : Ordonnance?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +107,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dateD = formatter.date(from:debutT)
         let dateF = formatter.date(from:finT)
         
-        let ordonnance = Ordonnance(context: CoreDataManager.context)
+      /* let ordonnance = Ordonnance(context: CoreDataManager.context)
         let medicament = Medicament(context: CoreDataManager.context)
         let doseI = Dose(context: CoreDataManager.context)
         
@@ -120,7 +121,9 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
 
         ordonnance.dateDebutOrdo = dateD as NSDate?
         ordonnance.dateFinOrdo = dateF as NSDate?
-        ordonnance.heuresOrdo = tabHeures as NSObject
+        ordonnance.heuresOrdo = tabHeures as NSObject*/
+        
+        self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD! as NSDate, dateFin: dateF! as NSDate, heures: tabHeures)
         
         self.dismiss(animated: true, completion: nil)
         

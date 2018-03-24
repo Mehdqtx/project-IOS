@@ -32,6 +32,7 @@ class ShowOrdoViewController: UIViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy"
             let dateSD = formatter.string(from: anOrdonnance.dateDebutOrdo! as Date)
+            self.dateDebutLabel.text = "Début du traitement: le " + dateSD
             
             if anOrdonnance.dateFinOrdo != nil {
                 let dateSF = formatter.string(from: anOrdonnance.dateFinOrdo! as Date)
@@ -41,8 +42,6 @@ class ShowOrdoViewController: UIViewController {
                 self.dateFinLabel.text = "Durée indeterminée"
             }
             
-            
-            self.dateDebutLabel.text = "Début du traitement: le " + dateSD
         }
     
     }
@@ -52,7 +51,7 @@ class ShowOrdoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func savePriseReel(_ sender: UIButton) {
+   /* @IBAction func savePriseReel(_ sender: UIButton) {
         
         let date = NSDate()
         let formatter = DateFormatter()
@@ -70,7 +69,7 @@ class ShowOrdoViewController: UIViewController {
         print(result)
         dateReelLabel.text = result
     
-    }
+    }*/
     
     
 }
