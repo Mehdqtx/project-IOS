@@ -38,5 +38,4 @@ class StatePresenter: NSObject {
         guard let cell = theCell else{return}
         cell.stateLabel.text = self.libEtat
     }
-    
 }

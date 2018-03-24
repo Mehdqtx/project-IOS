@@ -34,7 +34,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
             DialogBoxHelper.alert(view: self, error: error)
         }
 
-        // Do any additional setup after loading the view.
         if let anAutosurveillance = self.autosurveillance{
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM ' à' hh' h 'mm"
@@ -60,7 +59,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.stateTable.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath) as! StateTableViewCell
         let state = self.stateFetched.object(at: indexPath)
-        print(state.caracteriser?.nomTypeEtat)
         self.statePresenter.configure(theCell: cell, forState: state, andDate: self.autosurveillance?.dateRDVNeurologue)
         return cell
     }
