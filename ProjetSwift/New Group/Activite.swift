@@ -19,7 +19,6 @@ import CoreData
  */
 
 extension Activite{
-    // MARK: -
     
     public var name : String{
         return self.libActivite!

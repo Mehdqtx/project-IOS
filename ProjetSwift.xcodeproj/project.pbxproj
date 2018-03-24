@@ -45,6 +45,9 @@
 		D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4B2064FEAC00B0AF18 /* RendezVous.swift */; };
 		D7086D4E2064FECE00B0AF18 /* RendezVousDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4D2064FECE00B0AF18 /* RendezVousDAO.swift */; };
 		D7086D502064FEE900B0AF18 /* RendezVousSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D4F2064FEE900B0AF18 /* RendezVousSet.swift */; };
+		D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */; };
+		D7086D5420666C6A00B0AF18 /* AutosurveillanceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */; };
+		D7086D5620666C7800B0AF18 /* AutosurveillanceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
 		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
 		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
@@ -120,6 +123,9 @@
 		D7086D4B2064FEAC00B0AF18 /* RendezVous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVous.swift; sourceTree = "<group>"; };
 		D7086D4D2064FECE00B0AF18 /* RendezVousDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousDAO.swift; sourceTree = "<group>"; };
 		D7086D4F2064FEE900B0AF18 /* RendezVousSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezVousSet.swift; sourceTree = "<group>"; };
+		D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autosurveillance.swift; sourceTree = "<group>"; };
+		D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosurveillanceSet.swift; sourceTree = "<group>"; };
+		D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosurveillanceDAO.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
 		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
 		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +310,9 @@
 				D7079FE220611DB4000B93A9 /* StateTableViewCell.swift */,
 				D7079FE42061203A000B93A9 /* NewStateViewController.swift */,
 				D7079FE620612C45000B93A9 /* StatePresenter.swift */,
+				D7086D5120666C5A00B0AF18 /* Autosurveillance.swift */,
+				D7086D5320666C6A00B0AF18 /* AutosurveillanceSet.swift */,
+				D7086D5520666C7800B0AF18 /* AutosurveillanceDAO.swift */,
 			);
 			path = AutoSurveillance;
 			sourceTree = "<group>";
@@ -456,8 +465,10 @@
 				D707E7E62055C3D600509D4D /* CoreDataManager.swift in Sources */,
 				D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */,
 				D7086D4A2064E8C700B0AF18 /* ActiviteDAO.swift in Sources */,
+				D7086D5620666C7800B0AF18 /* AutosurveillanceDAO.swift in Sources */,
 				5D556D1A2054189C00C8BAA8 /* EventTableViewCell.swift in Sources */,
 				D7086D4E2064FECE00B0AF18 /* RendezVousDAO.swift in Sources */,
+				D7086D5420666C6A00B0AF18 /* AutosurveillanceSet.swift in Sources */,
 				D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
@@ -465,6 +476,7 @@
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
 				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
+				D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,

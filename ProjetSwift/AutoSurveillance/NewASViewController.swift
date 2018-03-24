@@ -12,6 +12,7 @@ class NewASViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var praticienTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    var newAutosurveillance: Autosurveillance?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,14 @@ class NewASViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
+        /*
         let autosurveillance = Autosurveillance(context: CoreDataManager.context)
         let prt = Praticien(context: CoreDataManager.context)
         prt.nomPraticien = praticien
         autosurveillance.posseder = prt
         autosurveillance.dateRDVNeurologue = datePicker.date as NSDate?
+         */
+        self.newAutosurveillance = Autosurveillance(date: datePicker.date as NSDate, doctorName: praticien)
         self.dismiss(animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {

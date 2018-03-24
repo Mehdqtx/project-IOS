@@ -13,7 +13,7 @@ import CoreData
 ///
 /// *add*: `RendezVousSet` x `RendezVous` -> `RendezVous` -- add a `RendezVous` to the collection
 ///
-/// *remove*: `RendezVousSet` x `RendezVous` -> `RendezVousSet` -- remove a `RendezVous` to the collection
+/// *remove*: `RendezVousSet` x `RendezVous` -> `RendezVousSet` -- remove a `RendezVous` from the collection
 ///
 /// *getSize*: `RendezVousSet` -> `Int` -- number of `RendezVous` in the collection
 ///

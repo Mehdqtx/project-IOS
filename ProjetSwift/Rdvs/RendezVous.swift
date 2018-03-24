@@ -20,7 +20,6 @@ import CoreData
  */
 
 extension RendezVous{
-    // MARK: -
     
     public var date : NSDate{
         return self.dateRDV!
