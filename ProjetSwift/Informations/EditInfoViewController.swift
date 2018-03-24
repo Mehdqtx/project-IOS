@@ -12,7 +12,6 @@ class EditInfoViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var doctorLastName: UITextField!
     @IBOutlet weak var doctorFirstName: UITextField!
-    @IBOutlet weak var informations: UITextField!
     
     var information : Information? = nil
     
@@ -23,7 +22,6 @@ class EditInfoViewController: UIViewController, UITextFieldDelegate {
         if let anInfo = self.information{
             self.doctorLastName.text = anInfo.nomMedecin
             self.doctorFirstName.text = anInfo.prenomMedecin
-            self.informations.text = anInfo.info
         }
     }
 

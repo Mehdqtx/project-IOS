@@ -9,19 +9,34 @@
 import UIKit
 import CoreData
 
-class ShowInfoViewController: UIViewController{
+class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate{
 
-    //var info : [Information] = []
+    @IBOutlet var praticienPresenter: PraticienPresenter!
     var info : Information? = nil
 
     @IBOutlet weak var nomMedecin: UILabel!
     @IBOutlet weak var prenomMedecin: UILabel!
-    @IBOutlet weak var informations: UILabel!
+    @IBOutlet weak var praticienTable: UITableView!
+    
+    fileprivate lazy var praticiensFetched : NSFetchedResultsController<Praticien> = {
+        let request : NSFetchRequest<Praticien> = Praticien.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Praticien.nomPraticien), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // Get Context
+        do{
+            try self.praticiensFetched.performFetch()
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        /*
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             print("Erreur")
             return
@@ -44,7 +59,7 @@ class ShowInfoViewController: UIViewController{
         // Set the labels
         self.nomMedecin.text = self.info?.nomMedecin
         self.prenomMedecin.text = self.info?.prenomMedecin
-        self.informations.text = self.info?.info
+        */
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +68,7 @@ class ShowInfoViewController: UIViewController{
     }
     
     // MARK: - Saving
-    func saveInfo(withFirstName : String, andLastName : String, andInfo : String){
+    func saveInfo(withFirstName : String, andLastName : String){
         // Get Context
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             print("Erreur")
@@ -65,7 +80,6 @@ class ShowInfoViewController: UIViewController{
         // Update values
         information.nomMedecin = andLastName
         information.prenomMedecin = withFirstName
-        information.info = andInfo
         // Save context
         do{
             try context.save()
@@ -82,11 +96,9 @@ class ShowInfoViewController: UIViewController{
         let editInfoController = segue.source as! EditInfoViewController
         let nomMedecin = editInfoController.doctorLastName.text ?? ""
         let prenomMedecin = editInfoController.doctorFirstName.text ?? ""
-        let info = editInfoController.informations.text ?? ""
-        self.saveInfo(withFirstName: prenomMedecin, andLastName: nomMedecin, andInfo: info)
+        self.saveInfo(withFirstName: prenomMedecin, andLastName: nomMedecin)
         self.nomMedecin.text = self.info?.nomMedecin
         self.prenomMedecin.text = self.info?.prenomMedecin
-        self.informations.text = self.info?.info
     }
     
     let segueEditInfoId = "editInfo"
@@ -98,12 +110,66 @@ class ShowInfoViewController: UIViewController{
         }
     }
     
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Table View Data Source Protocol -
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = self.praticiensFetched.sections?[section] else {
+            fatalError("Nombre de sections erroné")
+        }
+        return section.numberOfObjects
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.praticienTable.dequeueReusableCell(withIdentifier: "praticienCell", for: indexPath) as! PraticienTableViewCell
+        let praticien = self.praticiensFetched.object(at: indexPath)
+        self.praticienPresenter.configure(theCell: cell, forPraticien: praticien)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        let praticien = self.praticiensFetched.object(at: indexPath)
+        CoreDataManager.context.delete(praticien)
+    }
+    
+    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        print("edit")
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
+        delete.backgroundColor = UIColor.red
+        edit.backgroundColor = UIColor.blue
+        return [delete, edit]
+    }
+    
+    // MARK: - NSFetchedResultsController Delegate protocol -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.praticienTable.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.praticienTable.endUpdates()
+        CoreDataManager.save()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath{
+                self.praticienTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.praticienTable.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
+        }
+    }
 }

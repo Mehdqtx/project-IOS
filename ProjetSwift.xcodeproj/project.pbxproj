@@ -58,6 +58,9 @@
 		D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5D2066AE6E00B0AF18 /* Etat.swift */; };
 		D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D5F2066AE8000B0AF18 /* EtatSet.swift */; };
 		D7086D622066AE8C00B0AF18 /* EtatDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D612066AE8C00B0AF18 /* EtatDAO.swift */; };
+		D7086D642066EBD300B0AF18 /* NewPraticienViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D632066EBD300B0AF18 /* NewPraticienViewController.swift */; };
+		D7086D662066ED1C00B0AF18 /* PraticienTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D652066ED1C00B0AF18 /* PraticienTableViewCell.swift */; };
+		D7086D682066EE9F00B0AF18 /* PraticienPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7086D672066EE9F00B0AF18 /* PraticienPresenter.swift */; };
 		D719187B2060552200633ECA /* ShowASsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187A2060552200633ECA /* ShowASsViewController.swift */; };
 		D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187C2060570200633ECA /* ASTableViewCell.swift */; };
 		D719187F2060572800633ECA /* NewASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719187E2060572800633ECA /* NewASViewController.swift */; };
@@ -146,6 +149,9 @@
 		D7086D5D2066AE6E00B0AF18 /* Etat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etat.swift; sourceTree = "<group>"; };
 		D7086D5F2066AE8000B0AF18 /* EtatSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtatSet.swift; sourceTree = "<group>"; };
 		D7086D612066AE8C00B0AF18 /* EtatDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtatDAO.swift; sourceTree = "<group>"; };
+		D7086D632066EBD300B0AF18 /* NewPraticienViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPraticienViewController.swift; sourceTree = "<group>"; };
+		D7086D652066ED1C00B0AF18 /* PraticienTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PraticienTableViewCell.swift; sourceTree = "<group>"; };
+		D7086D672066EE9F00B0AF18 /* PraticienPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PraticienPresenter.swift; sourceTree = "<group>"; };
 		D719187A2060552200633ECA /* ShowASsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowASsViewController.swift; sourceTree = "<group>"; };
 		D719187C2060570200633ECA /* ASTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableViewCell.swift; sourceTree = "<group>"; };
 		D719187E2060572800633ECA /* NewASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewASViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +260,9 @@
 				D7086D572066A9E300B0AF18 /* Praticien.swift */,
 				D7086D592066A9F100B0AF18 /* PraticienDAO.swift */,
 				D7086D5B2066A9FC00B0AF18 /* PraticienSet.swift */,
+				D7086D632066EBD300B0AF18 /* NewPraticienViewController.swift */,
+				D7086D652066ED1C00B0AF18 /* PraticienTableViewCell.swift */,
+				D7086D672066EE9F00B0AF18 /* PraticienPresenter.swift */,
 			);
 			path = Informations;
 			sourceTree = "<group>";
@@ -511,12 +520,14 @@
 				D7086D622066AE8C00B0AF18 /* EtatDAO.swift in Sources */,
 				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
+				D7086D642066EBD300B0AF18 /* NewPraticienViewController.swift in Sources */,
 				D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7086D582066A9E300B0AF18 /* Praticien.swift in Sources */,
 				D7FA533620508137002283A7 /* NewActivityViewController.swift in Sources */,
 				D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */,
 				D7086D502064FEE900B0AF18 /* RendezVousSet.swift in Sources */,
+				D7086D682066EE9F00B0AF18 /* PraticienPresenter.swift in Sources */,
 				D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */,
 				D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
@@ -529,6 +540,7 @@
 				5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */,
 				D7F027F92040A18F006EB7B4 /* ShowInfoViewController.swift in Sources */,
 				D719187D2060570200633ECA /* ASTableViewCell.swift in Sources */,
+				D7086D662066ED1C00B0AF18 /* PraticienTableViewCell.swift in Sources */,
 				D7086D5C2066A9FC00B0AF18 /* PraticienSet.swift in Sources */,
 				D7FA533420507A75002283A7 /* ShowActivityViewController.swift in Sources */,
 				5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */,
