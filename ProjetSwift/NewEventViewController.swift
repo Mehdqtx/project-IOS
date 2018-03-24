@@ -9,7 +9,7 @@
 import UIKit
 class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate {
     
-    var incident : Incident? = nil
+    
     
     
     
@@ -17,10 +17,12 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var datePickerText: UITextField!
     @IBOutlet weak var textboxIncident: UITextField!
     
+    var incident : Incident? = nil
+    var newIncident: Incident?
     var pickerView = UIPickerView()
-    let datePicker = UIDatePicker()
-    
     var typeEvent = ["Somnolence","Chute","Hallucination","Prise de dispersible","Clic / bolus d'Apokinon"]
+    
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +54,14 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let dateIncident : String = datePickerText.text ?? ""
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        let date = formatter.date(from:dateIncident)
+        let dateD = formatter.date(from:dateIncident)
         let typeIncident : String = textboxIncident.text ?? ""
         
-        let event = Incident(context: CoreDataManager.context)
+        /*let event = Incident(context: CoreDataManager.context)
         event.dateIncident = date as NSDate?
-        event.typeIncident = typeIncident
+        event.typeIncident = typeIncident*/
+        
+        self.newIncident = Incident(type: typeIncident, date: dateD! as NSDate)
         self.dismiss(animated: true, completion: nil)
         
     }
