@@ -54,27 +54,7 @@ class NewStateViewController: UIViewController {
         else{
             switchSelected = "DYSK"
         }
-        /*
-        let etat = Etat(context: CoreDataManager.context)
-        let typeEtat = TypeEtat(context: CoreDataManager.context)
-        typeEtat.nomTypeEtat = switchSelected
-        etat.caracteriser = typeEtat
-        etat.composer = self.autosurveillance
-        print(etat.composer?.dateRDVNeurologue)
-        etat.dateEtat = Date() as NSDate
-        */
         self.newEtat = Etat(date: Date() as NSDate, type: switchSelected)
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

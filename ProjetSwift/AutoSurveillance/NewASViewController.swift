@@ -36,11 +36,9 @@ class NewASViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm"
-        let prep = formatter.date(from: preparation) as NSDate?
-        let trajet = formatter.date(from: travel) as NSDate?
-        self.newAutosurveillance = Autosurveillance(date: datePicker.date as NSDate, doctorName: praticien, prepDuration: prep!, travelDuration: trajet!)
+        let prep = DateFormatterHelper.minutesFormatFromString(forDate: preparation)
+        let trajet = DateFormatterHelper.minutesFormatFromString(forDate: travel)
+        self.newAutosurveillance = Autosurveillance(date: datePicker.date as NSDate, doctorName: praticien, prepDuration: prep, travelDuration: trajet)
         self.dismiss(animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {

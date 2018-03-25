@@ -34,16 +34,6 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
-        /*
-        let activity = Activite(context: CoreDataManager.context)
-        //let sport = Sport(context: CoreDataManager.context)
-        activity.frequence = frequence
-        activity.libActivite = nomActivite
-        //sport.nomSport = nomActivite
-        //activity.correspondre = sport
-        let durationConvert = Int32(duree) ?? 0
-        activity.dureeActivite = durationConvert
-        */
         let durationConvert = Int32(duree)!
         self.newActivite = Activite(name: nomActivite, duration: durationConvert, frequency: frequence)
         self.dismiss(animated: true, completion: nil)

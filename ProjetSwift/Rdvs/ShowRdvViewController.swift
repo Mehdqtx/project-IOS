@@ -22,15 +22,9 @@ class ShowRdvViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let aRdv = self.rdv{
             self.praticienLabel.text = aRdv.concerner?.nomPraticien
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM ' à' hh' h 'mm"
-            let dateString = formatter.string(from: aRdv.dateRDV! as Date)
-            self.dateLabel.text = dateString
-            formatter.dateFormat = "mm 'minutes'"
-            let prepString = formatter.string(from: aRdv.dureePrepRDV! as Date)
-            self.prepLabel.text = prepString
-            let pathString = formatter.string(from: aRdv.dureeTrajetRDV! as Date)
-            self.trajetLabel.text = pathString
+            self.dateLabel.text = DateFormatterHelper.classicFormatFromDate(forDate: aRdv.dateRDV!)
+            self.prepLabel.text = DateFormatterHelper.minutesFormatFromDate(forDate: aRdv.dureePrepRDV!) + " minutes"
+            self.trajetLabel.text = DateFormatterHelper.minutesFormatFromDate(forDate: aRdv.dureeTrajetRDV!) + " minutes"
         }
     }
 
@@ -38,16 +32,4 @@ class ShowRdvViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -33,6 +33,7 @@
 		5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC34948206669B700C09A94 /* IncidentDAO.swift */; };
 		5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494A20666EF300C09A94 /* Ordonnance.swift */; };
 		5DC3494D2066747500C09A94 /* OrdonnanceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */; };
+		D706B02D2067A28C00B2B5D9 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D706B02C2067A28C00B2B5D9 /* DateFormatterHelper.swift */; };
 		D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF02057160100886EDD /* ShowRdvsViewController.swift */; };
 		D7076CF32057161400886EDD /* ShowRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF22057161400886EDD /* ShowRdvViewController.swift */; };
 		D7076CF52057162600886EDD /* NewRdvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7076CF42057162600886EDD /* NewRdvViewController.swift */; };
@@ -127,6 +128,7 @@
 		5DC34948206669B700C09A94 /* IncidentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentDAO.swift; sourceTree = "<group>"; };
 		5DC3494A20666EF300C09A94 /* Ordonnance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ordonnance.swift; sourceTree = "<group>"; };
 		5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdonnanceDAO.swift; sourceTree = "<group>"; };
+		D706B02C2067A28C00B2B5D9 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		D7076CF02057160100886EDD /* ShowRdvsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvsViewController.swift; sourceTree = "<group>"; };
 		D7076CF22057161400886EDD /* ShowRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRdvViewController.swift; sourceTree = "<group>"; };
 		D7076CF42057162600886EDD /* NewRdvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRdvViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			children = (
 				D707E7E52055C3D600509D4D /* CoreDataManager.swift */,
 				D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */,
+				D706B02C2067A28C00B2B5D9 /* DateFormatterHelper.swift */,
 			);
 			path = "Class Helpers";
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */,
+				D706B02D2067A28C00B2B5D9 /* DateFormatterHelper.swift in Sources */,
 				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,
 				D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */,

@@ -16,11 +16,7 @@ class StatePresenter: NSObject {
         didSet{
             if let etat = self.etat{
                 if let libEtat = etat.caracteriser?.nomTypeEtat{
-                    //print(self.date)
-                    //print(etat.composer?.dateRDVNeurologue)
-                    //if etat.composer?.dateRDVNeurologue === self.date{
                         self.libEtat = libEtat
-                    //}
                 }
                 else{
                     self.libEtat = "N/A"

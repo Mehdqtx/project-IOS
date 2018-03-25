@@ -83,11 +83,9 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
             return
         }
         let dateRDV = datePicker.date as NSDate?
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm"
-        let prep = formatter.date(from: preparation) as NSDate?
-        let trajet = formatter.date(from: path) as NSDate?
-        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep!, travelDuration: trajet!, doctorName: praticien)
+        let prep = DateFormatterHelper.minutesFormatFromString(forDate: preparation)
+        let trajet = DateFormatterHelper.minutesFormatFromString(forDate: path)
+        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: praticien)
         self.dismiss(animated: true, completion: nil)
     }
     

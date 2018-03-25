@@ -126,19 +126,4 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
             newStateViewController.autosurveillance = autosurveillance
         }
     }
-    
-    
-    // MARK - helper methods
-    
-    func alert(withTitle title: String, andMessage msg: String = ""){
-        let alert = UIAlertController(title: title, message: msg,preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
-    func alert(error: NSError){
-        self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
-    }
-
 }

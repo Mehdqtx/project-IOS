@@ -22,10 +22,7 @@ class SyntheseStatePresenter: NSObject {
                     self.libEtat = "N/A"
                 }
                 if let date = etat.dateEtat{
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd/MM' à' hh' h 'mm a "
-                    let dateString = formatter.string(from: date as Date)
-                    self.date = dateString
+                    self.date = DateFormatterHelper.classicFormatFromDate(forDate: date)
                 }
                 else{
                     self.date = "N/A"

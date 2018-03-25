@@ -16,10 +16,7 @@ class ASPresenter: NSObject {
         didSet{
             if let autosurveillance = self.autosurveillance{
                 if let date = autosurveillance.dateRDVNeurologue{
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd/MM' à' hh' h 'mm"
-                    let dateString = formatter.string(from: date as Date)
-                    self.date = "Date du rdv : " + dateString
+                    self.date = "Date du rdv : " + DateFormatterHelper.classicFormatFromDate(forDate: date)
                 }
                 else{
                     self.date = "N/A"
