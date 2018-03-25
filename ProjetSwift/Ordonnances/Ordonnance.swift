@@ -50,15 +50,36 @@ extension Ordonnance{
         self.dateFinOrdo = dateFin
         self.heuresOrdo = heures as NSObject
         
-
         let medoc = Medicament(context: CoreDataManager.context)
         let doseU = Dose(context: CoreDataManager.context)
+        
         medoc.nomMedicament = medicament
         doseU.libDose = dose
         medoc.composer = doseU
         self.utiliser = medoc
         self.utiliser?.composer = doseU
+        var date = dateDebut
+        
+        //let nbJourPrise = DateFormatterHelper.daysBetweenDates(startDate: dateDebut, endDate: dateFin)
+        let calendar = NSCalendar.current
+        while date.compare(dateFin as Date) != .orderedDescending{
+            print(date)
+            
+            for heure in heures{
+                let prise = PriseReelle(context: CoreDataManager.context)
+                prise.datePrisePrevue = date
+                prise.datePriseReelle = nil
+                prise.heurePrisePrevue = DateFormatterHelper.hoursFormatFromString(forDate: heure)
+                prise.heurePriseReelle = nil
+                print(prise.datePrisePrevue)
+                print(prise.heurePrisePrevue)
+                prise.associer = self
+                
+            }
+            date = calendar.date(byAdding: .day, value: 1, to: date as Date)! as NSDate
+        }
 
     }
+    
 }
 

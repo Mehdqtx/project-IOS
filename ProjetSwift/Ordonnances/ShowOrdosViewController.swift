@@ -126,21 +126,6 @@ class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    // MARK - helper methods
-    func getContext()-> NSManagedObjectContext?{
-        return CoreDataManager.context
-    }
-    
-    func alert(withTitle title: String, andMessage msg: String = ""){
-        let alert = UIAlertController(title: title, message: msg,preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
-    func alert(error: NSError){
-        self.alert(withTitle: "\(error)", andMessage: "\(error.userInfo)")
-    }
-    
+   
 }
 

@@ -29,6 +29,9 @@
 		5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */; };
 		5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */; };
 		5D7956CC205D2D3500DAF1D7 /* ShowOrdoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */; };
+		5D85F7D42067F09B007AB2A8 /* PriseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */; };
+		5D85F7D62067F0BA007AB2A8 /* PrisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */; };
+		5D85F7D820680004007AB2A8 /* Prise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D720680004007AB2A8 /* Prise.swift */; };
 		5DC349472066675500C09A94 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC349462066675500C09A94 /* Incident.swift */; };
 		5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC34948206669B700C09A94 /* IncidentDAO.swift */; };
 		5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494A20666EF300C09A94 /* Ordonnance.swift */; };
@@ -124,6 +127,9 @@
 		5D7956C7205C93D200DAF1D7 /* OrdosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdosTableViewCell.swift; sourceTree = "<group>"; };
 		5D7956C9205D2D0500DAF1D7 /* NewOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrdoViewController.swift; sourceTree = "<group>"; };
 		5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrdoViewController.swift; sourceTree = "<group>"; };
+		5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriseTableViewCell.swift; sourceTree = "<group>"; };
+		5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrisePresenter.swift; sourceTree = "<group>"; };
+		5D85F7D720680004007AB2A8 /* Prise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prise.swift; sourceTree = "<group>"; };
 		5DC349462066675500C09A94 /* Incident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 		5DC34948206669B700C09A94 /* IncidentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentDAO.swift; sourceTree = "<group>"; };
 		5DC3494A20666EF300C09A94 /* Ordonnance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ordonnance.swift; sourceTree = "<group>"; };
@@ -285,6 +291,9 @@
 				5DC3494A20666EF300C09A94 /* Ordonnance.swift */,
 				5DC3494C2066747500C09A94 /* OrdonnanceDAO.swift */,
 				5D7956CB205D2D3500DAF1D7 /* ShowOrdoViewController.swift */,
+				5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */,
+				5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */,
+				5D85F7D720680004007AB2A8 /* Prise.swift */,
 				5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */,
 			);
 			path = Ordonnances;
@@ -553,6 +562,7 @@
 				D7086D4C2064FEAC00B0AF18 /* RendezVous.swift in Sources */,
 				D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
+				5D85F7D820680004007AB2A8 /* Prise.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,
 				D719187F2060572800633ECA /* NewASViewController.swift in Sources */,
@@ -571,6 +581,8 @@
 				D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */,
+				5D85F7D42067F09B007AB2A8 /* PriseTableViewCell.swift in Sources */,
+				5D85F7D62067F0BA007AB2A8 /* PrisePresenter.swift in Sources */,
 				D706B02D2067A28C00B2B5D9 /* DateFormatterHelper.swift in Sources */,
 				D71918812060592500633ECA /* ASPresenter.swift in Sources */,
 				5D7956C6205C919F00DAF1D7 /* ShowOrdosViewController.swift in Sources */,

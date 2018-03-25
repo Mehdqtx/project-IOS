@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
-class ShowOrdoViewController: UIViewController {
+class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+
     
     @IBOutlet weak var medicamentLabel: UILabel!
+    @IBOutlet weak var priseTable: UITableView!
     
-
+    @IBOutlet var prisePresenter: PrisePresenter!
+    
+    
+    
     @IBOutlet weak var dateFinLabel: UILabel!
     @IBOutlet weak var doseLabel: UILabel!
     @IBOutlet weak var dateDebutLabel: UILabel!
@@ -20,9 +26,17 @@ class ShowOrdoViewController: UIViewController {
     @IBOutlet weak var dateReelLabel: UILabel!
     
     var ordo : Ordonnance? = nil
+    var prises:[PriseReelle]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do{
+            prises = try PriseReelle.getAllPrises(ordonnance: self.ordo!)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
         
         // Do any additional setup after loading the view.
         if let anOrdonnance = self.ordo{
@@ -50,26 +64,31 @@ class ShowOrdoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // MARK: - Table view data source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
     
-   /* @IBAction func savePriseReel(_ sender: UIButton) {
-        
-        let date = NSDate()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy.HH.mm"
-        
-        let prise = PriseReelle(context:CoreDataManager.context)
-        
-        prise.datePriseReelle = date
-        self.ordo?.associer = prise
-        
-        print(prise.datePriseReelle)
-        print(self.ordo?.associer)
-        print(self.ordo?.utiliser?.nomMedicament)
-        let result = formatter.string(from: date as Date)
-        print(result)
-        dateReelLabel.text = result
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return (prises?.count)!
+    }
     
-    }*/
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "priseCell", for: indexPath) as! PriseTableViewCell
+        
+        
+        self.prisePresenter.configure(theCell: cell, forPrise: prises?[indexPath.row])
+        
+        return cell
+    }
+    
+    
+    
+    
     
     
 }

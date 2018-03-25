@@ -15,8 +15,8 @@ class OrdonnanceDAO{
     static func save(){
         CoreDataManager.save()
     }
-    static func delete(rdv: Ordonnance){
-        CoreDataManager.context.delete(rdv)
+    static func delete(ordo: Ordonnance){
+        CoreDataManager.context.delete(ordo)
     }
     
     static func fetchAll() -> [Ordonnance]?{
