@@ -45,7 +45,7 @@ class PrisePresenter: NSObject {
                     self.dateReelle = "Pris le:" + dateReel
                 }
                 else{
-                    self.dateReelle = "Pas encore pris"
+                    self.dateReelle = ""
                 }
             }else{
                 self.heureReelle = ""

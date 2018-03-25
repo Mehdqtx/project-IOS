@@ -56,5 +56,17 @@ extension PriseReelle{
         }
     }
     
+    // Valider une prise
+    func editPrise( datePrise: NSDate, heurePrise: NSDate) throws {
+        
+        self.datePriseReelle = datePrise
+        self.heurePriseReelle = heurePrise
+        
+        do{
+            try CoreDataManager.save()
+        }catch let error as NSError{
+            throw error
+        }
+    }
     
 }

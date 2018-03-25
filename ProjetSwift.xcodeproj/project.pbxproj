@@ -32,6 +32,7 @@
 		5D85F7D42067F09B007AB2A8 /* PriseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */; };
 		5D85F7D62067F0BA007AB2A8 /* PrisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */; };
 		5D85F7D820680004007AB2A8 /* Prise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D720680004007AB2A8 /* Prise.swift */; };
+		5D85F7DA20683B36007AB2A8 /* EditPriseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D920683B36007AB2A8 /* EditPriseViewController.swift */; };
 		5DC349472066675500C09A94 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC349462066675500C09A94 /* Incident.swift */; };
 		5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC34948206669B700C09A94 /* IncidentDAO.swift */; };
 		5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494A20666EF300C09A94 /* Ordonnance.swift */; };
@@ -130,6 +131,7 @@
 		5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriseTableViewCell.swift; sourceTree = "<group>"; };
 		5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrisePresenter.swift; sourceTree = "<group>"; };
 		5D85F7D720680004007AB2A8 /* Prise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prise.swift; sourceTree = "<group>"; };
+		5D85F7D920683B36007AB2A8 /* EditPriseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriseViewController.swift; sourceTree = "<group>"; };
 		5DC349462066675500C09A94 /* Incident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 		5DC34948206669B700C09A94 /* IncidentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentDAO.swift; sourceTree = "<group>"; };
 		5DC3494A20666EF300C09A94 /* Ordonnance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ordonnance.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				5D85F7D32067F09A007AB2A8 /* PriseTableViewCell.swift */,
 				5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */,
 				5D85F7D720680004007AB2A8 /* Prise.swift */,
+				5D85F7D920683B36007AB2A8 /* EditPriseViewController.swift */,
 				5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */,
 			);
 			path = Ordonnances;
@@ -580,6 +583,7 @@
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
+				5D85F7DA20683B36007AB2A8 /* EditPriseViewController.swift in Sources */,
 				D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */,
 				5D85F7D42067F09B007AB2A8 /* PriseTableViewCell.swift in Sources */,
 				5D85F7D62067F0BA007AB2A8 /* PrisePresenter.swift in Sources */,

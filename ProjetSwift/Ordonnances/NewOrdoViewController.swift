@@ -109,21 +109,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dateD = formatter.date(from:debutT)
         let dateF = formatter.date(from:finT)
         
-      /* let ordonnance = Ordonnance(context: CoreDataManager.context)
-        let medicament = Medicament(context: CoreDataManager.context)
-        let doseI = Dose(context: CoreDataManager.context)
-        
-        
-        medicament.nomMedicament = nomMedicament
-        ordonnance.utiliser = medicament
-        
-        doseI.libDose = dose
-        ordonnance.utiliser?.composer = doseI
-        
-
-        ordonnance.dateDebutOrdo = dateD as NSDate?
-        ordonnance.dateFinOrdo = dateF as NSDate?
-        ordonnance.heuresOrdo = tabHeures as NSObject*/
+      
         
         self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD! as NSDate, dateFin: dateF! as NSDate, heures: tabHeures)
         

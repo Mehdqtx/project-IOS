@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate{
 
     
     @IBOutlet weak var medicamentLabel: UILabel!
@@ -65,13 +65,9 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     // MARK: - Table view data source
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return (prises?.count)!
     }
     
@@ -80,10 +76,48 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "priseCell", for: indexPath) as! PriseTableViewCell
         self.prisePresenter.configure(theCell: cell, forPrise: prises?[indexPath.row])
-        
+        cell.accessoryType = .detailButton
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // MARK: - TableView Delegate protocol -
+    var indexPathForShow: IndexPath? = nil
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.indexPathForShow = indexPath
+        self.performSegue(withIdentifier: self.segueShowPrise, sender: self)
+    }
+    
+    // MARK: - NSFetchedResultsController Delegate protocol -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.priseTable.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.priseTable.endUpdates()
+        CoreDataManager.save()
+    }
+    
+    // MARK: - Navigation
+    let segueShowPrise = "showPriseSegue"
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.segueShowPrise{
+            if let indexPath = self.indexPathForShow{
+                let editPriseViewController = segue.destination as! EditPriseViewController
+                let prise = self.prises?[indexPath.row]
+                editPriseViewController.prise = prise
+                self.priseTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
+    
+
     
     
     
