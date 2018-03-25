@@ -23,10 +23,7 @@ class EventPresenter: NSObject {
                     self.incident = "N/A"
                 }
                 if let dateI = event.dateIncident{
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd/MM/yyyy"
-                    let dateSI = formatter.string(from: dateI as Date)
-                    self.date = "Survenue le : " + dateSI
+                    self.date = "Survenue le : " + DateFormatterHelper.dateFormatFromDate(forDate: dateI)
                 }
             }
             else{

@@ -19,9 +19,7 @@ class ShowIncidentViewController: UIViewController{
         super.viewDidLoad()
         if let anIncident = self.incident{
             self.typeIncidentLabel.text = anIncident.typeIncident
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            self.dateIncidentLabel.text = formatter.string(from: anIncident.dateIncident! as Date)
+            self.dateIncidentLabel.text = DateFormatterHelper.dateFormatFromDate(forDate: anIncident.dateIncident!)
         }
     }
     

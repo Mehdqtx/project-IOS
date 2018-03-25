@@ -12,6 +12,7 @@ class DateFormatterHelper {
     class func minutesFormatFromString(forDate dateToFormat: String) -> NSDate{
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"
+        formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.date(from: dateToFormat) as NSDate?
         return dateFormatted!
     }
@@ -28,6 +29,7 @@ class DateFormatterHelper {
     class func minutesFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"
+        formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
@@ -35,6 +37,7 @@ class DateFormatterHelper {
     class func hoursFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
@@ -42,14 +45,23 @@ class DateFormatterHelper {
     class func classicFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM' à' hh' h 'mm a "
+        formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
     class func dateFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyy"
+        formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
+    }
+    class func dateFormatFromString(forDate dateToFormat: String) -> NSDate{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyy"
+        formatter.locale = Locale(identifier:"fr_FR")
+        let dateFormatted = formatter.date(from: dateToFormat)
+        return dateFormatted! as NSDate
     }
     
     class func daysBetweenDates(startDate: NSDate, endDate: NSDate)-> Int {

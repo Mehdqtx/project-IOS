@@ -52,16 +52,11 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func saveEvent(_ sender: Any) {
         
         let dateIncident : String = datePickerText.text ?? ""
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let dateD = formatter.date(from:dateIncident)
+
+        let dateD = DateFormatterHelper.dateFormatFromString(forDate: dateIncident)
         let typeIncident : String = textboxIncident.text ?? ""
         
-        /*let event = Incident(context: CoreDataManager.context)
-        event.dateIncident = date as NSDate?
-        event.typeIncident = typeIncident*/
-        
-        self.newIncident = Incident(type: typeIncident, date: dateD! as NSDate)
+        self.newIncident = Incident(type: typeIncident, date: dateD)
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -113,12 +108,7 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func donePressed() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        
-        datePickerText.text = dateFormatter.string(from: datePicker.date)
+        datePickerText.text = DateFormatterHelper.dateFormatFromDate(forDate: datePicker.date as NSDate)
         self.view.endEditing(true)
     }
 }

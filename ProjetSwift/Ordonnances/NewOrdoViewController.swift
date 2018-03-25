@@ -104,14 +104,13 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
         
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let dateD = formatter.date(from:debutT)
-        let dateF = formatter.date(from:finT)
+
+        let dateD = DateFormatterHelper.dateFormatFromString(forDate: debutT)
+        let dateF = DateFormatterHelper.dateFormatFromString(forDate: finT)
         
       
         
-        self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD! as NSDate, dateFin: dateF! as NSDate, heures: tabHeures)
+        self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD as NSDate, dateFin: dateF as NSDate, heures: tabHeures)
         
         self.dismiss(animated: true, completion: nil)
         
@@ -299,65 +298,35 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     func donePressed() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        
-        dateDebutLabel.text = dateFormatter.string(from: dateDebutPicker.date)
+        dateDebutLabel.text = DateFormatterHelper.dateFormatFromDate(forDate: dateDebutPicker.date as NSDate)
         self.view.endEditing(true)
     }
     
     func donePressed2() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        dateFinLabel.text = dateFormatter.string(from: dateFinPicker.date)
+        dateFinLabel.text = DateFormatterHelper.dateFormatFromDate(forDate: dateFinPicker.date as NSDate)
         self.view.endEditing(true)
     }
     
     func donePressedHeureMatin() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        
-        heureMatinLabel.text = dateFormatter.string(from: heureMatinPicker.date)
+        heureMatinLabel.text = DateFormatterHelper.hoursFormatFromDate(forDate: heureMatinPicker.date as NSDate)
         self.view.endEditing(true)
     }
     func donePressedHeureMidi() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        
-        heureMidiLabel.text = dateFormatter.string(from: heureMidiPicker.date)
+        heureMidiLabel.text = DateFormatterHelper.hoursFormatFromDate(forDate: heureMidiPicker.date as NSDate)
         self.view.endEditing(true)
     }
     
     func donePressedHeureSoir() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        dateFormatter.dateFormat = "HH:mm"
-        
-        
-        heureSoirLabel.text = dateFormatter.string(from: heureSoirPicker.date)
+        heureSoirLabel.text = DateFormatterHelper.hoursFormatFromDate(forDate: heureSoirPicker.date as NSDate)
         self.view.endEditing(true)
     }
     func donePressedHeureAutre() {
         //format
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.locale = Locale(identifier:"fr_FR")
-        dateFormatter.dateFormat = "HH:mm"
-        
-        
-        heureAutreLabel.text = dateFormatter.string(from: heureAutrePicker.date)
+        heureAutreLabel.text = DateFormatterHelper.hoursFormatFromDate(forDate: heureAutrePicker.date as NSDate)
         self.view.endEditing(true)
     }
 

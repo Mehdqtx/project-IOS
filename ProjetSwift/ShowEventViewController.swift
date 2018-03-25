@@ -97,29 +97,7 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
         return [delete, edit]
     }
     
-   /* // MARK: - Saving
-    func saveIncident(withdateIncident : NSDate, andtypeIncident : String){
-        // Get Context
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            print("Erreur")
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        // Create object
-        let incident = Incident(context: context)
-        // Update values
-        incident.dateIncident = withdateIncident
-        incident.typeIncident = andtypeIncident
-        // Save context
-        do{
-            try context.save()
-            
-        }
-        catch let error as NSError{
-            print(error)
-            return
-        }
-    }*/
+
     
     // MARK: - TableView Delegate protocol -
     var indexPathForShow: IndexPath? = nil

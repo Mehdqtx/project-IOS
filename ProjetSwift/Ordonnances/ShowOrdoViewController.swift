@@ -30,7 +30,8 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        priseTable.beginUpdates()
+        priseTable.endUpdates()
         do{
             prises = try PriseReelle.getAllPrises(ordonnance: self.ordo!)
         }
@@ -43,14 +44,10 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
             self.medicamentLabel.text = anOrdonnance.utiliser?.nomMedicament
             self.doseLabel.text = anOrdonnance.utiliser?.composer?.libDose
 
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            let dateSD = formatter.string(from: anOrdonnance.dateDebutOrdo! as Date)
-            self.dateDebutLabel.text = "Début du traitement: le " + dateSD
+            self.dateDebutLabel.text = "Début du traitement: le " +  DateFormatterHelper.dateFormatFromDate(forDate: anOrdonnance.dateDebutOrdo!)
             
             if anOrdonnance.dateFinOrdo != nil {
-                let dateSF = formatter.string(from: anOrdonnance.dateFinOrdo! as Date)
-                self.dateFinLabel.text = "Fin du traitement: le " + dateSF
+                self.dateFinLabel.text = "Fin du traitement: le " + DateFormatterHelper.dateFormatFromDate(forDate: anOrdonnance.dateFinOrdo!)
             }
             else{
                 self.dateFinLabel.text = "Durée indeterminée"
