@@ -35,10 +35,7 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
         }
 
         if let anAutosurveillance = self.autosurveillance{
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM ' à' hh' h 'mm"
-            let dateString = formatter.string(from: anAutosurveillance.dateRDVNeurologue! as Date)
-            self.dateLabel.text = dateString
+            self.dateLabel.text = "Rendez-vous du : " + DateFormatterHelper.classicFormatFromDate(forDate: anAutosurveillance.dateRDVNeurologue!)
         }
     }
 
@@ -59,29 +56,12 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.stateTable.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath) as! StateTableViewCell
         let state = self.stateFetched.object(at: indexPath)
-        self.statePresenter.configure(theCell: cell, forState: state, andDate: self.autosurveillance?.dateRDVNeurologue)
+        self.statePresenter.configure(theCell: cell, forState: state)
         return cell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    
-    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        let state = self.stateFetched.object(at: indexPath)
-        CoreDataManager.context.delete(state)
-    }
-    
-    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        print("edit")
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
-        delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
     }
     
     // MARK: - TableView Delegate protocol -

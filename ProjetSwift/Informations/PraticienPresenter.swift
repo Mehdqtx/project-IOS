@@ -22,10 +22,15 @@ class PraticienPresenter: NSObject {
                     self.name = "N/A"
                 }
                 if let phone = praticien.telPraticien{
-                    self.phone = phone
+                    if phone != ""{
+                        self.phone = phone
+                    }
+                    else{
+                        self.phone = "Téléphone non renseigné"
+                    }
                 }
                 else{
-                    self.phone = "Téléphone non renseigné"
+                    self.phone = "N/A"
                 }
             }
             else{

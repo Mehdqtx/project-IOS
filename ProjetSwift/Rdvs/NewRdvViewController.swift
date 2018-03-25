@@ -28,7 +28,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var pathTextField: UITextField!
     @IBOutlet weak var prepTextField: UITextField!
-    
+    @IBOutlet weak var phoneTextField: UITextField!
     var newRendezVous: RendezVous?
  
     override func viewDidLoad() {
@@ -78,6 +78,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
         let praticien : String = self.addTextField.text ?? ""
         let path : String = self.pathTextField.text ?? ""
         let preparation : String = self.prepTextField.text ?? ""
+        let phone : String = self.phoneTextField.text ?? ""
         guard (praticien != "") && (path != "") && (preparation != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
@@ -85,7 +86,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
         let dateRDV = datePicker.date as NSDate?
         let prep = DateFormatterHelper.minutesFormatFromString(forDate: preparation)
         let trajet = DateFormatterHelper.minutesFormatFromString(forDate: path)
-        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: praticien)
+        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: praticien, doctorPhone: phone)
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -43,12 +43,13 @@ class RendezVousDAO{
         return RendezVous(context: CoreDataManager.context)
     }
     
-    static func createRdv(date: NSDate, prepDuration: NSDate, travelDuration: NSDate, doctorName: String) -> RendezVous{
+    static func createRdv(date: NSDate, prepDuration: NSDate, travelDuration: NSDate, doctorName: String, doctorPhone: String) -> RendezVous{
         let dao = self.createRdv()
         dao.dateRDV = date
         dao.dureeTrajetRDV = travelDuration
         dao.dureePrepRDV = prepDuration
         dao.concerner?.nomPraticien = doctorName
+        dao.concerner?.telPraticien = doctorPhone
         return dao
     }
 }

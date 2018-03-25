@@ -37,13 +37,14 @@ extension RendezVous{
         return (self.concerner?.nomPraticien)!
     }
     
-    convenience init(date: NSDate, prepDuration: NSDate, travelDuration: NSDate, doctorName: String){
+    convenience init(date: NSDate, prepDuration: NSDate, travelDuration: NSDate, doctorName: String, doctorPhone: String){
         self.init(context: CoreDataManager.context)
         self.dateRDV = date
         self.dureeTrajetRDV = travelDuration
         self.dureePrepRDV = prepDuration
         let prt = Praticien(context: CoreDataManager.context)
         prt.nomPraticien = doctorName
+        prt.telPraticien = doctorPhone
         self.concerner = prt
     }
 }
