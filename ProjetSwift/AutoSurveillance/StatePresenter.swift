@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class StatePresenter: NSObject {
     fileprivate var libEtat : String = ""
-    fileprivate var date : NSDate = Date() as NSDate
+    fileprivate var date : String = ""
     
     fileprivate var etat : Etat? = nil{
         didSet{
@@ -21,17 +22,34 @@ class StatePresenter: NSObject {
                 else{
                     self.libEtat = "N/A"
                 }
+                if let date = etat.dateEtat{
+                    self.date = DateFormatterHelper.classicFormatFromDate(forDate: date)
+                }
+                else{
+                    self.date = "N/A"
+                }
             }
             else{
                 self.libEtat = ""
+                self.date = ""
             }
         }
     }
     
-    func configure(theCell: StateTableViewCell?, forState: Etat?, andDate: NSDate?){
-        self.date = andDate!
+    func configure(theCell: StateTableViewCell?, forState: Etat?){
         self.etat = forState
         guard let cell = theCell else{return}
         cell.stateLabel.text = self.libEtat
+        cell.dateLabel.text = self.date
+        switch self.libEtat {
+        case "ON":
+            cell.stateLabel.textColor = UIColor.green
+        case "OFF":
+            cell.stateLabel.textColor = UIColor.red
+        case "DYSK":
+            cell.stateLabel.textColor = UIColor.orange
+        default:
+            cell.stateLabel.textColor = UIColor.black
+        }
     }
 }

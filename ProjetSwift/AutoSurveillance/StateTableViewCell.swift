@@ -10,6 +10,7 @@ import UIKit
 
 class StateTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
     
     override func awakeFromNib() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SyntheseStatePresenter: NSObject {
     fileprivate var libEtat : String = ""
@@ -40,6 +41,16 @@ class SyntheseStatePresenter: NSObject {
         guard let cell = theCell else{return}
         cell.resultatLabel.text = self.libEtat
         cell.dateLabel.text = self.date
+        switch self.libEtat {
+        case "ON":
+            cell.resultatLabel.textColor = UIColor.green
+        case "OFF":
+            cell.resultatLabel.textColor = UIColor.red
+        case "DYSK":
+            cell.resultatLabel.textColor = UIColor.orange
+        default:
+            cell.resultatLabel.textColor = UIColor.black
+        }
     }
     
 }
