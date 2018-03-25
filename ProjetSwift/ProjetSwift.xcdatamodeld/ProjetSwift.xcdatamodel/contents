@@ -90,6 +90,7 @@
         <attribute name="datePriseReelle" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heurePrisePrevue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heurePriseReelle" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="valider" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="associer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ordonnance" inverseName="associer" inverseEntity="Ordonnance" syncable="YES"/>
     </entity>
     <entity name="RendezVous" representedClassName="RendezVous" syncable="YES" codeGenerationType="class">
@@ -135,7 +136,7 @@
         <element name="Ordonnance" positionX="-6894" positionY="-2646" width="128" height="133"/>
         <element name="Patient" positionX="-6788" positionY="-2448" width="128" height="178"/>
         <element name="Praticien" positionX="-6633" positionY="-2718" width="128" height="148"/>
-        <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="120"/>
+        <element name="PriseReelle" positionX="-7047" positionY="-2374" width="128" height="133"/>
         <element name="RendezVous" positionX="-6509" positionY="-2559" width="128" height="165"/>
         <element name="Specialite" positionX="-6822" positionY="-2797" width="128" height="88"/>
         <element name="Sport" positionX="-7146" positionY="-2214" width="128" height="105"/>

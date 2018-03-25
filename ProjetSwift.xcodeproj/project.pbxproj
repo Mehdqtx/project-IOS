@@ -33,6 +33,8 @@
 		5D85F7D62067F0BA007AB2A8 /* PrisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */; };
 		5D85F7D820680004007AB2A8 /* Prise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D720680004007AB2A8 /* Prise.swift */; };
 		5D85F7DA20683B36007AB2A8 /* EditPriseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7D920683B36007AB2A8 /* EditPriseViewController.swift */; };
+		5D85F7DC2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7DB2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift */; };
+		5D85F7DE20686792007AB2A8 /* SynthesePilulierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85F7DD20686792007AB2A8 /* SynthesePilulierTableViewCell.swift */; };
 		5DC349472066675500C09A94 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC349462066675500C09A94 /* Incident.swift */; };
 		5DC34949206669B700C09A94 /* IncidentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC34948206669B700C09A94 /* IncidentDAO.swift */; };
 		5DC3494B20666EF300C09A94 /* Ordonnance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3494A20666EF300C09A94 /* Ordonnance.swift */; };
@@ -132,6 +134,8 @@
 		5D85F7D52067F0BA007AB2A8 /* PrisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrisePresenter.swift; sourceTree = "<group>"; };
 		5D85F7D720680004007AB2A8 /* Prise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prise.swift; sourceTree = "<group>"; };
 		5D85F7D920683B36007AB2A8 /* EditPriseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriseViewController.swift; sourceTree = "<group>"; };
+		5D85F7DB2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSynthesePilulierViewController.swift; sourceTree = "<group>"; };
+		5D85F7DD20686792007AB2A8 /* SynthesePilulierTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesePilulierTableViewCell.swift; sourceTree = "<group>"; };
 		5DC349462066675500C09A94 /* Incident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 		5DC34948206669B700C09A94 /* IncidentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentDAO.swift; sourceTree = "<group>"; };
 		5DC3494A20666EF300C09A94 /* Ordonnance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ordonnance.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		32CBE6B8203C66CF005B7A23 /* ProjetSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5D85F7DF20686A87007AB2A8 /* SynthesePilulier */,
 				5D51943F204D965C00F05612 /* images */,
 				32CBE6B9203C66CF005B7A23 /* AppDelegate.swift */,
 				32CBE6BB203C66CF005B7A23 /* ViewController.swift */,
@@ -300,6 +305,15 @@
 				5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */,
 			);
 			path = Ordonnances;
+			sourceTree = "<group>";
+		};
+		5D85F7DF20686A87007AB2A8 /* SynthesePilulier */ = {
+			isa = PBXGroup;
+			children = (
+				5D85F7DB2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift */,
+				5D85F7DD20686792007AB2A8 /* SynthesePilulierTableViewCell.swift */,
+			);
+			path = SynthesePilulier;
 			sourceTree = "<group>";
 		};
 		9D04E52420582DE50009433F /* Events */ = {
@@ -547,6 +561,7 @@
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
 				5DC3494D2066747500C09A94 /* OrdonnanceDAO.swift in Sources */,
 				D7AFBC4C20670E160026388C /* SyntheseStateTableViewCell.swift in Sources */,
+				5D85F7DE20686792007AB2A8 /* SynthesePilulierTableViewCell.swift in Sources */,
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
@@ -582,6 +597,7 @@
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */,
+				5D85F7DC2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				5D85F7DA20683B36007AB2A8 /* EditPriseViewController.swift in Sources */,
 				D7086D602066AE8000B0AF18 /* EtatSet.swift in Sources */,

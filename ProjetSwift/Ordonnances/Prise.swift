@@ -55,12 +55,25 @@ extension PriseReelle{
             throw error
         }
     }
+    static func getAllPrisesValider() throws -> [PriseReelle] {
+        let predicate: NSPredicate = NSPredicate(format: "valider != %@",false as CVarArg)
+        let request: NSFetchRequest<PriseReelle> = PriseReelle.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(PriseReelle.datePriseReelle), ascending: true)]
+        request.predicate = predicate
+        do{
+            let prises:[PriseReelle] = try CoreDataManager.context.fetch(request)
+            return prises
+        }catch let error as NSError{
+            throw error
+        }
+    }
     
     // Valider une prise
     func editPrise( datePrise: NSDate, heurePrise: NSDate) throws {
         
         self.datePriseReelle = datePrise
         self.heurePriseReelle = heurePrise
+        self.valider = true
         
         do{
             try CoreDataManager.save()

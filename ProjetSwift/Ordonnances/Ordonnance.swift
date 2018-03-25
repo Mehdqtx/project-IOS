@@ -71,6 +71,7 @@ extension Ordonnance{
                 prise.datePriseReelle = nil
                 prise.heurePrisePrevue = DateFormatterHelper.hoursFormatFromString(forDate: heure)
                 prise.heurePriseReelle = nil
+                prise.valider = false
                 prise.associer = self
                 
             }
