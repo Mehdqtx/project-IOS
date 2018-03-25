@@ -58,16 +58,16 @@ extension Ordonnance{
         medoc.composer = doseU
         self.utiliser = medoc
         self.utiliser?.composer = doseU
-        var date = dateDebut
+        var date = dateDebut as Date
         
-        //let nbJourPrise = DateFormatterHelper.daysBetweenDates(startDate: dateDebut, endDate: dateFin)
+
         let calendar = NSCalendar.current
         while date.compare(dateFin as Date) != .orderedDescending{
             print(date)
             
             for heure in heures{
                 let prise = PriseReelle(context: CoreDataManager.context)
-                prise.datePrisePrevue = date
+                prise.datePrisePrevue = date as NSDate
                 prise.datePriseReelle = nil
                 prise.heurePrisePrevue = DateFormatterHelper.hoursFormatFromString(forDate: heure)
                 prise.heurePriseReelle = nil
@@ -76,7 +76,7 @@ extension Ordonnance{
                 prise.associer = self
                 
             }
-            date = calendar.date(byAdding: .day, value: 1, to: date as Date)! as NSDate
+            date = calendar.date(byAdding: .day, value: 1, to: date as Date)!
         }
 
     }

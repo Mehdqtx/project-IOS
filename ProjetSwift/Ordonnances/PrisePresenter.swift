@@ -30,7 +30,7 @@ class PrisePresenter: NSObject {
                     self.heureReelle = "Pris à: " + heureReel
                 }
                 else{
-                    self.heureReelle = ""
+                    self.heureReelle = "Pas encore pris"
                 }
                 
                 if let datePrev = prise.datePrisePrevue{

@@ -42,6 +42,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     let heureSoirPicker = UIDatePicker()
     let heureAutrePicker = UIDatePicker()
     var newOrdonnance : Ordonnance?
+    var Prise : PriseReelle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +78,11 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let heureSoir : String = heureSoirLabel.text ?? ""
         let heureAutre : String = heureAutreLabel.text ?? ""
         
-        guard (nomMedicament != "") && (dose != "") && ((debutT != "") || (finT != "")) else {
+        guard (nomMedicament != "") && (dose != "") && (debutT != "") && (finT != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
+
 
         guard (heureMatin != "") || (heureMidi != "") || (heureSoir != "") || (heureAutre != "")else{
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner au moins une heure.")
@@ -251,6 +253,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         //format
         dateDebutPicker.datePickerMode = .date
         dateDebutPicker.locale = Locale(identifier:"fr_FR")
+        dateFinPicker.minimumDate = dateDebutPicker.date
+        
         dateFinPicker.datePickerMode = .date
         dateFinPicker.locale = Locale(identifier:"fr_FR")
         heureMatinPicker.datePickerMode = .time

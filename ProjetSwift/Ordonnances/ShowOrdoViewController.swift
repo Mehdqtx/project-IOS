@@ -79,8 +79,6 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "priseCell", for: indexPath) as! PriseTableViewCell
-        
-        
         self.prisePresenter.configure(theCell: cell, forPrise: prises?[indexPath.row])
         
         return cell
