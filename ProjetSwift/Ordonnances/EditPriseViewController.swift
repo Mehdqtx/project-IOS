@@ -38,16 +38,20 @@ class EditPriseViewController: UIViewController{
     }
     
     @IBAction func ValiderPrise(_ sender: UIBarButtonItem) {
-        if let aPrise = self.prise{            
+        if let aPrise = self.prise{
+            let dateA = self.prise?.datePrisePrevue
+            let dateB = Date()
+            if (dateA?.compare(dateB) == .orderedAscending) || (dateA?.compare(dateB) == .orderedSame){
                 do{
                     try aPrise.editPrise(datePrise: NSDate(), heurePrise: NSDate())
                     self.dismiss(animated: true, completion: nil)
                 }catch let error as NSError{
                     DialogBoxHelper.alert(view: self, error: error)
                 }
-            
-
-            
+            }
+            else{
+                DialogBoxHelper.alert(view: self, withTitle: "Mauvais prise", andMessage: "Vous ne pouvez pas valider une prise qui ne s'est pas encore déroulé dans le temps")
+            }
         }
         else{
              DialogBoxHelper.alert(view: self, withTitle: "Erreur", andMessage: "Impossible de valider la prise")
