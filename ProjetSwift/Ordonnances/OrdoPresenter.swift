@@ -32,18 +32,13 @@ class OrdoPresenter: NSObject {
                     self.dose = "N/A"
                 }
                 if let dateD = ordonnance.dateDebutOrdo{
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd/MM/yyyy"
-                    let dateSD = formatter.string(from: dateD as Date)
-                    self.dateDebut = "Debut du traitement: le " + dateSD
+                    self.dateDebut = "Debut du traitement: le " +  DateFormatterHelper.dateFormatFromDate(forDate: dateD)
                 }
                 else {
                     self.dateDebut = "N/A"
                 }
                 if let dateF = ordonnance.dateFinOrdo{
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd/MM/yyyy"
-                    let dateSF = formatter.string(from: dateF as Date)
+                    let dateSF = DateFormatterHelper.dateFormatFromDate(forDate: dateF)
                     if dateSF != "" {
                         self.dateFin = "Fin du traitement: le " + dateSF
                     }
