@@ -70,4 +70,20 @@ class DateFormatterHelper {
         let date2 = calendar.startOfDay(for: endDate as Date)
         return calendar.dateComponents([.day], from: date1, to: date2).day!
     }
+    
+   class func differenceHeure(heurePrevue: NSDate, heurePrise: NSDate)-> Int{
+        
+        let prevueTimeHoursMinutes = Calendar.current.component(.hour, from: heurePrevue as Date) * 60
+        let prevueTimeMinutes = Calendar.current.component(.minute, from: heurePrevue as Date)
+        let totalPrevueTimeMinutes = prevueTimeHoursMinutes + prevueTimeMinutes
+        
+        // getting the number of minutes in today:
+        let priseHoursMinutes = Calendar.current.component(.hour, from: heurePrise as Date) * 60
+        let priseMinutes = Calendar.current.component(.minute, from: heurePrise as Date)
+        let priseTimeMinutes = priseHoursMinutes + priseMinutes
+        
+        // difference in minutes (could be negative):
+        let difference = totalPrevueTimeMinutes - priseTimeMinutes
+        return difference
+    }
 }
