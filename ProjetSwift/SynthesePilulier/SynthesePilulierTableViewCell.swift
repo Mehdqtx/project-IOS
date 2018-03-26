@@ -10,6 +10,11 @@ import UIKit
 
 class SynthesePilulierTableViewCell: UITableViewCell {
     
+
+    @IBOutlet weak var datePriseReelleLabel: UILabel!
+    @IBOutlet weak var resultatLabel: UILabel!
+    @IBOutlet weak var heurePriseReelleLabel: UILabel!
+    @IBOutlet weak var heurePrisePrevueLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

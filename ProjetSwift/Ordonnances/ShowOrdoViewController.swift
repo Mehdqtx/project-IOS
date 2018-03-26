@@ -30,8 +30,7 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        priseTable.beginUpdates()
-        priseTable.endUpdates()
+
         do{
             prises = try PriseReelle.getAllPrises(ordonnance: self.ordo!)
         }
@@ -114,10 +113,18 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
         }
     }
     
-
-    
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // get the persistence facade that hides the storage business logic.
+        do{
+            prises = try PriseReelle.getAllPrises(ordonnance: self.ordo!)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        
+        self.priseTable.reloadData()
+    }
     
     
 }

@@ -19,6 +19,7 @@
 		5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */; };
 		5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */; };
 		5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */; };
+		5D46D0C4206980C100CFB20C /* SynthesePilulierPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46D0C3206980C100CFB20C /* SynthesePilulierPresenter.swift */; };
 		5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48BE7A206054E90030E62E /* EventPresenter.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
 		5D519444204D9E1D00F05612 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D519443204D9E1D00F05612 /* roundButton.swift */; };
@@ -120,6 +121,7 @@
 		5D1D1658205F223D00D31DFB /* OrdoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdoPresenter.swift; sourceTree = "<group>"; };
 		5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIncidentViewController.swift; sourceTree = "<group>"; };
+		5D46D0C3206980C100CFB20C /* SynthesePilulierPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesePilulierPresenter.swift; sourceTree = "<group>"; };
 		5D48BE7A206054E90030E62E /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				5D85F7DB2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift */,
 				5D85F7DD20686792007AB2A8 /* SynthesePilulierTableViewCell.swift */,
+				5D46D0C3206980C100CFB20C /* SynthesePilulierPresenter.swift */,
 			);
 			path = SynthesePilulier;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */,
 				D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */,
 				5D1D1659205F223D00D31DFB /* OrdoPresenter.swift in Sources */,
+				5D46D0C4206980C100CFB20C /* SynthesePilulierPresenter.swift in Sources */,
 				D7086D622066AE8C00B0AF18 /* EtatDAO.swift in Sources */,
 				D7079FE720612C45000B93A9 /* StatePresenter.swift in Sources */,
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
