@@ -48,6 +48,7 @@ class ActiviteDAO{
         dao.libActivite = name
         dao.dureeActivite = duration
         dao.frequence = frequency
+        dao.nbValidations = 0
         return dao
     }
 }
