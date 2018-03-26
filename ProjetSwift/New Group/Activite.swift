@@ -16,6 +16,7 @@ import CoreData
  **name**: Activite -> String
  **duration**: Activite -> String
  **frequency**: Activite -> String
+ **validations**: Activite -> Int32
  */
 
 extension Activite{
@@ -32,10 +33,20 @@ extension Activite{
         return self.frequence!
     }
 
+    
+    public func incValidation() {
+        self.nbValidations = self.nbValidations + 1
+    }
+    
+    public func initValidation() {
+        self.nbValidations = 0 as Int32
+    }
+
     convenience init(name: String, duration: Int32, frequency: String){
         self.init(context: CoreDataManager.context)
         self.libActivite = name
         self.dureeActivite  = duration
         self.frequence = frequency
+        self.initValidation()
     }
 }

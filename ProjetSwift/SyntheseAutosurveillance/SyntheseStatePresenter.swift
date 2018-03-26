@@ -52,5 +52,4 @@ class SyntheseStatePresenter: NSObject {
             cell.resultatLabel.textColor = UIColor.black
         }
     }
-    
 }

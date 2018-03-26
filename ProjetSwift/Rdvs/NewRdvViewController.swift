@@ -9,21 +9,13 @@
 import UIKit
 import CoreData
 
-class NewRdvViewController: UIViewController, UITextFieldDelegate {
+class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    /*
+    
     var pickedPraticien : String? = nil
     var pickerData: [String] = [String]()
-    fileprivate lazy var praticiensFetched : NSFetchedResultsController<Praticien> = {
-        let request : NSFetchRequest<Praticien> = Praticien.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Praticien.nomPraticien), ascending: true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
-
+    var praticienSet : PraticienSet = PraticienSet()
     @IBOutlet weak var praticienPicker: UIPickerView!
-    */
     @IBOutlet weak var addTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var pathTextField: UITextField!
@@ -33,24 +25,11 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        /*
-        do{
-            try self.praticiensFetched.performFetch()
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-        let praticiens : [Praticien]? = self.praticiensFetched.fetchedObjects
-        for p in praticiens! {
+        self.pickerData.append("Nouveau")
+        
+        for p in praticienSet {
             pickerData.append(p.nomPraticien!)
         }
-        //pickerData = ["Jean", "Paul", "Martin"].sorted()
-        if(pickerData.count > 0){
-            pickedPraticien = pickerData[0]
-        }
-        */
         datePicker.minimumDate = Date()
     }
 
@@ -58,18 +37,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-    @IBAction func newPraticienAction(_ sender: Any) {
-        guard (self.addTextField.text != "") else {
-            DialogBoxHelper.alert(view: self, withTitle: "Champ Vide")
-            return
-        }
-        pickerData.append(self.addTextField.text!)
-        let praticien = Praticien(context: CoreDataManager.context)
-        praticien.nomPraticien = self.addTextField.text
-        praticienPicker.reloadAllComponents()
-    }
-    */
+
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -79,14 +47,19 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
         let path : String = self.pathTextField.text ?? ""
         let preparation : String = self.prepTextField.text ?? ""
         let phone : String = self.phoneTextField.text ?? ""
-        guard (praticien != "") && (path != "") && (preparation != "") else {
+        guard (praticien != "" || self.pickedPraticien != nil) && (path != "") && (preparation != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
         let dateRDV = datePicker.date as NSDate?
         let prep = DateFormatterHelper.minutesFormatFromString(forDate: preparation)
         let trajet = DateFormatterHelper.minutesFormatFromString(forDate: path)
-        self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: praticien, doctorPhone: phone)
+        if praticien != "" {
+            self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: praticien, doctorPhone: phone)
+        }
+        else{
+            self.newRendezVous = RendezVous(date: dateRDV!, prepDuration: prep, travelDuration: trajet, doctorName: self.pickedPraticien!, doctorPhone: "")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -95,7 +68,7 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
      func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
      }
-     /*
+    
      // The data to return for the row and component (column) that's being passed in
      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
@@ -112,23 +85,26 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate {
      // The parameter named row and component represents what was selected.
         if(pickerData.count > 0){
             self.pickedPraticien = pickerData[pickerView.selectedRow(inComponent: 0)]
+            if self.pickedPraticien != "Nouveau" {
+                self.addTextField.isUserInteractionEnabled = false
+                self.addTextField.backgroundColor = UIColor.gray
+                self.addTextField.text = ""
+                self.phoneTextField.isUserInteractionEnabled = false
+                self.phoneTextField.backgroundColor = UIColor.gray
+                self.phoneTextField.text = ""
+            }
+            else{
+                self.addTextField.isUserInteractionEnabled = true
+                self.addTextField.backgroundColor = UIColor.white
+                self.phoneTextField.isUserInteractionEnabled = true
+                self.phoneTextField.backgroundColor = UIColor.white
+            }
         }
      }
-    */
+    
     // MARK: - TextFieldDelegate -
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -10,10 +10,7 @@ import UIKit
 import CoreData
 
 class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-    
-    @IBAction func validateAction(_ sender: Any) {
-        DialogBoxHelper.alert(view: self, withTitle: "Bravo !", andMessage: "Activité validée pour aujourd'hui !")
-    }
+  
     @IBOutlet var activityPresenter: ActivityPresenter!
     
     fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activite" representedClassName="Activite" syncable="YES" codeGenerationType="class">
         <attribute name="dateDebutActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateFinActivite" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -8,6 +8,7 @@
         <attribute name="idActivite" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idJour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="libActivite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nbValidations" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="correspondre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sport" inverseName="correspondre" inverseEntity="Sport" syncable="YES"/>
         <relationship name="organiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="organiser" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -125,7 +126,7 @@
         <relationship name="appartenir" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Incident" inverseName="appartenir" inverseEntity="Incident" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="180"/>
+        <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="195"/>
         <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="195"/>
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
         <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
