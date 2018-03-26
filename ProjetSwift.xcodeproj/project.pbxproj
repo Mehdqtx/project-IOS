@@ -75,6 +75,9 @@
 		D71918812060592500633ECA /* ASPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71918802060592500633ECA /* ASPresenter.swift */; };
 		D7430A3E204C882C0014A746 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */; };
 		D7430A40204C8A740014A746 /* ShowActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */; };
+		D77F04B32069959500CCBC04 /* ShowSyntheseActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F04B22069959500CCBC04 /* ShowSyntheseActivitiesViewController.swift */; };
+		D77F04B6206995D300CCBC04 /* SyntheseActivitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F04B5206995D300CCBC04 /* SyntheseActivitiesTableViewCell.swift */; };
+		D77F04B8206995E700CCBC04 /* SyntheseActivitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F04B7206995E700CCBC04 /* SyntheseActivitiesPresenter.swift */; };
 		D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A3A6205F085200078C19 /* RdvPresenter.swift */; };
 		D781A3A9205F0D6100078C19 /* ActivityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */; };
 		D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFBC4620670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift */; };
@@ -177,6 +180,9 @@
 		D71918802060592500633ECA /* ASPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPresenter.swift; sourceTree = "<group>"; };
 		D7430A3D204C882C0014A746 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = ../Activity/ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		D7430A3F204C8A740014A746 /* ShowActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowActivitiesViewController.swift; path = ../Activity/ShowActivitiesViewController.swift; sourceTree = "<group>"; };
+		D77F04B22069959500CCBC04 /* ShowSyntheseActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSyntheseActivitiesViewController.swift; sourceTree = "<group>"; };
+		D77F04B5206995D300CCBC04 /* SyntheseActivitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntheseActivitiesTableViewCell.swift; sourceTree = "<group>"; };
+		D77F04B7206995E700CCBC04 /* SyntheseActivitiesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntheseActivitiesPresenter.swift; sourceTree = "<group>"; };
 		D781A3A6205F085200078C19 /* RdvPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RdvPresenter.swift; sourceTree = "<group>"; };
 		D781A3A8205F0D6100078C19 /* ActivityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPresenter.swift; sourceTree = "<group>"; };
 		D7AFBC4620670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSyntheseAutosurveillanceViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +260,7 @@
 				32CBE6C0203C66CF005B7A23 /* ProjetSwift.xcdatamodeld */,
 				D7191877206053E800633ECA /* AutoSurveillance */,
 				D7AFBC4820670B4E0026388C /* SyntheseAutosurveillance */,
+				D77F04B42069959A00CCBC04 /* SyntheseActivities */,
 			);
 			path = ProjetSwift;
 			sourceTree = "<group>";
@@ -393,6 +400,16 @@
 				D7086D612066AE8C00B0AF18 /* EtatDAO.swift */,
 			);
 			path = AutoSurveillance;
+			sourceTree = "<group>";
+		};
+		D77F04B42069959A00CCBC04 /* SyntheseActivities */ = {
+			isa = PBXGroup;
+			children = (
+				D77F04B22069959500CCBC04 /* ShowSyntheseActivitiesViewController.swift */,
+				D77F04B5206995D300CCBC04 /* SyntheseActivitiesTableViewCell.swift */,
+				D77F04B7206995E700CCBC04 /* SyntheseActivitiesPresenter.swift */,
+			);
+			path = SyntheseActivities;
 			sourceTree = "<group>";
 		};
 		D7AFBC4820670B4E0026388C /* SyntheseAutosurveillance */ = {
@@ -562,6 +579,7 @@
 				D7086D5420666C6A00B0AF18 /* AutosurveillanceSet.swift in Sources */,
 				D7079FE1206118F9000B93A9 /* ShowASViewController.swift in Sources */,
 				5D7956CA205D2D0500DAF1D7 /* NewOrdoViewController.swift in Sources */,
+				D77F04B8206995E700CCBC04 /* SyntheseActivitiesPresenter.swift in Sources */,
 				5DC3494D2066747500C09A94 /* OrdonnanceDAO.swift in Sources */,
 				D7AFBC4C20670E160026388C /* SyntheseStateTableViewCell.swift in Sources */,
 				5D85F7DE20686792007AB2A8 /* SynthesePilulierTableViewCell.swift in Sources */,
@@ -585,6 +603,7 @@
 				D7086D5E2066AE6E00B0AF18 /* Etat.swift in Sources */,
 				5D69A537205064C400DF3ACF /* ShowEventViewController.swift in Sources */,
 				5D85F7D820680004007AB2A8 /* Prise.swift in Sources */,
+				D77F04B32069959500CCBC04 /* ShowSyntheseActivitiesViewController.swift in Sources */,
 				5D7956C8205C93D200DAF1D7 /* OrdosTableViewCell.swift in Sources */,
 				D781A3A7205F085200078C19 /* RdvPresenter.swift in Sources */,
 				D719187F2060572800633ECA /* NewASViewController.swift in Sources */,
@@ -601,6 +620,7 @@
 				32CBE6BC203C66CF005B7A23 /* ViewController.swift in Sources */,
 				D7076CF12057160100886EDD /* ShowRdvsViewController.swift in Sources */,
 				D7AFBC4720670B470026388C /* ShowSyntheseAutosurveillanceViewController.swift in Sources */,
+				D77F04B6206995D300CCBC04 /* SyntheseActivitiesTableViewCell.swift in Sources */,
 				5D85F7DC2068665F007AB2A8 /* ShowSynthesePilulierViewController.swift in Sources */,
 				32CBE6BA203C66CF005B7A23 /* AppDelegate.swift in Sources */,
 				5D85F7DA20683B36007AB2A8 /* EditPriseViewController.swift in Sources */,
