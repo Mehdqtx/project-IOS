@@ -21,10 +21,16 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     @IBOutlet weak var pathTextField: UITextField!
     @IBOutlet weak var prepTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    
+    let prepPicker = UIDatePicker()
+    let trajetPicker = UIDatePicker()
     var newRendezVous: RendezVous?
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createTimePicker()
+        
         self.pickerData.append("Nouveau")
         
         for p in praticienSet {
@@ -106,5 +112,48 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    // MARK: - Date Picker View management
+    func createTimePicker() {
+        
+        //format
+        prepPicker.datePickerMode = .countDownTimer
+        prepPicker.locale = Locale(identifier:"fr_FR")
+        trajetPicker.datePickerMode = .countDownTimer
+        trajetPicker.locale = Locale(identifier:"fr_FR")
+        
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let toolbarT = UIToolbar()
+        toolbarT.sizeToFit()
+        
+        
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneButtonT = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedT))
+    
+        toolbar.setItems([doneButton], animated: false)
+        toolbarT.setItems([doneButtonT], animated: false)
+        
+        prepTextField.inputAccessoryView = toolbar
+        pathTextField.inputAccessoryView = toolbarT
+        
+        
+        //assigning date picker to text field
+        prepTextField.inputView = prepPicker
+        pathTextField.inputView = trajetPicker
+        
+    }
+    
+    func donePressed() {
+        //format
+        prepTextField.text = DateFormatterHelper.timeFormatFromDate(forDate: prepPicker.date as NSDate)
+        self.view.endEditing(true)
+    }
+    func donePressedT() {
+        //format
+        pathTextField.text = DateFormatterHelper.timeFormatFromDate(forDate: trajetPicker.date as NSDate)
+        self.view.endEditing(true)
     }
 }
