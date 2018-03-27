@@ -59,7 +59,7 @@ class DateFormatterHelper {
     
     class func timeFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "mm"
+        formatter.dateFormat = "mm" 
         formatter.locale = Locale(identifier:"fr_FR")
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted

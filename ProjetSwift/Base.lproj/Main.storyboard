@@ -2665,11 +2665,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGY-UE-YXE">
+                                <rect key="frame" x="267" y="38" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Ajouter"/>
+                                <connections>
+                                    <action selector="addMedicament:" destination="b6t-DO-XIK" eventType="touchUpInside" id="zND-mC-k2n"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom du médicament" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVv-8A-drb">
+                                <rect key="frame" x="16" y="39" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bJM-9k-CBv">
+                                <rect key="frame" x="184" y="39" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancelMedicament:" destination="b6t-DO-XIK" eventType="editingDidEnd" id="YZ8-5v-xg4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e09-lY-FPR">
+                                <rect key="frame" x="317" y="38" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Annuler">
+                                    <color key="titleColor" red="1" green="0.25030601050000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelMedicament:" destination="b6t-DO-XIK" eventType="touchUpInside" id="gAn-6L-ETk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUx-UF-aF9">
+                                <rect key="frame" x="283" y="107" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.63577080080000004" blue="0.1488250304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="addField:" destination="b6t-DO-XIK" eventType="touchUpInside" id="aT0-j0-ebd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51808805599999996" green="0.74437377719999998" blue="0.8926860445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="NGY-UE-YXE" id="diF-3e-a84"/>
                         <outlet property="autreSwitch" destination="uqS-3Y-v2j" id="TXp-VT-ejr"/>
+                        <outlet property="cancelButton" destination="e09-lY-FPR" id="jyE-v8-Vco"/>
                         <outlet property="dateDebutLabel" destination="82u-RS-cRs" id="AYQ-wG-nSZ"/>
                         <outlet property="dateFinLabel" destination="HKQ-te-bXL" id="d4e-Gf-xpq"/>
                         <outlet property="heureAutreLabel" destination="nKB-fV-MHB" id="2uf-oo-PuN"/>
@@ -2679,6 +2726,8 @@
                         <outlet property="matinSwitch" destination="0n7-cX-ZG2" id="3Bc-AF-WJ1"/>
                         <outlet property="medicPickerView" destination="hoc-Si-pJx" id="UUf-Zz-0h0"/>
                         <outlet property="midiSwitch" destination="O83-dZ-J7u" id="3xl-8W-N4y"/>
+                        <outlet property="newDoseTextField" destination="bJM-9k-CBv" id="fhK-Sk-Trb"/>
+                        <outlet property="newMedicTextField" destination="HVv-8A-drb" id="c8X-yO-sHB"/>
                         <outlet property="soirSwitch" destination="i4T-a6-ugJ" id="55R-7y-eJX"/>
                     </connections>
                 </viewController>

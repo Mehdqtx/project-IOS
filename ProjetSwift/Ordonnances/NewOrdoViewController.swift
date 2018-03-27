@@ -33,7 +33,13 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var pickedMedic : String? = nil
     var pickedDose : String? = nil
 
-   
+    
+    @IBOutlet weak var newMedicTextField: UITextField!
+    @IBOutlet weak var newDoseTextField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
     var medicaments = [Medicaments]()
     var tabHeures = [String]()
     let dateDebutPicker = UIDatePicker()
@@ -56,6 +62,10 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         heureMidiLabel.isHidden = true
         heureSoirLabel.isHidden = true
         heureAutreLabel.isHidden = true
+        newMedicTextField.isHidden = true
+        newDoseTextField.isHidden = true
+        addButton.isHidden = true
+        cancelButton.isHidden = true
         
     }
     
@@ -159,6 +169,35 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
             heureAutreLabel.isHidden = true
             heureAutreLabel.text = ""
         }
+    }
+    //MARK: - Add Medicament Management
+    
+    @IBAction func addField(_ sender: Any) {
+        newMedicTextField.isHidden = false
+        newDoseTextField.isHidden = false
+        addButton.isHidden = false
+        cancelButton.isHidden = false
+    }
+    
+    
+    @IBAction func cancelMedicament(_ sender: Any) {
+        
+        newMedicTextField.isHidden = true
+        newMedicTextField.text = ""
+        newDoseTextField.isHidden = true
+        newDoseTextField.text = ""
+        addButton.isHidden = true
+        cancelButton.isHidden = true
+    }
+    
+    @IBAction func addMedicament(_ sender: Any) {
+        guard (newMedicTextField.text != "") && (newDoseTextField.text != "")  else {
+            DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Remplissez le nom et la dose du médicament pour pouvoir l'ajouter.")
+            return
+        }
+        medicaments.append(Medicaments(medicamentNom : newMedicTextField.text!, doses: [newDoseTextField.text!]))
+        medicPickerView.reloadComponent(0)
+        medicPickerView.reloadComponent(1)
     }
     
     // MARK: - TextFieldDelegate
