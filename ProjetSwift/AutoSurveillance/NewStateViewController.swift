@@ -54,7 +54,7 @@ class NewStateViewController: UIViewController {
         else{
             switchSelected = "DYSK"
         }
-        self.newEtat = Etat(date: Date() as NSDate, type: switchSelected)
+        self.newEtat = Etat(date: Date() as NSDate, nom: switchSelected, autos: self.autosurveillance!)
         self.dismiss(animated: true, completion: nil)
     }
 }

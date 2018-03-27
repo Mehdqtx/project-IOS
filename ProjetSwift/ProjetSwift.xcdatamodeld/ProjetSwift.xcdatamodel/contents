@@ -20,7 +20,7 @@
         <attribute name="heureFinTest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureRDVNeurologue" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idAutosurveillance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Etat" inverseName="composer" inverseEntity="Etat" syncable="YES"/>
+        <relationship name="composer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Etat" inverseName="composer" inverseEntity="Etat" syncable="YES"/>
         <relationship name="posseder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Praticien" inverseName="posseder" inverseEntity="Praticien" syncable="YES"/>
         <relationship name="preparer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="preparer" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -33,6 +33,7 @@
         <attribute name="dateEtat" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="heureEtat" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idEtat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomEtat" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="caracteriser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeEtat" inverseName="caracteriser" inverseEntity="TypeEtat" syncable="YES"/>
         <relationship name="composer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Autosurveillance" inverseName="composer" inverseEntity="Autosurveillance" syncable="YES"/>
     </entity>
@@ -127,9 +128,9 @@
     </entity>
     <elements>
         <element name="Activite" positionX="-6930" positionY="-2221" width="128" height="195"/>
-        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="195"/>
+        <element name="Autosurveillance" positionX="-6698" positionY="-2187" width="128" height="193"/>
         <element name="Dose" positionX="-7083" positionY="-2763" width="128" height="88"/>
-        <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="118"/>
+        <element name="Etat" positionX="-6507" positionY="-2043" width="128" height="135"/>
         <element name="FrequenceHoraireHebdo" positionX="-6696" positionY="-1953" width="128" height="73"/>
         <element name="Incident" positionX="-6626" positionY="-2356" width="128" height="105"/>
         <element name="Information" positionX="-7326" positionY="-2752" width="128" height="88"/>

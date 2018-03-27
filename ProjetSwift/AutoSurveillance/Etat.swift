@@ -13,25 +13,37 @@ import CoreData
 /**
  Etat type
  
- **type**: Etat -> TypeEtat
+ **nom**: Etat -> String
  **date**: Etat -> NSDate
  */
 
 extension Etat{
     
     public var type : String{
-        return (self.caracteriser?.nomTypeEtat)!
+        return self.nomEtat!
     }
     
     public var date : NSDate{
         return self.dateEtat!
     }
     
-    convenience init(date: NSDate, type: String){
+    static func getAllStates(autosurveillance: Autosurveillance) throws -> [Etat] {
+        let predicate: NSPredicate = NSPredicate(format: "composer == %@", autosurveillance)
+        let request: NSFetchRequest<Etat> = Etat.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Etat.dateEtat), ascending: true)]
+        request.predicate = predicate
+        do{
+            let states:[Etat] = try CoreDataManager.context.fetch(request)
+            return states
+        }catch let error as NSError{
+            throw error
+        }
+    }
+    
+    convenience init(date: NSDate, nom: String, autos: Autosurveillance){
         self.init(context: CoreDataManager.context)
         self.dateEtat = date
-        let tpe = TypeEtat(context: CoreDataManager.context)
-        tpe.nomTypeEtat = type
-        self.caracteriser = tpe
+        self.nomEtat = nom
+        self.composer = autos
     }
 }

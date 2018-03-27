@@ -43,10 +43,11 @@ class EtatDAO{
         return Etat(context: CoreDataManager.context)
     }
     
-    static func createEtat(date: NSDate, type: String) -> Etat{
+    static func createEtat(date: NSDate, nom: String, autos: Autosurveillance) -> Etat{
         let dao = self.createEtat()
         dao.dateEtat = date
-        dao.caracteriser?.nomTypeEtat = type
+        dao.nomEtat = nom
+        dao.composer = autos
         return dao
     }
 }
