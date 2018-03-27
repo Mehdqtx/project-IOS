@@ -20,14 +20,21 @@ import CoreData
 extension Incident{
     // MARK: -
     
+    // le type de l'incident
     public var type : String{
         return self.typeIncident!
     }
     
+    //la date de l'incident
     public var date : NSDate{
         return self.dateIncident!
     }
     
+    /// Initialise un incident
+    ///
+    /// - Parameters:
+    ///   - type: String le type de l'incident
+    ///   - date: NSDate la date de l'incident
     convenience init(type: String, date: NSDate){
         self.init(context: CoreDataManager.context)
         self.typeIncident = type

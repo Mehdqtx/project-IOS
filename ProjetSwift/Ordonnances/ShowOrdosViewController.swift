@@ -15,7 +15,7 @@ class ShowOrdosViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var ordoPresenter: OrdoPresenter!
     
     
-    
+    // Récupération de toutes les ordonnances du patient
     fileprivate lazy var ordosFetched : NSFetchedResultsController<Ordonnance> = {
         let request : NSFetchRequest<Ordonnance> = Ordonnance.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Ordonnance.utiliser.nomMedicament), ascending: true)]

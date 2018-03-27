@@ -66,6 +66,11 @@ class OrdoPresenter: NSObject {
         }
     }
     
+    /// Configuration de la cellule de la table des ordonances
+    ///
+    /// - Parameters:
+    ///   - theCell: OrdosTableViewCell
+    ///   - forOrdo: Ordonnance
     func configure(theCell: OrdosTableViewCell?, forOrdo: Ordonnance?){
         self.ordonnance = forOrdo
         guard let cell = theCell else{return}

@@ -34,6 +34,11 @@ class EventPresenter: NSObject {
         }
     }
     
+        /// Configure la cellule de la table view des Incidents
+        ///
+        /// - Parameters:
+        ///   - theCell: EventTableViewCell
+        ///   - forEvent: Incident
         func configure(theCell : EventTableViewCell?, forEvent: Incident?){
             self.event = forEvent
             guard let cell = theCell else {return }

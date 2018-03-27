@@ -9,6 +9,11 @@
 import Foundation
 
 class DateFormatterHelper {
+    
+    /// Formattage des minutes String en NSDate
+    ///
+    /// - Parameter dateToFormat: String, la date a transformer
+    /// - Returns: renvoie les minutes au format date
     class func minutesFormatFromString(forDate dateToFormat: String) -> NSDate{
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"
@@ -17,6 +22,10 @@ class DateFormatterHelper {
         return dateFormatted!
     }
     
+    /// Formattage des heures String en NSDate
+    ///
+    /// - Parameter dateToFormat: String, la date a transformer
+    /// - Returns: renvoie l'heure + minute au format date
     class func hoursFormatFromString(forDate dateToFormat: String) -> NSDate{
         let formatter = DateFormatter()
         formatter.dateStyle = .none
@@ -26,6 +35,10 @@ class DateFormatterHelper {
         return dateFormatted!
     }
     
+    /// Formattage des minutes du format NSDate en String
+    ///
+    /// - Parameter dateToFormat: NSDate, date
+    /// - Returns: retourne date en String
     class func minutesFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"
@@ -34,6 +47,10 @@ class DateFormatterHelper {
         return dateFormatted
     }
     
+    /// Formattage de l'heure de NSDate en String
+    ///
+    /// - Parameter dateToFormat: date en NSDAte
+    /// - Returns: retourne la date en String
     class func hoursFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
@@ -41,6 +58,10 @@ class DateFormatterHelper {
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
+    /// Formattage de l'heure de date en String
+    ///
+    /// - Parameter dateToFormat: NSDate
+    /// - Returns: heure en String
     class func hourFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "HH"
@@ -49,6 +70,10 @@ class DateFormatterHelper {
         return dateFormatted
     }
     
+    /// Formattage du format NSDate en String
+    ///
+    /// - Parameter dateToFormat: NSDate, date
+    /// - Returns: retourne la date heure en string
     class func classicFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM' à' HH' h 'mm"
@@ -57,6 +82,10 @@ class DateFormatterHelper {
         return dateFormatted
     }
     
+    /// Formattage minute de NSDate en string
+    ///
+    /// - Parameter dateToFormat: date
+    /// - Returns: retourne les minutes en string
     class func timeFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "mm" 
@@ -64,6 +93,11 @@ class DateFormatterHelper {
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
+    
+    /// Formattage de la date NSDate en String
+    ///
+    /// - Parameter dateToFormat: date
+    /// - Returns: retourne la date en string
     class func dateFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyy"
@@ -71,6 +105,11 @@ class DateFormatterHelper {
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
+    
+    /// Formattage de la date String en NSDate
+    ///
+    /// - Parameter dateToFormat: String
+    /// - Returns: retourne la date en NSDate
     class func dateFormatFromString(forDate dateToFormat: String) -> NSDate{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyy"
@@ -79,6 +118,12 @@ class DateFormatterHelper {
         return dateFormatted! as NSDate
     }
     
+    /// Calcul le nombre de jour entre deux dates
+    ///
+    /// - Parameters:
+    ///   - startDate: NSDate, la premiere date
+    ///   - endDate: NSdate, al deuxieme date
+    /// - Returns: Retourne le nombre de jour entre ces deux dates
     class func daysBetweenDates(startDate: NSDate, endDate: NSDate)-> Int {
         let calendar: Calendar = Calendar.current
         let date1 = calendar.startOfDay(for: startDate as Date)
@@ -86,6 +131,12 @@ class DateFormatterHelper {
         return calendar.dateComponents([.day], from: date1, to: date2).day!
     }
     
+   /// Calcul du nombre de minute entre deux heures
+   ///
+   /// - Parameters:
+   ///   - heurePrevue: NSDate, la premiere heure
+   ///   - heurePrise: NSDate, la deuxieme heure
+   /// - Returns: retourne le nombre de minute entre les deux heures
    class func differenceHeure(heurePrevue: NSDate, heurePrise: NSDate)-> Int{
         
         let prevueTimeHoursMinutes = Calendar.current.component(.hour, from: heurePrevue as Date) * 60
@@ -102,6 +153,11 @@ class DateFormatterHelper {
         return difference
     }
     
+    
+    /// Conversion d'une heure en int
+    ///
+    /// - Parameter hour: NSDate, l'heure a convertir
+    /// - Returns: retourne l'entier
     class func convertHourToInt(hour: NSDate)-> Int {
         let timeInterval = hour.timeIntervalSinceNow
         return Int(timeInterval)

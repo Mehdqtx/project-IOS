@@ -42,12 +42,14 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     var medicaments = [Medicaments]()
     var tabHeures = [String]()
+    //Creation des date Picker
     let dateDebutPicker = UIDatePicker()
     let dateFinPicker = UIDatePicker()
     let heureMatinPicker = UIDatePicker()
     let heureMidiPicker = UIDatePicker()
     let heureSoirPicker = UIDatePicker()
     let heureAutrePicker = UIDatePicker()
+    
     var newOrdonnance : Ordonnance?
     var Prise : PriseReelle?
     
@@ -56,8 +58,12 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         // Do any additional setup after loading the view.
         
+        // Remplissage du tableau de médicament
         initMedicamentSeed()
+        
         createDatePicker()
+        
+        // Cache les textfield à l'initialisation
         heureMatinLabel.isHidden = true
         heureMidiLabel.isHidden = true
         heureSoirLabel.isHidden = true
@@ -75,11 +81,13 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     // MARK: - Cancel and Save New Ordonnance
+    
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveOrdo(_ sender: Any) {
+        // Initialisation de toute les variables avec les données saisies
         let nomMedicament : String = pickedMedic ?? ""
         let dose : String = pickedDose ?? ""
         let debutT : String = dateDebutLabel.text ?? ""
@@ -89,17 +97,19 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let heureSoir : String = heureSoirLabel.text ?? ""
         let heureAutre : String = heureAutreLabel.text ?? ""
         
+        //Vérification que tous les champs obligatoire ont été remplies
         guard (nomMedicament != "") && (dose != "") && (debutT != "") && (finT != "") else {
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner tous les champs.")
             return
         }
 
-
+        // Vérification qu'au moins une heure de prise à été précisé
         guard (heureMatin != "") || (heureMidi != "") || (heureSoir != "") || (heureAutre != "")else{
             DialogBoxHelper.alert(view: self, withTitle: "Champ(s) manquant(s)", andMessage: "Veuillez renseigner au moins une heure.")
             return
         }
         
+        // Ajouts des heures choisi dans la tableau d'heures
         
         if(heureMatin != ""){
             tabHeures.append(heureMatin)
@@ -115,22 +125,22 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
         
         
-
+        // Formattage de la date du format string au format date
         let dateD = DateFormatterHelper.dateFormatFromString(forDate: debutT)
         let dateF = DateFormatterHelper.dateFormatFromString(forDate: finT)
         
       
-        
+        //Creation d'une nouvelle ordonnance en précisant tout les paramètres
         self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD as NSDate, dateFin: dateF as NSDate, heures: tabHeures)
         
-        
+        // Fermeture du modal- retour a la page précédente
         self.dismiss(animated: true, completion: nil)
         
     }
     
     //Mark: - Switch management
     
-    
+    // Verification que le bouton matin est coché ou non, affichage du textfield
     @IBAction func matinChanged(_ sender: UISwitch) {
         if matinSwitch.isOn {
             heureMatinLabel.isHidden = false
@@ -140,7 +150,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
             heureMatinLabel.text = ""
         }
     }
-    
+    // Verification que le bouton midi est coché ou non, affichage du textfield
     @IBAction func midiChanged(_ sender: UISwitch) {
         if midiSwitch.isOn {
             heureMidiLabel.isHidden = false
@@ -151,6 +161,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
     }
     
+    // Verification que le bouton soir est coché ou non, affichage du textfield
     @IBAction func soirChanged(_ sender: UISwitch) {
         if soirSwitch.isOn {
             heureSoirLabel.isHidden = false
@@ -161,6 +172,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
     }
     
+    // Verification que le bouton autre est coché ou non, affichage du textfield
     @IBAction func autreChanged(_ sender: UISwitch) {
         if autreSwitch.isOn {
             heureAutreLabel.isHidden = false
@@ -172,6 +184,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     //MARK: - Add Medicament Management
     
+    //Apparition du text field d'ajout de m"dicament et des bouton add
     @IBAction func addField(_ sender: Any) {
         newMedicTextField.isHidden = false
         newDoseTextField.isHidden = false

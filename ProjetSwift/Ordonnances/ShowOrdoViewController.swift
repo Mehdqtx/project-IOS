@@ -113,6 +113,7 @@ class ShowOrdoViewController: UIViewController,UITableViewDataSource, UITableVie
         }
     }
     
+    // rechargement de la table view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // get the persistence facade that hides the storage business logic.

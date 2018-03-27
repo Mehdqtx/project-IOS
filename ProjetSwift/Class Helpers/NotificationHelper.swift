@@ -11,6 +11,11 @@ import UserNotifications
 
 class NotificationHelper {
 
+    /// Programmation de la notification pour une prise de médicament
+    ///
+    /// - Parameters:
+    ///   - medicament: String, le nom du médicament à prendre
+    ///   - heurePrevue: Date, l'heure de prise du médicement
     class func scheduleNotificationMedicament(medicament: String, heurePrevue : Date)
     {
         
@@ -35,6 +40,9 @@ class NotificationHelper {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
+    
+    /// Programmation de la notification pour les activités sportives,
+    // Tous les soirs à 19h00 une notification lui demande de valider s'il a effectuer son sport journalier
     class func scheduleNotificationSport()
     {
         
@@ -62,6 +70,12 @@ class NotificationHelper {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
+    
+    /// Programmation d'une notification pour le RDV
+    ///
+    /// - Parameters:
+    ///   - practicien: String, le practicien du rdv
+    ///   - dateRDV: Date, la date du rdv
     class func scheduleNotificationRDV(practicien : String, dateRDV : Date)
     {
         

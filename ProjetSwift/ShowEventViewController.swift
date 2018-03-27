@@ -18,6 +18,7 @@ class ShowEventViewController: UIViewController, UITableViewDataSource, UITableV
     
     var events : [Incident] = []
     
+    //Récupération de tout les incidents du patient
     fileprivate lazy var eventsFetched : NSFetchedResultsController<Incident> = {
         let request : NSFetchRequest<Incident> = Incident.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Incident.dateIncident), ascending: true)]

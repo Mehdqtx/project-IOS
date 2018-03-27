@@ -42,7 +42,13 @@ extension PriseReelle{
         }
         return prise
     }
-    // Récupère toutes les prises d'une ordonnance
+    
+    
+    /// Recupère toute les prises d'une ordonnance
+    ///
+    /// - Parameter ordonnance: Ordonnance du patient
+    /// - Returns:[PriseReelle] l'ensemble des prises pour l'ordonnance entré en paramètre
+    /// - Throws:
     static func getAllPrises(ordonnance: Ordonnance) throws -> [PriseReelle] {
         let predicate: NSPredicate = NSPredicate(format: "associer == %@", ordonnance)
         let request: NSFetchRequest<PriseReelle> = PriseReelle.fetchRequest()
@@ -55,6 +61,12 @@ extension PriseReelle{
             throw error
         }
     }
+    
+    /// Recupère toute les prises valider par le patient
+    ///
+    /// - Parameter ordonnance: Ordonnance du patient
+    /// - Returns:[PriseReelle] l'ensemble des prises pour l'ordonnance entré en paramètre
+    /// - Throws:
     static func getAllPrisesValider() throws -> [PriseReelle] {
         let predicate: NSPredicate = NSPredicate(format: "valider != %@",false as CVarArg)
         let request: NSFetchRequest<PriseReelle> = PriseReelle.fetchRequest()
@@ -68,7 +80,13 @@ extension PriseReelle{
         }
     }
     
-    // Valider une prise
+    //
+    /// Edite la prise lors de la validation
+    ///
+    /// - Parameters:
+    ///   - datePrise: NSDate date de la prise réelle
+    ///   - heurePrise: NSdate heure de la prise réelle
+    /// - Throws: 
     func editPrise( datePrise: NSDate, heurePrise: NSDate) throws {
         
         self.datePriseReelle = datePrise

@@ -56,6 +56,11 @@ class PrisePresenter: NSObject {
         }
     }
     
+    /// Configure la cellule de la table view des Prises
+    ///
+    /// - Parameters:
+    ///   - theCell: PriseTableViewCell
+    ///   - forPrise: PriseReelle
     func configure(theCell: PriseTableViewCell?, forPrise: PriseReelle?){
         self.prise = forPrise
         guard let cell = theCell else {return}

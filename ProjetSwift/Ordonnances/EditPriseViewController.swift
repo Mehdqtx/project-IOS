@@ -23,6 +23,8 @@ class EditPriseViewController: UIViewController{
         super.viewDidLoad()
         if let aPrise = self.prise{
             
+            // Affichage des labels
+            //Formattage de toute les dates au format string pour affichage dans les labels
             self.datePrevueLabel.text =  DateFormatterHelper.dateFormatFromDate(forDate: aPrise.datePrisePrevue!)
             self.heurePrisePrevueLabel.text = DateFormatterHelper.hoursFormatFromDate(forDate: aPrise.heurePrisePrevue!)
             if aPrise.datePriseReelle != nil{
@@ -37,10 +39,12 @@ class EditPriseViewController: UIViewController{
         
     }
     
+    // Bouton d'action de validation d'une prise
     @IBAction func ValiderPrise(_ sender: UIBarButtonItem) {
         if let aPrise = self.prise{
             let dateA = self.prise?.datePrisePrevue
             let dateB = Date()
+            //Verification que lorsque l'utilisateur veut cliquer sur valider la prise, la date de la prise est la date du jour ou une date antérieur
             if (dateA?.compare(dateB) == .orderedAscending) || (dateA?.compare(dateB) == .orderedSame){
                 do{
                     try aPrise.editPrise(datePrise: NSDate(), heurePrise: NSDate())

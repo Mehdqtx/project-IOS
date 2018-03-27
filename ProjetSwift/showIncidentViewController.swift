@@ -18,6 +18,8 @@ class ShowIncidentViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if let anIncident = self.incident{
+            
+            //affichage des données dans le label
             self.typeIncidentLabel.text = anIncident.typeIncident
             self.dateIncidentLabel.text = DateFormatterHelper.dateFormatFromDate(forDate: anIncident.dateIncident!)
         }

@@ -49,6 +49,7 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.dismiss(animated: true, completion: nil)
     }
     
+    //sauvegarde de l'evenement lors du clic sur le bouton
     @IBAction func saveEvent(_ sender: Any) {
         
         let dateIncident : String = datePickerText.text ?? ""
@@ -86,6 +87,8 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     // MARK: - Date Picker View management
+    
+    //création du date picker associé
     func createDatePicker() {
         //format
         datePicker.datePickerMode = .date
@@ -105,7 +108,7 @@ class NewEventViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         
     }
-    
+    //Bouton qui permet de valider la selection
     func donePressed() {
         //format
         datePickerText.text = DateFormatterHelper.dateFormatFromDate(forDate: datePicker.date as NSDate)

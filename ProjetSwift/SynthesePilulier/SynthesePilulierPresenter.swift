@@ -45,7 +45,9 @@ class SynthesePilulierPresenter: NSObject {
                     self.heureReelle = "N/A"
                 }
                 if let heurePriseR = prise.heurePriseReelle, let heurePriseP = prise.heurePrisePrevue{
+                    // vérification de la différence (en minute) entre l'heure de prise prévue et l'heure de prise reele
                     let diff = DateFormatterHelper.differenceHeure(heurePrevue: heurePriseP, heurePrise: heurePriseR)
+                    //La prise a été pris a + de 30minutes de sa prise prévue
                     if diff >= 30 || diff <=  -30{
                         self.resultat = "Pris en retard!"
                     }
@@ -68,6 +70,11 @@ class SynthesePilulierPresenter: NSObject {
         }
     }
     
+    /// Configure la cellule de la table view Synthese Pilulier
+    ///
+    /// - Parameters:
+    ///   - theCell: SynthesePilulierTableViewCell
+    ///   - forPrise: PriseReelle
     func configure(theCell: SynthesePilulierTableViewCell?, forPrise: PriseReelle?){
         self.prise = forPrise
 

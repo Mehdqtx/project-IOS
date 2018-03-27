@@ -10,6 +10,7 @@ import UIKit
 
 class roundButton: UIButton {
 
+    // Application des modifications visuels sur le bouton
     override func didMoveToWindow() {
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 8

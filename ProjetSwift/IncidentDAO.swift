@@ -12,13 +12,16 @@ import CoreData
 class IncidentDAO{
     static let request : NSFetchRequest<Incident> = Incident.fetchRequest()
     
+    // sauvegarde de l'incident
     static func save(){
         CoreDataManager.save()
     }
+    // supression de l'incident
     static func delete(incident: Incident){
         CoreDataManager.context.delete(incident)
     }
     
+    // récupère tous les incidents
     static func fetchAll() -> [Incident]?{
         self.request.predicate = nil
         do{
@@ -28,7 +31,7 @@ class IncidentDAO{
             return nil
         }
     }
-    
+    //nombre d'élement
     static var count: Int{
         self.request.predicate = nil
         do{
@@ -39,10 +42,17 @@ class IncidentDAO{
         }
     }
     
+    //creation de l'incident
     static private func createIncident() -> Incident{
         return Incident(context: CoreDataManager.context)
     }
     
+    /// Création de l'incident
+    ///
+    /// - Parameters:
+    ///   - type: String type de l'incident
+    ///   - date: NSDate date de l'incident
+    /// - Returns: Incident, l'incident créé
     static func createIncident(type: String, date: NSDate) -> Incident{
         let dao = self.createIncident()
         dao.dateIncident = date
