@@ -572,7 +572,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5AC-18-vQb">
                                 <rect key="frame" x="16" y="72" width="343" height="543"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rdvCell" rowHeight="84" id="vPO-5x-DNS" customClass="RdvsTableViewCell" customModule="ProjetSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="84"/>
@@ -584,19 +584,20 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Praticien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAl-M0-7f6">
                                                     <rect key="frame" x="15" y="11" width="67" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umA-v6-c34">
                                                     <rect key="frame" x="15" y="40" width="313" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="umA-v6-c34" id="RHd-YZ-ofF"/>
                                             <outlet property="praticienLabel" destination="qAl-M0-7f6" id="hdo-KN-xiQ"/>
@@ -658,7 +659,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A2Q-fl-vhR">
                                 <rect key="frame" x="16" y="72" width="343" height="543"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" rowHeight="99" id="RZz-Ve-fZE" customClass="ActivityTableViewCell" customModule="ProjetSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="99"/>
@@ -672,17 +673,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="bio-My-MLW"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomActivite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dap-rH-lb5">
-                                                    <rect key="frame" x="15" y="11" width="91" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="89.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ECT-26-Dgy"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.23492971546666599" green="0.35173202292946504" blue="0.89971259713419682" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durée" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdd-P5-bqU">
@@ -690,7 +691,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Ii5-4i-a0o"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -707,6 +708,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dap-rH-lb5" secondAttribute="trailingMargin" id="zHe-qA-uj5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="activityName" destination="Dap-rH-lb5" id="PQJ-F0-qm3"/>
                                             <outlet property="durationLabel" destination="Wdd-P5-bqU" id="hG8-S4-kWf"/>
@@ -2642,11 +2644,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGY-UE-YXE">
+                                <rect key="frame" x="267" y="38" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Ajouter"/>
+                                <connections>
+                                    <action selector="addMedicament:" destination="b6t-DO-XIK" eventType="touchUpInside" id="zND-mC-k2n"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom du médicament" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVv-8A-drb">
+                                <rect key="frame" x="16" y="39" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bJM-9k-CBv">
+                                <rect key="frame" x="184" y="39" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancelMedicament:" destination="b6t-DO-XIK" eventType="editingDidEnd" id="YZ8-5v-xg4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e09-lY-FPR">
+                                <rect key="frame" x="317" y="38" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Annuler">
+                                    <color key="titleColor" red="1" green="0.25030601050000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelMedicament:" destination="b6t-DO-XIK" eventType="touchUpInside" id="gAn-6L-ETk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUx-UF-aF9">
+                                <rect key="frame" x="283" y="107" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.63577080080000004" blue="0.1488250304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="addField:" destination="b6t-DO-XIK" eventType="touchUpInside" id="aT0-j0-ebd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51808805599999996" green="0.74437377719999998" blue="0.8926860445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="NGY-UE-YXE" id="diF-3e-a84"/>
                         <outlet property="autreSwitch" destination="uqS-3Y-v2j" id="TXp-VT-ejr"/>
+                        <outlet property="cancelButton" destination="e09-lY-FPR" id="jyE-v8-Vco"/>
                         <outlet property="dateDebutLabel" destination="82u-RS-cRs" id="AYQ-wG-nSZ"/>
                         <outlet property="dateFinLabel" destination="HKQ-te-bXL" id="d4e-Gf-xpq"/>
                         <outlet property="heureAutreLabel" destination="nKB-fV-MHB" id="2uf-oo-PuN"/>
@@ -2656,6 +2705,8 @@
                         <outlet property="matinSwitch" destination="0n7-cX-ZG2" id="3Bc-AF-WJ1"/>
                         <outlet property="medicPickerView" destination="hoc-Si-pJx" id="UUf-Zz-0h0"/>
                         <outlet property="midiSwitch" destination="O83-dZ-J7u" id="3xl-8W-N4y"/>
+                        <outlet property="newDoseTextField" destination="bJM-9k-CBv" id="fhK-Sk-Trb"/>
+                        <outlet property="newMedicTextField" destination="HVv-8A-drb" id="c8X-yO-sHB"/>
                         <outlet property="soirSwitch" destination="i4T-a6-ugJ" id="55R-7y-eJX"/>
                     </connections>
                 </viewController>
