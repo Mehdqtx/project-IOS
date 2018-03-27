@@ -1222,8 +1222,8 @@
                                     <segue destination="cx5-Za-I5O" kind="show" id="l6n-54-cKV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom du Patient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkH-aN-WXR">
-                                <rect key="frame" x="112" y="84" width="151.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espace Médecin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkH-aN-WXR">
+                                <rect key="frame" x="106" y="84" width="163" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rXS-7b-tJf"/>
                                 </constraints>
