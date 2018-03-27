@@ -27,6 +27,7 @@ class ShowActivityViewController: UIViewController {
 
     @IBAction func validateAction(_ sender: Any) {
         self.activity?.incValidation()
+        DialogBoxHelper.alert(view: self, withTitle: "Bravo", andMessage: "Activité validée")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
