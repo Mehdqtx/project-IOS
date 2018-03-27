@@ -13,25 +13,23 @@ import CoreData
 /**
  Etat type
  
- **type**: Etat -> TypeEtat
+ **nom**: Etat -> String
  **date**: Etat -> NSDate
  */
 
 extension Etat{
     
     public var type : String{
-        return (self.caracteriser?.nomTypeEtat)!
+        return self.nomEtat!
     }
     
     public var date : NSDate{
         return self.dateEtat!
     }
     
-    convenience init(date: NSDate, type: String){
+    convenience init(date: NSDate, nom: String){
         self.init(context: CoreDataManager.context)
         self.dateEtat = date
-        let tpe = TypeEtat(context: CoreDataManager.context)
-        tpe.nomTypeEtat = type
-        self.caracteriser = tpe
+        self.nomEtat = nom
     }
 }

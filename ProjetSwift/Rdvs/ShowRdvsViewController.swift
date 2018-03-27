@@ -65,16 +65,10 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
         CoreDataManager.context.delete(rdv)
     }
     
-    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        print("edit")
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
+        return [delete]
     }
 
     // MARK: - TableView Delegate protocol -

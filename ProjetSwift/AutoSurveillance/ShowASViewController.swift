@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class ShowASViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     fileprivate lazy var stateFetched : NSFetchedResultsController<Etat> = {
         let request : NSFetchRequest<Etat> = Etat.fetchRequest()
@@ -62,6 +62,17 @@ class ShowASViewController: UIViewController, UITableViewDataSource, NSFetchedRe
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
+        let state = self.stateFetched.object(at: indexPath)
+        CoreDataManager.context.delete(state)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
+        delete.backgroundColor = UIColor.red
+        return [delete]
     }
     
     // MARK: - TableView Delegate protocol -

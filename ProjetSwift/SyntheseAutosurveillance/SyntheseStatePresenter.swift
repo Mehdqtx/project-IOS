@@ -16,7 +16,7 @@ class SyntheseStatePresenter: NSObject {
     fileprivate var etat : Etat? = nil{
         didSet{
             if let etat = self.etat{
-                if let libEtat = etat.caracteriser?.nomTypeEtat{
+                if let libEtat = etat.nomEtat{
                     self.libEtat = libEtat
                 }
                 else{
