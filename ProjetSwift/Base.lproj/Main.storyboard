@@ -1087,14 +1087,12 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tPP-Od-qMO"/>
                                     <barButtonItem title="Annuler" id="fWR-Io-eSe">
-                                        <color key="tintColor" red="0.62202477331606221" green="0.18629672877615241" blue="0.17636392644161358" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="cancel:" destination="Y4u-90-Y6a" id="kUl-oB-Lp8"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="F2V-ts-vA6"/>
                                     <barButtonItem title="Sauvegarder" id="xzY-Rc-37f">
-                                        <color key="tintColor" red="0.24815899558105009" green="0.78244745237221991" blue="0.23185269305599071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="UYZ-sX-DSF" kind="unwind" unwindAction="unwindToInfoAfterEditInfoWithSegue:" id="gXz-uq-kqs"/>
                                         </connections>
@@ -2404,7 +2402,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="2" height="-1"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.51808805599999996" green="0.74437377719999998" blue="0.8926860445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
