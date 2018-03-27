@@ -41,6 +41,13 @@ class DateFormatterHelper {
         let dateFormatted = formatter.string(from: dateToFormat as Date)
         return dateFormatted
     }
+    class func hourFormatFromDate(forDate dateToFormat: NSDate) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        formatter.locale = Locale(identifier:"fr_FR")
+        let dateFormatted = formatter.string(from: dateToFormat as Date)
+        return dateFormatted
+    }
     
     class func classicFormatFromDate(forDate dateToFormat: NSDate) -> String{
         let formatter = DateFormatter()
@@ -85,5 +92,10 @@ class DateFormatterHelper {
         // difference in minutes (could be negative):
         let difference = totalPrevueTimeMinutes - priseTimeMinutes
         return difference
+    }
+    
+    class func convertHourToInt(hour: NSDate)-> Int {
+        let timeInterval = hour.timeIntervalSinceNow
+        return Int(timeInterval)
     }
 }

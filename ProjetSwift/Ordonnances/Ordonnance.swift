@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UserNotifications
 
 // MARK: -
 /**
@@ -74,11 +75,16 @@ extension Ordonnance{
                 prise.valider = false
                 prise.associer = self
                 
+                NotificationHelper.scheduleNotificationMedicament(medicament: medicament, heurePrevue: prise.heurePrisePrevue! as Date)
+                
             }
             date = calendar.date(byAdding: .day, value: 1, to: date as Date)!
         }
 
     }
     
+    
+ 
 }
+
 

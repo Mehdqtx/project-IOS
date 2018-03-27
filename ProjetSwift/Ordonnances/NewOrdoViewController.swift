@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
    
@@ -111,6 +112,7 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
       
         
         self.newOrdonnance = Ordonnance(medicament: nomMedicament, dose: dose, dateDebut: dateD as NSDate, dateFin: dateF as NSDate, heures: tabHeures)
+        
         
         self.dismiss(animated: true, completion: nil)
         
@@ -330,6 +332,5 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.view.endEditing(true)
     }
 
-
-
+    
 }

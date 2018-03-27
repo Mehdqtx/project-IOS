@@ -20,6 +20,7 @@
 		5D2F80AB205C004E000114E6 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */; };
 		5D3533D32056EB3D00E52C00 /* showIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */; };
 		5D46D0C4206980C100CFB20C /* SynthesePilulierPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46D0C3206980C100CFB20C /* SynthesePilulierPresenter.swift */; };
+		5D46D0C62069BF1400CFB20C /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46D0C52069BF1400CFB20C /* NotificationHelper.swift */; };
 		5D48BE7B206054E90030E62E /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48BE7A206054E90030E62E /* EventPresenter.swift */; };
 		5D519440204D965C00F05612 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5D51943F204D965C00F05612 /* images */; };
 		5D519444204D9E1D00F05612 /* roundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D519443204D9E1D00F05612 /* roundButton.swift */; };
@@ -125,6 +126,7 @@
 		5D2F80AA205C004E000114E6 /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		5D3533D22056EB3D00E52C00 /* showIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showIncidentViewController.swift; sourceTree = "<group>"; };
 		5D46D0C3206980C100CFB20C /* SynthesePilulierPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesePilulierPresenter.swift; sourceTree = "<group>"; };
+		5D46D0C52069BF1400CFB20C /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		5D48BE7A206054E90030E62E /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		5D51943F204D965C00F05612 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		5D519443204D9E1D00F05612 /* roundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundButton.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			children = (
 				D707E7E52055C3D600509D4D /* CoreDataManager.swift */,
 				D707E7E72055C57F00509D4D /* DialogBoxHelper.swift */,
+				5D46D0C52069BF1400CFB20C /* NotificationHelper.swift */,
 				D706B02C2067A28C00B2B5D9 /* DateFormatterHelper.swift */,
 			);
 			path = "Class Helpers";
@@ -592,6 +595,7 @@
 				5D556D1C20543E5700C8BAA8 /* NewEventViewController.swift in Sources */,
 				D7086D642066EBD300B0AF18 /* NewPraticienViewController.swift in Sources */,
 				D7086D5220666C5A00B0AF18 /* Autosurveillance.swift in Sources */,
+				5D46D0C62069BF1400CFB20C /* NotificationHelper.swift in Sources */,
 				D707E7E82055C57F00509D4D /* DialogBoxHelper.swift in Sources */,
 				D7AFBC4A20670CD10026388C /* SyntheseStatePresenter.swift in Sources */,
 				D7086D582066A9E300B0AF18 /* Praticien.swift in Sources */,
