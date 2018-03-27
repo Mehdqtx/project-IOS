@@ -23,6 +23,7 @@ class NewActivityViewController: UIViewController, UITextFieldDelegate, UIPicker
         super.viewDidLoad()
         self.pickerData.append("Nouvelle activité")
         
+        //Ajout des données dans le picker
         for a in activitySet {
             pickerData.append(a.libActivite!)
         }

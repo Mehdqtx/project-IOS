@@ -17,6 +17,7 @@ class ShowActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Chargement de l'activité
         if let anActivity = self.activity{
             self.frequency.text = anActivity.frequence! + " fois par semaine"
             self.duration.text = String(anActivity.dureeActivite) + " minutes par séance"
@@ -25,6 +26,7 @@ class ShowActivityViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //Validation d'une activité
     @IBAction func validateAction(_ sender: Any) {
         self.activity?.incValidation()
         DialogBoxHelper.alert(view: self, withTitle: "Bravo", andMessage: "Activité validée")

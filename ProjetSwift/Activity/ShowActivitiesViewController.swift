@@ -13,6 +13,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
   
     @IBOutlet var activityPresenter: ActivityPresenter!
     
+    //Chargement des activités
     fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Activite.libActivite), ascending: true)]
@@ -25,8 +26,7 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        // Load context
+        //Chargement des activités
         do{
             try self.activitiesFetched.performFetch()
         }
@@ -61,11 +61,13 @@ class ShowActivitiesViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
+    //Suppression
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
         let activity = self.activitiesFetched.object(at: indexPath)
         CoreDataManager.context.delete(activity)
     }
     
+    //Bouton supprimer
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red

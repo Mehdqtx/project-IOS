@@ -18,8 +18,8 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load context
         
+        //Récupération de tous les états correspondants à l'autosurveillance voulue
         do{
             self.states = try Etat.getAllStates(autosurveillance: self.autosurveillance!)
         }
@@ -27,6 +27,7 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
             DialogBoxHelper.alert(view: self, error: error)
         }
 
+        //Initialisation du label en fonction de l'autosurveillance
         if let anAutosurveillance = self.autosurveillance{
             self.dateLabel.text = "Rendez-vous du : " + DateFormatterHelper.classicFormatFromDate(forDate: anAutosurveillance.dateRDVNeurologue!)
         }
@@ -54,11 +55,12 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
         return true
     }
     
+    //Suppression
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        //let state = self.stateFetched.object(at: indexPath)
         CoreDataManager.context.delete((states?[indexPath.row])!)
     }
     
+    //Bouton supprimer
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red
@@ -108,6 +110,7 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    //Actualisation lors du retour sur la page
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // get the persistence facade that hides the storage business logic.
@@ -117,7 +120,6 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-        
         self.stateTable.reloadData()
     }
 }

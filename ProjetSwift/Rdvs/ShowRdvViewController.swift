@@ -19,7 +19,7 @@ class ShowRdvViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Récupération du rendez-vous
         if let aRdv = self.rdv{
             self.praticienLabel.text = aRdv.concerner?.nomPraticien
             self.dateLabel.text = DateFormatterHelper.classicFormatFromDate(forDate: aRdv.dateRDV!)

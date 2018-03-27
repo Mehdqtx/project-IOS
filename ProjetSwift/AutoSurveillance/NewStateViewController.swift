@@ -27,6 +27,7 @@ class NewStateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Déselection des switchs si un autre switch est selectionné
     @IBAction func onAction(_ sender: Any) {
         self.offSwitch.setOn(false, animated: true)
         self.dyskSwitch.setOn(false, animated: true)
