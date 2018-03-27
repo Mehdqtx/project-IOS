@@ -36,7 +36,7 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
         }
-        /*
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             print("Erreur")
             return
@@ -59,7 +59,7 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         // Set the labels
         self.nomMedecin.text = self.info?.nomMedecin
         self.prenomMedecin.text = self.info?.prenomMedecin
-        */
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -135,16 +135,10 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         CoreDataManager.context.delete(praticien)
     }
     
-    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        print("edit")
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: self.editHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
+        return [delete]
     }
     
     // MARK: - NSFetchedResultsController Delegate protocol -

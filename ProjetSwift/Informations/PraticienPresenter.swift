@@ -26,7 +26,7 @@ class PraticienPresenter: NSObject {
                         self.phone = phone
                     }
                     else{
-                        self.phone = "Téléphone non renseigné"
+                        self.phone = "Specialité non renseignée"
                     }
                 }
                 else{
