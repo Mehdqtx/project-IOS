@@ -74,7 +74,7 @@ class NotificationHelper {
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
         
-        let request = UNNotificationRequest(identifier: "sport", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier:UUID().uuidString , content: content, trigger: trigger)
         
         let center = UNUserNotificationCenter.current()
         

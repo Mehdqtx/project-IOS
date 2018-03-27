@@ -46,11 +46,8 @@ class SynthesePilulierPresenter: NSObject {
                 }
                 if let heurePriseR = prise.heurePriseReelle, let heurePriseP = prise.heurePrisePrevue{
                     let diff = DateFormatterHelper.differenceHeure(heurePrevue: heurePriseP, heurePrise: heurePriseR)
-                    if diff >= 30 {
+                    if diff >= 30 || diff <=  -30{
                         self.resultat = "Pris en retard!"
-                    }
-                    else if diff <=  -30{
-                        self.resultat = "Pris trop à l'avance"
                     }
                     else{
                         self.resultat = "Pris à l'heure"
