@@ -46,5 +46,6 @@ extension RendezVous{
         prt.nomPraticien = doctorName
         prt.telPraticien = doctorPhone
         self.concerner = prt
+        NotificationHelper.scheduleNotificationRDV(practicien : doctorName, dateRDV : date as Date)
     }
 }

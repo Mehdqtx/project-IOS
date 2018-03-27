@@ -48,5 +48,6 @@ extension Activite{
         self.dureeActivite  = duration
         self.frequence = frequency
         self.initValidation()
+        NotificationHelper.scheduleNotificationSport()
     }
 }
