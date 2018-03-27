@@ -198,6 +198,8 @@ class NewOrdoViewController: UIViewController, UITextFieldDelegate, UIPickerView
         medicaments.append(Medicaments(medicamentNom : newMedicTextField.text!, doses: [newDoseTextField.text!]))
         medicPickerView.reloadComponent(0)
         medicPickerView.reloadComponent(1)
+        newMedicTextField.text = ""
+        newDoseTextField.text = ""
     }
     
     // MARK: - TextFieldDelegate
