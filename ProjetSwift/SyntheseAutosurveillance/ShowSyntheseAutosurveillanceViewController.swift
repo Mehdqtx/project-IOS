@@ -11,6 +11,7 @@ import CoreData
 
 class ShowSyntheseAutosurveillanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+    //Chargement de tous les états
     fileprivate lazy var stateFetched : NSFetchedResultsController<Etat> = {
         let request : NSFetchRequest<Etat> = Etat.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Etat.dateEtat), ascending: true)]
@@ -23,7 +24,7 @@ class ShowSyntheseAutosurveillanceViewController: UIViewController, UITableViewD
     @IBOutlet weak var StateTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load context
+        //Chargement de tous les états
         do{
             try self.stateFetched.performFetch()
         }

@@ -17,8 +17,8 @@ class EditInfoViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+        //Récupération des informations du médecin
         if let anInfo = self.information{
             self.doctorLastName.text = anInfo.nomMedecin
             self.doctorFirstName.text = anInfo.prenomMedecin
@@ -42,14 +42,4 @@ class EditInfoViewController: UIViewController, UITextFieldDelegate {
      @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
      }
-    
-    /*
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
 }

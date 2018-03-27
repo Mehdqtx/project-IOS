@@ -13,6 +13,8 @@ class ShowSyntheseActivitiesViewController: UIViewController, UITableViewDataSou
 
     @IBOutlet var syntheseActivitiesPresenter: SyntheseActivitiesPresenter!
     @IBOutlet weak var activitiesTable: UITableView!
+    
+    //Chargement de toutes les activités
     fileprivate lazy var activitiesFetched : NSFetchedResultsController<Activite> = {
         let request : NSFetchRequest<Activite> = Activite.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Activite.libActivite), ascending: true)]
@@ -24,7 +26,7 @@ class ShowSyntheseActivitiesViewController: UIViewController, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load context
+        //Chargement de toutes les activités
         do{
             try self.activitiesFetched.performFetch()
         }

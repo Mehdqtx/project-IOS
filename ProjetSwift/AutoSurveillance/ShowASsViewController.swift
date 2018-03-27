@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class ShowASsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+    
+    //Chargement des autosurveillances
     fileprivate lazy var asFetched : NSFetchedResultsController<Autosurveillance> = {
         let request : NSFetchRequest<Autosurveillance> = Autosurveillance.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Autosurveillance.dateRDVNeurologue), ascending: true)]
@@ -23,8 +25,7 @@ class ShowASsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        // Load context
+        //Chargement des autosurveillances
         do{
             try self.asFetched.performFetch()
         }
@@ -59,11 +60,13 @@ class ShowASsViewController: UIViewController, UITableViewDataSource, UITableVie
         return true
     }
     
+    //Suppression
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
         let autosurveillance = self.asFetched.object(at: indexPath)
         CoreDataManager.context.delete(autosurveillance)
     }
     
+    //Bouton supprimer
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red

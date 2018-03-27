@@ -18,6 +18,7 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var prenomMedecin: UILabel!
     @IBOutlet weak var praticienTable: UITableView!
     
+    //Chargement des praticiens
     fileprivate lazy var praticiensFetched : NSFetchedResultsController<Praticien> = {
         let request : NSFetchRequest<Praticien> = Praticien.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Praticien.nomPraticien), ascending: true)]
@@ -28,8 +29,8 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // Get Context
+        
+        //Chargement des praticiens
         do{
             try self.praticiensFetched.performFetch()
         }
@@ -37,6 +38,7 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
             DialogBoxHelper.alert(view: self, error: error)
         }
         
+        //Chargement du médecin traitant
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             print("Erreur")
             return
@@ -130,11 +132,13 @@ class ShowInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         return true
     }
     
+    //Suppression
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
         let praticien = self.praticiensFetched.object(at: indexPath)
         CoreDataManager.context.delete(praticien)
     }
     
+    //Bouton supprimer
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red

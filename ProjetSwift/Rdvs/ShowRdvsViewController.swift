@@ -14,6 +14,7 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var rdvPresenter: RdvPresenter!
     @IBOutlet weak var rdvsTable: UITableView!
     
+    //Récupération des rendez-vous
     fileprivate lazy var rdvsFetched : NSFetchedResultsController<RendezVous> = {
         let request : NSFetchRequest<RendezVous> = RendezVous.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RendezVous.dateRDV), ascending: true)]
@@ -25,7 +26,7 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Récupération des rendez-vous
         do{
             try self.rdvsFetched.performFetch()
         }
@@ -60,11 +61,13 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
         return true
     }
     
+    //Suppression
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
         let rdv = self.rdvsFetched.object(at: indexPath)
         CoreDataManager.context.delete(rdv)
     }
     
+    //Bouton supprimer
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red
@@ -74,6 +77,7 @@ class ShowRdvsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - TableView Delegate protocol -
     var indexPathForShow: IndexPath? = nil
     
+    //Bouton informations
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         self.indexPathForShow = indexPath
         self.performSegue(withIdentifier: self.segueShowRdv, sender: self)
