@@ -24,10 +24,26 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     let prepPicker = UIDatePicker()
     let trajetPicker = UIDatePicker()
+    var typePicker = UIPickerView()
+    
+    var typeActivite : [String] = [
+        "kinésithérapeute","orthophoniste","infirmier", "psychologue clinicien","neuropsychologue",
+        "neurologue", "médecin généraliste", "psychiatre", "neurochirurgien", "médecin de structure antidouleur"
+        ,"gériatre", "médecin spécialiste en médecine physique", "gastro-entérologue", "urologue, gynécologue, sexologue",
+         "ophtalmologiste", "ORL-phoniatre", "rhumatologue", "chirurgien orthopédique", "pneumologue",
+         "cardiologue", "médecin du travail", "chirurgien-dentiste", "ergothérapeute", "psychomotricien",
+         "pédicure-podologue", "diététicien(ne)", "orthoptiste", "assistant de service social", "personnels de transport sanitaire",
+         "personnels de soins infirmiers à domicile", "personnels des services d’aide à domicile", "personnels des services d’aide à la personne",
+         "personnels de coordination gérontologique", "maisons départementales des personnes handicapées", "éducateur médico-sportif",
+         "éducateur médico-sportif", "associations de patients"]
+    
     var newRendezVous: RendezVous?
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        typePicker.delegate = self
+        typePicker.dataSource = self
+        phoneTextField.inputView = typePicker
         
         createTimePicker()
         
@@ -77,35 +93,54 @@ class NewRdvViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
      // The data to return for the row and component (column) that's being passed in
      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        if pickerView == praticienPicker{
+            return pickerData[row]
+        }
+        else{
+            return typeActivite[row]
+        }
+        
      }
      
      // The number of rows of data
      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.pickerData.count
+        if pickerView == praticienPicker{
+            return self.pickerData.count
+        }
+        else{
+            return self.typeActivite.count
+        }
+        
      }
      
      // Catpure the picker view selection
      func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
      // This method is triggered whenever the user makes a change to the picker selection.
      // The parameter named row and component represents what was selected.
-        if(pickerData.count > 0){
-            self.pickedPraticien = pickerData[pickerView.selectedRow(inComponent: 0)]
-            if self.pickedPraticien != "Nouveau" {
-                self.addTextField.isUserInteractionEnabled = false
-                self.addTextField.backgroundColor = UIColor.gray
-                self.addTextField.text = ""
-                self.phoneTextField.isUserInteractionEnabled = false
-                self.phoneTextField.backgroundColor = UIColor.gray
-                self.phoneTextField.text = ""
-            }
-            else{
-                self.addTextField.isUserInteractionEnabled = true
-                self.addTextField.backgroundColor = UIColor.white
-                self.phoneTextField.isUserInteractionEnabled = true
-                self.phoneTextField.backgroundColor = UIColor.white
+        if pickerView == praticienPicker{
+            if(pickerData.count > 0){
+                self.pickedPraticien = pickerData[pickerView.selectedRow(inComponent: 0)]
+                if self.pickedPraticien != "Nouveau" {
+                    self.addTextField.isUserInteractionEnabled = false
+                    self.addTextField.backgroundColor = UIColor.gray
+                    self.addTextField.text = ""
+                    self.phoneTextField.isUserInteractionEnabled = false
+                    self.phoneTextField.backgroundColor = UIColor.gray
+                    self.phoneTextField.text = ""
+                }
+                else{
+                    self.addTextField.isUserInteractionEnabled = true
+                    self.addTextField.backgroundColor = UIColor.white
+                    self.phoneTextField.isUserInteractionEnabled = true
+                    self.phoneTextField.backgroundColor = UIColor.white
+                }
             }
         }
+        else{
+            self.phoneTextField.text = typeActivite[row]
+            self.phoneTextField.resignFirstResponder()
+        }
+        
      }
     
     // MARK: - TextFieldDelegate -

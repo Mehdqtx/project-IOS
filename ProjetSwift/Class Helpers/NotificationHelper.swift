@@ -40,7 +40,7 @@ class NotificationHelper {
         
         let content = UNMutableNotificationContent()
         content.title = "Avez vous fait votre sport aujourd'hui ?"
-        content.subtitle = "Pensez à valider sur l'appli"
+        content.body = "Pensez à valider sur l'appli si ce n'est pas deja fait"
         content.sound = UNNotificationSound.default()
         
         var dateInfo = DateComponents()
