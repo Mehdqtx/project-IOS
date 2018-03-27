@@ -27,9 +27,23 @@ extension Etat{
         return self.dateEtat!
     }
     
-    convenience init(date: NSDate, nom: String){
+    static func getAllStates(autosurveillance: Autosurveillance) throws -> [Etat] {
+        let predicate: NSPredicate = NSPredicate(format: "composer == %@", autosurveillance)
+        let request: NSFetchRequest<Etat> = Etat.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Etat.dateEtat), ascending: true)]
+        request.predicate = predicate
+        do{
+            let states:[Etat] = try CoreDataManager.context.fetch(request)
+            return states
+        }catch let error as NSError{
+            throw error
+        }
+    }
+    
+    convenience init(date: NSDate, nom: String, autos: Autosurveillance){
         self.init(context: CoreDataManager.context)
         self.dateEtat = date
         self.nomEtat = nom
+        self.composer = autos
     }
 }

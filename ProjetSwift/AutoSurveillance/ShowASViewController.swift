@@ -10,25 +10,18 @@ import UIKit
 import CoreData
 
 class ShowASViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-
-    fileprivate lazy var stateFetched : NSFetchedResultsController<Etat> = {
-        let request : NSFetchRequest<Etat> = Etat.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Etat.dateEtat), ascending: true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil,cacheName: nil)
-        fetchResultController.delegate = self
-        return fetchResultController
-    }()
-    
     @IBOutlet var statePresenter: StatePresenter!
     @IBOutlet weak var stateTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     var autosurveillance : Autosurveillance? = nil
+    var states:[Etat]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Load context
+        
         do{
-            try self.stateFetched.performFetch()
+            self.states = try Etat.getAllStates(autosurveillance: self.autosurveillance!)
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
@@ -47,16 +40,13 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Table View Data Source Protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = self.stateFetched.sections?[section] else {
-            fatalError("Nombre de sections erroné")
-        }
-        return section.numberOfObjects
+        return (states?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.stateTable.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath) as! StateTableViewCell
-        let state = self.stateFetched.object(at: indexPath)
-        self.statePresenter.configure(theCell: cell, forState: state)
+        //let state = self.stateFetched.object(at: indexPath)
+        self.statePresenter.configure(theCell: cell, forState: states?[indexPath.row])
         return cell
     }
     
@@ -65,8 +55,8 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
-        let state = self.stateFetched.object(at: indexPath)
-        CoreDataManager.context.delete(state)
+        //let state = self.stateFetched.object(at: indexPath)
+        CoreDataManager.context.delete((states?[indexPath.row])!)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -116,5 +106,18 @@ class ShowASViewController: UIViewController, UITableViewDataSource, UITableView
             let autosurveillance = self.autosurveillance
             newStateViewController.autosurveillance = autosurveillance
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // get the persistence facade that hides the storage business logic.
+        do{
+            states = try Etat.getAllStates(autosurveillance: self.autosurveillance!)
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        
+        self.stateTable.reloadData()
     }
 }
